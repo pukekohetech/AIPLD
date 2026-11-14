@@ -1,0 +1,35 @@
+CURRICULUM SOURCE AND SCOPE
+
+Source: Ministry of Education, Education (NZC and TMoA) National Curriculum Statement 2026.
+Included file: references/National_Curriculum_Statement_2026.pdf
+Original source URL:
+https://web-assets.education.govt.nz/s3fs-public/2026-11/Education%20%28NZC%20and%20TMoA%29%20National%20Curriculum%20Statement%202026%20%281%29.pdf?VersionId=ry29g3qf6.t7n3H0UpIkcstSoD8SUf03
+
+Downloaded and checked on 15 November 2026 (New Zealand date).
+The included original PDF is unchanged: 924 pages, 21,286,080 bytes.
+SHA-256: 1a332f42fe8824b493c6872da35c9943a50d089813c7e9ad05920e01ebe2a7db
+
+The toolkit uses selected English-medium NZC Years 9–10 content for suggested teaching connections. Learning Languages uses proficiency stages; the French example is Novice 3. The toolkit does not provide a mapping of the full NZC, Te Marautanga o Aotearoa, senior subjects or NCEA standards.
+
+Curriculum knowledge and practices in the toolkit are paraphrased summaries. Teaching examples, prompts, LI and SC are teacher-designed applications. They are not Ministry-endorsed lesson plans. One short activity does not show coverage of a whole teaching sequence.
+
+Each connection opens the included PDF at its page number. Physical PDF and printed page numbers match in this source. Some external PDF viewers may ignore the page jump; use the page number shown in the connection if needed.
+
+Offline reference pages used:
+p87 English: textual and critical analysis
+p89 English: crafting texts
+p91 English: oral communication
+p102 Mathematics and Statistics: processes (supplementary)
+p136 Mathematics and Statistics: algebra
+p140 Mathematics and Statistics: statistics
+p176 Science: Year 9 biological science
+p218 Social sciences: history
+p256 Physical Education: Year 10 movement
+p275 Technology: design, make and innovate
+p278 Technology: food and processing
+p280 Technology: responsible digital practice
+p314 Visual Arts: Year 9
+p491 French: Novice 3 communication
+p499 French: transactions (supplementary)
+
+The original curriculum source and all its copyright/licensing notices remain in the included PDF. Third-party software notices are in THIRD_PARTY_LICENSES.txt.

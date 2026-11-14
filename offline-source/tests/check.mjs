@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {buildSync} from 'esbuild';
+const bundle=path=>{const code=buildSync({entryPoints:[path],write:false,bundle:true,platform:'node',format:'cjs'}).outputFiles[0].text;const m={exports:{}};new Function('module','exports',code)(m,m.exports);return m.exports;};
+const {resources}=bundle('lib/resources.ts');const {curriculumConnections}=bundle('lib/curriculum.ts');const {curriculumDetails}=bundle('lib/curriculum-details.ts');const {findCurriculumConnections,matchesCurriculumYear}=bundle('lib/curriculum-filter.ts');
+assert.equal(resources.length,36);assert.equal(resources.filter(r=>r.lesson).length,29);assert.equal(curriculumConnections.length,17);
+for(const c of curriculumConnections){const detail=curriculumDetails[c.id];assert.ok(detail,c.id);assert.ok(detail.targets.length,c.id);assert.match(c.url,/^\.\/references\/National_Curriculum_Statement_2026\.pdf#page=\d+$/);for(const target of detail.targets){assert.ok(target.knowledge.length>20);assert.ok(target.practice.length>20);assert.ok(target.years.every(y=>[9,10].includes(y)));}assert.ok(detail.preparation&&detail.example&&detail.evidence&&detail.boundary);}
+assert.deepEqual(findCurriculumConnections('algebra').map(c=>c.id),['maths-reasoning']);
+assert.deepEqual(findCurriculumConnections('', 'Mathematics and Statistics','10'),[]);
+assert.ok(findCurriculumConnections('', 'Technology','10').some(c=>c.id==='technology-ai'));
+assert.deepEqual(findCurriculumConnections('', 'all','stage').map(c=>c.id),['languages-communication']);
+assert.deepEqual(findCurriculumConnections('photosynthesis').map(c=>c.id),['science-enquiry']);
+assert.equal(findCurriculumConnections('never-matching-topic').length,0);
+for(const year of ['9','10'])for(const connection of findCurriculumConnections('', 'all',year))assert.ok(resources.some(r=>r.lesson?.curriculumConnections.includes(connection.id)&&matchesCurriculumYear(r.years,year)),connection.id+' needs a year-matched lesson');
+const {collectionSchema,mergeImportedCollection}=bundle('lib/collection.ts');
+const built=resources.find(r=>r.id==='technology-design');const custom={...built,id:'custom-test',status:'Draft',notes:'',updated:'2026-11-15',version:2,history:[{version:1,date:'2026-11-14',title:built.title,summary:built.summary,prompt:built.prompt,notes:'',lesson:built.lesson}]};
+const c=collectionSchema.parse({examples:[custom],bookmarks:['custom-test'],completed:['first-lesson']});assert.deepEqual(c.examples[0].lesson,built.lesson);assert.deepEqual(c.examples[0].history[0].lesson,built.lesson);
+const merged=mergeImportedCollection({examples:[],bookmarks:[],completed:[]},c,resources.map(r=>r.id),()=> 'copied-id','2026-11-15');assert.equal(merged.bookmarks[0],'copied-id');assert.deepEqual(merged.examples[0].lesson,built.lesson);
+const memory=new Map();const storage={getItem:k=>memory.get(k)??null,setItem:(k,v)=>memory.set(k,v)};const src=buildSync({entryPoints:['lib/offline-storage.ts'],write:false,bundle:true,platform:'node',format:'cjs'}).outputFiles[0].text;const m={exports:{}};new Function('module','exports','localStorage',src)(m,m.exports,storage);const api=m.exports.offlineCollectionRequest;
+memory.set('ai-in-practice-offline-collection-v1',JSON.stringify({revision:3,collection:{examples:[],bookmarks:['socratic'],completed:[]}}));let state=await(await api('/api/collection')).json();assert.equal(state.revision,3);assert.ok(memory.has('ai-in-practice-offline-collection-v2'));
+let result=await api('/api/collection',{method:'PUT',body:JSON.stringify({revision:3,collection:c})});assert.equal(result.status,200);state=await(await api('/api/collection')).json();assert.deepEqual(state.collection.examples[0].lesson,built.lesson);
+result=await api('/api/collection',{method:'PUT',body:JSON.stringify({revision:3,collection:c})});assert.equal(result.status,409);
+memory.set('ai-in-practice-offline-collection-v1',JSON.stringify({revision:9,collection:{examples:[],bookmarks:[],completed:[]}}));state=await(await api('/api/collection')).json();assert.equal(state.collection.examples[0].id,'custom-test');
+console.log('Passed: 36 resources, 29 lesson plans, 17 complete curriculum summaries; year/area/stage/topic filters; local source links; LI/SC/history import preservation; storage migration, round trip and conflict checks.');

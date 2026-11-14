@@ -1,21 +1,43 @@
-AI IN PRACTICE — DOWNLOAD EDITION
+AI IN PRACTICE — OFFLINE EDITION 1.2
 
-1. Unzip this folder.
+OPEN THE TOOLKIT
+1. Download the ZIP and extract the whole AI_in_Practice folder.
 2. Open index.html in a current browser such as Chrome, Edge or Firefox.
-3. Search guidance, use Lesson activities to find LI/SC, copy a prompt or add your own example.
+3. Keep the references folder beside index.html so the curriculum links work.
 
-LESSON LEARNING
-29 activities have a teacher-written learning intention (LI), three observable success criteria (SC) and an evidence check. Seven other resources are teacher guides. Copy LI & SC, print the activity or create an editable copy. Suggested curriculum links use the final NZC 2026 content for 2027 Years 9–10, with clearly labelled examples and senior limitations. They do not establish full sequence coverage or NCEA credit. Add the subject knowledge your class is learning.
+You do not need to install anything or sign in to read and use the toolkit.
+The toolkit and included curriculum PDF work without internet access.
+Links to other original guidance and AI services need internet access.
 
-YOUR EXAMPLES
-The downloaded edition saves examples in this browser on this device. It does not sync with the hosted Site. Use My examples > Export regularly for backups and to move to another device. Import accepts earlier exports and the new version with LI/SC; it adds copies and preserves existing examples. New version-2 exports should be used with this updated edition.
+PLAN A LESSON
+1. Open Curriculum finder. Choose a learning area and Year 9, Year 10 or a language proficiency stage.
+2. Search for a topic if needed. Open “Read knowledge, practice & teaching example”.
+3. Read the preparation, worked example and evidence to collect. Open a related lesson.
+4. Adapt the learning intention (LI) and success criteria (SC) to the precise content your class will learn. Use “Copy LI & SC” or “Make my own copy”.
+5. Teach the content and collect the evidence described in the lesson. An AI response alone is not evidence of student learning.
 
-Clearing browser data, changing profiles or moving/renaming the HTML file may make saved examples unavailable. If storage is blocked, guidance remains readable but saving may be unavailable. Keep personal student details out. To bring examples from the hosted Site, export them there and import that JSON file here.
+There are 29 student lesson activities with an LI, three observable SC and an evidence check. Seven other resources are teacher guides. The 17 curriculum connections are selected examples, not a complete curriculum map. Read the original page when planning a programme. The curriculum summaries are paraphrased; teaching activities and LI/SC are teacher-designed. Senior adaptations need a separate subject and assessment check.
 
-EDITABLE SOURCE
-- offline-source: with Node.js installed, run npm install, then npm run build inside this folder. This creates ../index.html.
-- hosted-source: complete original Site code, server routes, schema and tests. Cloud saving and sign-in require the appropriate hosting environment; see README.md.
+SAVE AND REUSE YOUR EXAMPLES
+Use Add example to record your own activity. Add tags, classroom steps, an optional prompt, LI/SC and evidence. Use Compare for up to three examples. Editing an example keeps up to ten earlier versions of its key fields.
 
-No installation, sign-in or internet connection is needed to use index.html. Original guidance and curriculum links need internet access. No cloud personal examples or access tokens are included.
+Examples are saved in this browser profile on this device. They do not sync automatically between devices or with any hosted version.
 
-Guidance/curriculum checked: 14 November 2026.
+Before replacing an older download, moving or renaming the HTML file, or changing browsers:
+1. Open your older copy and use My examples > Export to save a JSON backup.
+2. Open the new index.html and use My examples > Import to bring it in.
+3. Check your examples are present. Imports add new copies and preserve existing examples.
+
+Use Export regularly. Clearing browser data or changing the file path may make a saved collection unavailable. Keep student names and identifying records out of examples. If browser storage is blocked, the guidance is still readable but saving may be unavailable.
+
+EDITABLE SOURCE (OPTIONAL)
+The offline-source folder contains the complete editable offline app.
+To rebuild it, install Node.js 20 or later, then run these commands inside offline-source:
+  npm install
+  npm run build
+This creates ../index.html. Keep the references folder beside the rebuilt file.
+To run source checks: npm test
+Internet access is needed to install the source dependencies initially.
+
+Guidance checked: 14 November 2026.
+Curriculum connections checked: 15 November 2026 (New Zealand date).

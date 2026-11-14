@@ -1,10 +1,11 @@
 {
   "name": "ai-in-practice-offline",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node build.mjs",
+    "test": "node tests/check.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
@@ -14,5 +15,8 @@
   },
   "devDependencies": {
     "esbuild": "0.28.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

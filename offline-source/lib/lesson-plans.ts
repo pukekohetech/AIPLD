@@ -133,7 +133,7 @@ export const lessonPlans:Record<string,LessonPlan>={
   'I can identify the author, context and purpose of each supplied source.',
   'I can compare perspectives using specific words or details from both sources.',
   'I can explain a limitation or missing perspective and identify the evidence needed to investigate it.',
- ],'Collect a two-source comparison and one justified limitation. Use checked extracts from a specified historical or social-sciences context. The Year 9 history example is a foundation connection; choose the appropriate year’s content for older students.',['social-enquiry','english-perspectives']),
+ ],'Collect a two-source comparison and one justified limitation. Use checked extracts from a specified historical or social-sciences context. Choose the linked Year 9 New Zealand Wars example or Year 10 World Wars participation example where appropriate. Check a separate current sequence for senior content.',['social-enquiry','english-perspectives']),
  'technology-design':l('We are learning to evaluate design options against a brief and justify a decision using evidence.',[
   'I can compare two options against the user needs and criteria supplied in the brief.',
   'I can use my own sketch, model, measurement or test to support the comparison.',
