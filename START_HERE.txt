@@ -1,0 +1,21 @@
+AI IN PRACTICE — DOWNLOAD EDITION
+
+1. Unzip this folder.
+2. Open index.html in a current browser such as Chrome, Edge or Firefox.
+3. Search guidance, use Lesson activities to find LI/SC, copy a prompt or add your own example.
+
+LESSON LEARNING
+29 activities have a teacher-written learning intention (LI), three observable success criteria (SC) and an evidence check. Seven other resources are teacher guides. Copy LI & SC, print the activity or create an editable copy. Suggested curriculum links use the final NZC 2026 content for 2027 Years 9–10, with clearly labelled examples and senior limitations. They do not establish full sequence coverage or NCEA credit. Add the subject knowledge your class is learning.
+
+YOUR EXAMPLES
+The downloaded edition saves examples in this browser on this device. It does not sync with the hosted Site. Use My examples > Export regularly for backups and to move to another device. Import accepts earlier exports and the new version with LI/SC; it adds copies and preserves existing examples. New version-2 exports should be used with this updated edition.
+
+Clearing browser data, changing profiles or moving/renaming the HTML file may make saved examples unavailable. If storage is blocked, guidance remains readable but saving may be unavailable. Keep personal student details out. To bring examples from the hosted Site, export them there and import that JSON file here.
+
+EDITABLE SOURCE
+- offline-source: with Node.js installed, run npm install, then npm run build inside this folder. This creates ../index.html.
+- hosted-source: complete original Site code, server routes, schema and tests. Cloud saving and sign-in require the appropriate hosting environment; see README.md.
+
+No installation, sign-in or internet connection is needed to use index.html. Original guidance and curriculum links need internet access. No cloud personal examples or access tokens are included.
+
+Guidance/curriculum checked: 14 November 2026.
