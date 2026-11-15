@@ -31,6 +31,24 @@
 .certificate.compactCertificate .certName{font-size:26px;padding-bottom:4mm}
 .certificate.compactCertificate .certSkills{margin:5mm 0;padding:4mm 0}
 .certificate.compactCertificate .certKicker{margin-top:6mm}
+/* v2 fraction choice and repeated-quantity teaching view */
+.focusPanel{background:#edf3ef;border:1px solid #b8cec3;border-radius:14px;padding:16px 18px;margin:0 0 16px}
+.focusControls{display:grid;grid-template-columns:1fr 1.2fr auto;gap:14px;align-items:end}.focusControls label,.multiControl label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}.focusControls select{width:100%;min-height:44px}.focusPanel p{font-size:12px;line-height:1.55;color:#425b50;margin:10px 0 0}.modeTabs{flex-wrap:wrap}.modeTabs button{white-space:normal}
+.multiPredict{background:#fff6df;border:1px solid #d6bf83;border-radius:12px;padding:18px;margin-bottom:18px}.multiPredict p{margin:9px 0 12px}.multiControl{display:grid;grid-template-columns:minmax(140px,1fr) 74px auto;gap:16px;align-items:center;padding:16px 0}.multiControl input[type=range]{width:100%;accent-color:var(--section)}.multiControl input[type=number]{width:74px;min-height:44px;font-size:20px}.multiUnits{font-size:13px;color:#40594d;margin:0 0 14px}.multipleCard{padding:22px}.multipleCard .diagram svg{width:100%;height:auto}.multipleResult{background:#edf5ef;border-left:5px solid var(--section);border-radius:7px;padding:16px 18px;margin:12px 0 18px}.multipleResult h3{font-size:24px;line-height:1.45;margin:4px 0 9px}.multipleResult p{line-height:1.6;margin:7px 0}.multipleSequence{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 24px}.multipleSequence button{display:flex;flex-direction:column;gap:5px;padding:12px 8px;background:#fff;border:1px solid #b5c7bc;border-radius:9px;color:#223e31;cursor:pointer}.multipleSequence button[aria-pressed=true]{border:2px solid var(--section);background:#edf5ef}.multipleSequence strong{font-size:20px}.equivContrast{border-top:2px solid #c3d1c7;padding-top:18px;margin-top:12px}.equivContrast .inline{justify-content:space-between}.equivContrast p{font-size:14px;line-height:1.6}.equivContrast select{width:auto;min-width:130px}.questionTags{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.questionTags span{background:#eef3ec;padding:4px 10px;border:1px solid #bcccbd;border-radius:99px;font-size:12px;font-weight:700}.printFocus{font-size:9px;line-height:1.4;margin:3px 0 7px;color:#193e2b}.certFocus{font-size:13px!important;margin:6px 0!important}.teacherFocus{border:1px solid #b8cec3;border-radius:10px;padding:12px;background:#f1f6f1;margin:0 0 18px}.teacherFocus .field{margin:0 0 12px}.teacherFocus p{font-size:12px;line-height:1.5;margin:6px 0 0}.multipleMiniTitle{font-size:14px!important;font-weight:700}.multipleHelp{margin-top:12px}
+@media(max-width:900px){.focusControls{grid-template-columns:1fr 1fr}.focusControls button{grid-column:1/-1}.focusPanel{padding:14px}.modeTabs button{padding:11px 9px}.multiControl{grid-template-columns:1fr 65px}.multiControl .buttonRow{grid-column:1/-1}.multipleSequence{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.focusControls{grid-template-columns:1fr}.multipleCard{padding:14px}.multipleSequence{grid-template-columns:repeat(2,1fr)}.multipleResult h3{font-size:21px}.multiControl{gap:10px}.equivContrast .inline{display:block}.equivContrast select{margin-top:8px}.modeTabs{display:flex}.modeTabs button{flex:1 1 30%;font-size:12px}.focusPanel p{font-size:12px}.multiPredict{padding:14px}}
+@media print{.printFocus{color:#000}.certFocus{font-size:11px!important}}
+@media print{
+  #printRoot .notesSheet .printFocus{font-size:9pt;line-height:1.2;margin:0 0 3px}
+  #printRoot .notesSheet h3{margin:8px 0 5px}
+  #printRoot .notesSheet .notesBanner{margin:7px 0;padding:8px}
+  #printRoot .notesSheet td,#printRoot .notesSheet th{padding:6px}
+}
+@media print{
+  #printRoot .threeQuestions .qcard .answerBlock{margin-top:2mm}
+  #printRoot .threeQuestions .qcard .writeLines{margin-top:2mm;min-height:9mm}
+}
+
 </style>
 </head>
 <body>
@@ -85,11 +103,65 @@
   function random(seed){let h=2166136261;for(const c of String(seed)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}let a=h>>>0;const r=function(){a+=0x6D2B79F5;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};r.int=(min,max)=>min+Math.floor(r()*(max-min+1));r.pick=xs=>xs[r.int(0,xs.length-1)];return r;}
   function shuffle(xs,r){const a=xs.slice();for(let i=a.length-1;i>0;i--){const j=r.int(0,i);[a[i],a[j]]=[a[j],a[i]];}return a;}
   const answer=(label,value,unit='',integer=false)=>({label,value,unit,integer});
-  function question(context,level,r=random(Date.now()),index=0){
+  // v2: a visible, shared fraction menu replaces disconnected hidden pools.
+  const fractions=[[1,2],[1,3],[2,3],[1,4],[3,4],[1,5],[2,5],[3,5],[4,5],[1,6],[5,6],[1,8],[3,8],[5,8],[7,8],[1,10],[3,10],[7,10],[9,10]];
+  const skills={context:'Context problems',multiples:'Multiples of a fraction',mixed:'Mixed skills'};
+  function fractionChoice(focus='mixed',r=random(Date.now())){
+    if(focus==='mixed')return r.pick(fractions).slice();
+    const found=fractions.find(([n,d])=>n+'/'+d===focus);
+    if(!found)throw new RangeError('Choose a supported simple fraction or Mixed fractions.');
+    return found.slice();
+  }
+  function fractionSchedule(focus,count,r){
+    if(focus!=='mixed'){fractionChoice(focus,r);return Array(count).fill(focus);}
+    let result=[];while(result.length<count)result.push(...shuffle(fractions.map(([n,d])=>n+'/'+d),r));
+    return result.slice(0,count);
+  }
+  function multipleModel(n,d,multiplier){
+    if(![n,d,multiplier].every(Number.isInteger)||n<1||d<1||n>d||multiplier<0||multiplier>24)throw new RangeError('Use a positive proper fraction and 0 to 24 whole groups.');
+    const numerator=n*multiplier;return {n,d,multiplier,numerator,denominator:d,value:numerator/d,wholes:Math.floor(numerator/d),remainder:numerator%d,mixed:mixed(numerator,d),simplified:frac(numerator,d)};
+  }
+  function multipleContext(context,n,d){
+    const f=n+'/'+d;
+    const data={
+      walls:{given:`Each same-sized wall has ${f} of its area painted.`,one:'wall',many:'walls',unit:'wall areas',amount:'painted area',whole:'one wall area',note:'All walls have the same area. Add painted areas, not the fractions of different-sized walls.'},
+      glass:{given:`Each equal pour contains ${f} L of water.`,one:'pour',many:'pours',unit:'L',amount:'water',whole:'one litre',note:'Use as many containers as needed. One whole on the diagram is always 1 litre.'},
+      bucket:{given:`Each small ball occupies ${f} of one large ball\'s volume.`,one:'small ball',many:'small balls',unit:'large-ball volumes',amount:'occupied volume',whole:'one large-ball volume',note:'Invented volume-only model; ignore gaps. A fractional volume is not a fraction of a physical ball count.'},
+      space:{given:`An astronaut uses ${f} of a standard daily food allowance each day.`,one:'day',many:'days',unit:'daily allowances',amount:'food used',whole:'one standard daily allowance',note:'Invented food needs; the reference allowance is fixed. This is a maths model, not nutrition advice.'},
+      recipe:{given:`Each identical batch needs ${f} cup of oats.`,one:'batch',many:'batches',unit:'cups',amount:'oats',whole:'one cup',note:'Practice ingredient quantities only, not a complete cooking recipe.'},
+      battery:{given:`Each identical battery stores ${f} kWh of energy.`,one:'battery',many:'batteries',unit:'kWh',amount:'stored energy',whole:'one kWh',note:'Add the energy in several batteries. A total above 1 kWh does not mean one battery is overcharged.'},
+      timber:{given:`Each equal piece of timber is ${f} m long.`,one:'piece',many:'pieces',unit:'m',amount:'length',whole:'one metre',note:'Add separate lengths. Ignore saw-blade width; this is not a claim that offcuts can be joined.'},
+      garden:{given:`Each identical garden bed has ${f} square metre planted.`,one:'bed',many:'beds',unit:'m\u00b2',amount:'planted area',whole:'one square metre',note:'Add the planted areas of separate beds; one whole on the diagram is always 1 square metre.'}
+    };
+    if(!data[context])throw new Error('Unknown section.');return data[context];
+  }
+  function multiplesQuestion(context,level,r,index,n,d){
+    const c=multipleContext(context,n,d),multiplier=r.int(level===1?1:2,8),extra=level===3?r.int(1,4):0;
+    const operation=level===3?'extend':level===2&&index%2===1?'missing':'total';
+    const m=multipleModel(n,d,multiplier),total=multipleModel(n,d,multiplier+extra),f=n+'/'+d;
+    let prompt,answers,steps,hint;
+    if(operation==='missing'){
+      prompt=`${c.given} The total ${c.amount} is ${m.mixed} ${c.unit}. How many ${c.many} does this represent?`;
+      answers=[answer(`Number of ${c.many}`,multiplier,c.many,true)];
+      hint='How many equal groups of the original fraction fit into the total? Divide the total by the size of one group.';
+      steps=[`One ${c.one} accounts for ${f} ${c.unit}.`,`Number of groups = (${m.numerator}/${d}) \u00f7 (${f}) = ${m.numerator} \u00f7 ${n} = ${multiplier}.`,`Check: ${multiplier} \u00d7 ${f} = ${m.mixed} ${c.unit}.`];
+    }else{
+      prompt=operation==='extend'?`${c.given} There are ${multiplier} ${c.many}, then ${extra} more are included. What is the total ${c.amount} now, in ${c.unit}?`:`${c.given} Find the total ${c.amount} for ${multiplier} ${multiplier===1?c.one:c.many}, in ${c.unit}.`;
+      answers=[answer(`Total ${c.amount}`,total.value,c.unit)];
+      hint='Add the same fraction once for each group. Multiply the numerator by the group count; the denominator stays the same.';
+      steps=[...(operation==='extend'?[`First count the groups: ${multiplier} + ${extra} = ${multiplier+extra}.`]:[]),`${multiplier+extra} \u00d7 (${f}) = ${total.numerator}/${d}. The equal part size is still 1/${d}.`,`${d} equal parts make one whole. Regroup ${total.numerator} parts into ${total.wholes} whole(s) and ${total.remainder} part(s).`,`Total = ${total.mixed} ${c.unit}. This is a multiple, not just an equivalent way to write ${f}.`];
+    }
+    return {context,level,title:contexts.find(x=>x.id===context).title,prompt,answers,steps,hint,note:c.note,focus:f,skill:'multiples',diagram:{kind:'multiples',context,n,d,multiplier,extra,operation},meta:{type:'multiples',n,d,multiplier,extra,operation},id:context+'-multiple-'+Math.floor(r()*1e9).toString(36)};
+  }
+
+  function question(context,level,r=random(Date.now()),index=0,options={}){
     level=Math.max(1,Math.min(3,Number(level)||1));
     if(!contexts.some(x=>x.id===context))throw new Error('Unknown section.');
     const q={context,level,title:contexts.find(x=>x.id===context).title,answers:[],steps:[],note:'',diagram:{},meta:{}};
-    const d=r.pick(level===1?[2,3,4]:[3,4,5,6,8]),n=r.int(1,d-1),k=r.int(2,level===1?3:5),f=frac(n,d);
+    const [n,d]=fractionChoice(options.focus||'mixed',r),k=r.int(2,context==='walls'?(level===1?8:10):(level===1?3:5)),f=frac(n,d);
+    const skill=options.skill||'context';if(!skills[skill])throw new RangeError('Choose a supported task type.');
+    if(skill==='multiples'||(skill==='mixed'&&index%2===1))return multiplesQuestion(context,level,r,index,n,d);
+    q.focus=n+'/'+d;q.skill='context';
     if(context==='walls'){
       if(level===1 || (level===2 && index%2===0)){
         q.prompt=`Both walls have the same area. Wall A has ${n} of ${d} equal bricks painted. Wall B has ${d*k} equal bricks. How many bricks must be painted on B to cover the same area?`;
@@ -113,14 +185,14 @@
     }
     if(context==='glass'){
       if(level<=2){
-        const capacity=d*k*r.pick([50,100]),shot=capacity/(d*k),shots=n*k;
+        const capacity=d*k*r.pick([25,50,75,100]),shot=capacity/(d*k),shots=n*k;
         q.prompt=`An empty ${capacity} mL glass is filled using equal ${shot} mL shots. How many shots fill ${n}/${d} of the glass?${level===2?' Also give the target liquid volume.':''}`;
         q.answers=[answer('Shots',shots,'shots',true)];if(level===2)q.answers.push(answer('Target volume',capacity*n/d,'mL'));
         q.hint='First find the target volume. Then divide that volume by the size of one shot.';
         q.steps=[`Target volume = ${capacity} \u00d7 ${n}/${d} = ${capacity*n/d} mL.`,`Shots needed = ${capacity*n/d} \u00f7 ${shot} = ${shots}.`,`Check: ${shots} equal shots contain ${shots*shot} mL.`];
         q.diagram={kind:'glass',n,d,capacity,shot};q.meta={type:'shots',n,d,k,capacity,shot};
       }else{
-        const litres=r.int(2,6),full=Math.floor(litres*d/n),leftN=litres*d-full*n;
+        const litres=r.int(2,9),full=Math.floor(litres*d/n),leftN=litres*d-full*n;
         q.prompt=`A jug contains ${litres} L. Each serving glass holds ${n}/${d} L. How many FULL glasses can be poured, and how many litres remain?`;
         q.answers=[answer('Full glasses',full,'glasses',true),answer('Liquid left',leftN/d,'L')];
         q.hint='Divide by the size of one glass, round down, then subtract the liquid used.';
@@ -129,7 +201,7 @@
       }
     }
     if(context==='bucket'){
-      const [p,b]=r.pick([[1,2],[2,3],[3,4],[4,5]]),capacity=level===1?b*r.int(8,25):r.int(8,20)*10;
+      const [p,b]=[n,d],capacity=level===1?b*r.int(8,25):r.int(8,20)*10;
       const model=bucket(capacity,p,b);
       q.note='Volume-only model: ignore gaps between balls. These are invented ball sizes, not real sports-ball measurements.';
       q.diagram={kind:'bucket',p,q:b,capacity};
@@ -148,7 +220,7 @@
       }
     }
     if(context==='space'){
-      const [p,b]=r.pick([[1,2],[2,3],[3,4]]),scale=r.int(1,2),a=b*scale,other=p*scale,days=r.int(8,30),rate=a+other,left=level===3?r.int(1,rate-1):0,food=rate*days+left;
+      const [p,b]=[n,d],scale=r.int(1,2),a=b*scale,other=p*scale,days=r.int(8,30),rate=a+other,left=level===3?r.int(1,rate-1):0,food=rate*days+left;
       q.note='Invented daily requirements; all meal packs contain the same energy. This is a maths model, not nutrition advice.';
       q.diagram={kind:'space',a,p,q:b,food:level===2?null:food,days:level===2?days:null};
       if(level===2){
@@ -164,11 +236,11 @@
     if(context==='recipe'){
       q.note='Practice ingredient quantities only, not a complete cooking recipe.';
       if(level===1){
-        const batches=r.int(2,5);q.prompt=`One batch of oat biscuits needs ${n}/${d} cup of oats. How many cups of oats are needed for ${batches} identical batches?`;
+        const batches=r.int(2,9);q.prompt=`One batch of oat biscuits needs ${n}/${d} cup of oats. How many cups of oats are needed for ${batches} identical batches?`;
         q.answers=[answer('Oats needed',n*batches/d,'cups')];q.hint='Add the same fraction once for each batch, or multiply the numerator by the number of batches.';
         q.steps=[`Each batch uses ${n}/${d} cup.`,`${batches} \u00d7 (${n}/${d}) = ${n*batches}/${d}.`,`That is ${mixed(n*batches,d)} cups in total.`];q.diagram={kind:'recipe',n,d,batches};q.meta={type:'batches',n,d,batches};
       }else if(level===2){
-        const stock=r.int(2,6),batches=Math.floor(stock*d/n),leftN=stock*d-batches*n;
+        const stock=r.int(2,9),batches=Math.floor(stock*d/n),leftN=stock*d-batches*n;
         q.prompt=`One batch needs ${n}/${d} cup of oats. You have ${stock} cups. How many COMPLETE batches can you make, and how many cups remain?`;
         q.answers=[answer('Complete batches',batches,'batches',true),answer('Oats left',leftN/d,'cups')];q.hint='How many groups of the recipe amount fit into the stock? Round down, then calculate the unused oats.';
         q.steps=[`${stock} \u00f7 (${n}/${d}) = ${frac(stock*d,n)} batches before rounding.`,`Make ${batches} complete batches.`,`Oats left = ${stock} - ${batches} \u00d7 ${n}/${d} = ${frac(leftN,d)} cups.`];q.diagram={kind:'stock',stock,n,d};q.meta={type:'recipestock',stock,n,d};
@@ -199,7 +271,7 @@
       }
     }
     if(context==='timber'){
-      const den=r.pick([2,4,5,8]),num=r.int(1,den+1),length=r.int(3,9),model=timber(length,num,den);
+      const den=d,num=n,length=r.int(3,9),model=timber(length,num,den);
       q.note='Ignore saw-blade width (kerf). Pieces must be whole; offcuts cannot be joined.';
       q.diagram={kind:'timber',length,n:num,d:den};
       if(level<=2){
@@ -226,7 +298,7 @@
         q.answers=[answer('Fraction of garden B',n/(d*multiple),'of B')];q.hint='First find the planted area of A. Divide that amount by the whole area of B.';
         q.steps=[`A has ${area} \u00d7 ${n}/${d} = ${area*n/d} m\u00b2 planted.`,`Required fraction of B = ${area*n/d}/${barea}.`,`Simplify to ${frac(n,d*multiple)}. A bigger whole needs a smaller fraction for the same planted area.`];q.diagram={kind:'gardens',n,d,area,barea};q.meta={type:'gardenmatch',n,d,area,barea};
       }else{
-        const den=r.pick([4,6,8]),a=r.int(1,den-2),b=r.int(1,den-a-1),whole=den*r.int(3,9),rest=den-a-b;
+        const den=d*2,a=n*2,b=r.int(1,den-a-1),whole=den*r.int(3,9),rest=den-a-b;
         q.prompt=`A ${whole} m\u00b2 garden has ${a}/${den} planted with carrots and ${b}/${den} with beans. The planted areas do not overlap. How many square metres are still unplanted?`;
         q.answers=[answer('Unplanted area',whole*rest/den,'m\u00b2')];q.hint='Add the planted fractions. Subtract that fraction from one whole before finding the remaining area.';
         q.steps=[`Planted fraction = ${a}/${den} + ${b}/${den} = ${a+b}/${den}.`,`Unplanted fraction = ${den}/${den} - ${a+b}/${den} = ${rest}/${den}.`,`Remaining area = ${whole} \u00d7 ${rest}/${den} = ${whole*rest/den} m\u00b2.`];q.diagram={kind:'gardenmix',n:a,b,d:den,area:whole};q.meta={type:'gardenremaining',n:a,b,d:den,area:whole};
@@ -242,10 +314,10 @@
     for(let i=0;i<students;i++){
       let qs,signature,attempt=0;
       do{
-        const r=random(seed+'|'+i+'|'+attempt++),order=shuffle(ids,r);qs=[];const seen=new Set();
+        const r=random(seed+'|'+i+'|'+attempt++),order=shuffle(ids,r),focuses=fractionSchedule(config.focus||'mixed',count,r);qs=[];const seen=new Set();
         for(let j=0;j<count;j++){
           const ctx=order[(i+j)%order.length];let q,tries=0;
-          do {q=question(ctx,level,r,j+tries++);}while(seen.has(q.prompt)&&tries<100);
+          do {q=question(ctx,level,r,j+tries++,{focus:focuses[j],skill:config.skill||'context'});}while(seen.has(q.prompt)&&tries<100);
           seen.add(q.prompt);qs.push(q);
         }
         signature=qs.map(q=>q.prompt).join('|');
@@ -255,7 +327,7 @@
     }
     return sets;
   }
-  return {contexts,levels,gcd,frac,mixed,fmt,parseAnswer,check,bucket,space,timber,random,shuffle,question,makeSet};
+  return {contexts,levels,fractions,skills,fractionChoice,fractionSchedule,multipleModel,multipleContext,gcd,frac,mixed,fmt,parseAnswer,check,bucket,space,timber,random,shuffle,question,makeSet};
 });
 </script>
 <script>/* Quantitative SVG diagrams. All art and fonts are embedded or system-provided. */
@@ -497,7 +569,7 @@ const P=(()=>{
 <script>/* Fraction Lab interface. All state is local; no network or account is used. */
 'use strict';
 const C=FractionCore,E=V.esc,STORE='fraction-lab-v1';
-const defaults={walls:{an:1,ad:2,bn:2,bd:4},glass:{an:3,ad:4,bn:6,bd:8,capacity:1000},bucket:{p:3,q:4,capacity:100,small:30,large:25},space:{food:210,a:4,b:3,day:0},recipe:{n:3,d:4,batches:4},battery:{an:3,ad:4,ac:40,bn:1,bd:2,bc:80},timber:{length:6,n:3,d:4},garden:{an:1,ad:3,bn:2,bd:6,areaA:12,areaB:12}};
+const defaults={walls:{an:1,ad:2,bn:2,bd:4},glass:{an:2,ad:3,bn:4,bd:6,capacity:1000},bucket:{p:3,q:4,capacity:100,small:30,large:25},space:{food:210,a:4,b:3,day:0},recipe:{n:2,d:5,batches:4},battery:{an:3,ad:5,ac:40,bn:1,bd:2,bc:80},timber:{length:6,n:5,d:8},garden:{an:1,ad:3,bn:2,bd:6,areaA:12,areaB:12}};
 const Lab={page:'learn',section:'walls',mode:'explore',level:1,profile:{name:'',className:'',school:''},earned:{},explore:JSON.parse(JSON.stringify(defaults)),predictions:{},practice:{},worked:{},checks:{},storage:true,pack:null,teacher:{students:30,count:4,level:2,contexts:C.contexts.map(c=>c.id),seed:'',className:'',names:''}};
 const $=id=>document.getElementById(id),ctx=()=>C.contexts.find(c=>c.id===Lab.section),practiceKey=()=>Lab.section+'-'+Lab.level;
 function newSeed(){return 'FL-'+Math.random().toString(36).slice(2,7).toUpperCase()+'-'+Date.now().toString(36).slice(-3).toUpperCase();}
@@ -564,17 +636,17 @@ function controlsHTML(){
   const s=Lab.explore[Lab.section];let html='';
   if(['walls','glass','garden','battery'].includes(Lab.section)){
     const names=Lab.section==='walls'?['Wall A','Wall B']:Lab.section==='glass'?['Glass A','Glass B']:Lab.section==='garden'?['Garden A','Garden B']:['Battery A','Battery B'];
-    html+=group(names[0],control('Numerator','an',0,s.ad)+control('Denominator','ad',1,12)+(Lab.section==='battery'?control('Capacity (kWh)','ac',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaA',4,36):''));
-    html+=group(names[1],control('Numerator','bn',0,s.bd)+control('Denominator','bd',1,12)+(Lab.section==='battery'?control('Capacity (kWh)','bc',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaB',4,36):''));
+    html+=group(names[0],control('Numerator','an',0,s.ad)+control('Denominator','ad',1,24)+(Lab.section==='battery'?control('Capacity (kWh)','ac',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaA',4,36):''));
+    html+=group(names[1],control('Numerator','bn',0,s.bd)+control('Denominator','bd',1,24)+(Lab.section==='battery'?control('Capacity (kWh)','bc',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaB',4,36):''));
     if(Lab.section==='glass')html+=group('Same-sized glasses',control('Capacity of EACH (mL)','capacity',250,2000,250));
   }
   if(Lab.section==='bucket'){
     html+=group('Volume model',`<div class="control"><label for="ballRatio">Small volume / large volume</label><select id="ballRatio">${[[1,2],[2,3],[3,4],[4,5]].map(([p,q])=>`<option value="${p}/${q}" ${p===s.p&&q===s.q?'selected':''}>${p}/${q} of a large ball</option>`).join('')}</select></div>`+control('Bucket in small-ball volumes','capacity',20,300,10));
     html+=group('Put balls in the bucket',control('Small balls','small',0,s.capacity)+control('Large balls','large',0,Math.floor(s.capacity*s.p/s.q)));
   }
-  if(Lab.section==='space')html+=group('Mission supply',control('Food supply (packs)','food',14,420)+control('A: packs per day','a',1,8)+control('B: packs per day','b',1,8))+group('Watch the food get used',control('Days elapsed','day',0,C.space(s.food,s.a,s.b).days,1,'Move forward one day at a time.'));
-  if(Lab.section==='recipe')html+=group('One batch',control('Cup numerator','n',1,s.d)+control('Cup denominator','d',1,8))+group('Scale the recipe',control('Number of batches','batches',1,8));
-  if(Lab.section==='timber')html+=group('Stock board',control('Board length (metres)','length',1,12))+group('Each required piece',control('Length numerator','n',1,12)+control('Length denominator','d',1,8));
+  if(Lab.section==='space')html+=group('Mission supply',control('Food supply (packs)','food',14,420)+control('A: packs per day','a',1,10)+control('B: packs per day','b',1,10))+group('Watch the food get used',control('Days elapsed','day',0,C.space(s.food,s.a,s.b).days,1,'Move forward one day at a time.'));
+  if(Lab.section==='recipe')html+=group('One batch',control('Cup numerator','n',1,s.d)+control('Cup denominator','d',1,10))+group('Scale the recipe',control('Number of batches','batches',1,8));
+  if(Lab.section==='timber')html+=group('Stock board',control('Board length (metres)','length',1,12))+group('Each required piece',control('Length numerator','n',1,12)+control('Length denominator','d',1,10));
   return html+`<div class="controlActions"><button class="button small" data-explore-action="reset">${V.icon('refresh')}Reset model</button></div>`;
 }
 function renderExplore(){
@@ -849,5 +921,231 @@ for(const id of ['profileDialog','helpDialog'])$(id).addEventListener('click',e=
 loadProgress();
 document.querySelectorAll('.topNav [data-page]').forEach(b=>b.insertAdjacentHTML('afterbegin',V.icon(b.dataset.page==='learn'?'learn':b.dataset.page)));
 renderPage();
+</script>
+<script>
+/* Fraction Lab v2: visible fraction choice, real multiples and shared classroom settings. */
+(function(){
+  'use strict';
+  Lab.focus='mixed';Lab.skill='context';Lab.multi={n:3,d:4,count:2,factor:2,prediction:'',reveal:false};Lab.questionCursor=0;Lab.questionQueue=[];
+  Lab.teacher.focus='mixed';Lab.teacher.skill='context';
+  function focusLabel(f){return !f||f==='mixed'?'Mixed fractions':f;}
+  function fractionOptions(selected,mixed=true){return (mixed?`<option value="mixed" ${selected==='mixed'?'selected':''}>Mixed fractions - all 19</option>`:'')+C.fractions.map(([n,d])=>`<option value="${n}/${d}" ${selected===n+'/'+d?'selected':''}>${n}/${d}</option>`).join('');}
+  function skillOptions(selected){return Object.entries(C.skills).map(([key,label])=>`<option value="${key}" ${selected===key?'selected':''}>${E(label)}</option>`).join('');}
+  function resetQuestions(){Lab.worked={};Lab.practice={};Lab.checks={};Lab.questionCursor=0;Lab.questionQueue=[];}
+  function applyFraction(n,d,only=null){
+    const ids=only?[only]:C.contexts.map(c=>c.id);
+    for(const id of ids){
+      const s=Lab.explore[id];
+      if(['walls','glass','garden'].includes(id))Object.assign(s,{an:n,ad:d,bn:n*2,bd:d*2});
+      if(id==='battery')Object.assign(s,{an:n,ad:d,bn:n,bd:d});
+      if(id==='garden')Object.assign(s,{areaA:d*2,areaB:d*2});
+      if(id==='bucket')Object.assign(s,{p:n,q:d,small:0,large:0});
+      if(id==='space')Object.assign(s,{a:d,b:n,food:(n+d)*20,day:0});
+      if(id==='recipe'||id==='timber')Object.assign(s,{n,d});
+    }
+    Object.assign(Lab.multi,{n,d,prediction:'',reveal:false});
+  }
+  function changeFocus(value){
+    if(value!=='mixed')C.fractionChoice(value);
+    Lab.focus=value;resetQuestions();
+    if(value!=='mixed'){const [n,d]=value.split('/').map(Number);applyFraction(n,d);}
+    renderLearn();
+  }
+  function nextFocus(){
+    if(Lab.focus!=='mixed')return Lab.focus;
+    if(!Lab.questionQueue.length)Lab.questionQueue=C.fractionSchedule('mixed',C.fractions.length,C.random(newSeed()));
+    return Lab.questionQueue.shift();
+  }
+  const oldRenderLearn=renderLearn;
+  renderLearn=function(){
+    oldRenderLearn();
+    const tabs=document.querySelector('.modeTabs');
+    tabs.insertAdjacentHTML('beforebegin',`<div class="focusPanel"><div class="focusControls"><div><label for="fractionFocus">Fraction focus</label><select id="fractionFocus">${fractionOptions(Lab.focus)}</select></div><div><label for="taskType">Question type</label><select id="taskType">${skillOptions(Lab.skill)}</select></div><button class="button" id="tryAnotherFraction">${V.icon('refresh')}Try another fraction</button></div><p>Choose a fraction for the models, worked examples, practice and checks. Mixed mode varies the fractions; Explore sliders stay free to adjust. Changing either choice starts fresh questions and clears an unfinished check.</p></div>`);
+    const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.dataset.mode='multiples';b.textContent='Build multiples';b.setAttribute('aria-selected',String(Lab.mode==='multiples'));b.classList.toggle('active',Lab.mode==='multiples');tabs.insertBefore(b,tabs.children[1]||null);
+  };
+  const oldRenderActivity=renderActivity;
+  renderActivity=function(){if(Lab.mode==='multiples')renderMultiples();else oldRenderActivity();};
+  const oldControls=controlsHTML;
+  controlsHTML=function(){
+    let out=oldControls();
+    if(Lab.section==='bucket')out=out.replace(/<select id="ballRatio">[\s\S]*?<\/select>/,`<select id="ballRatio">${C.fractions.map(([n,d])=>`<option value="${n}/${d}" ${Lab.explore.bucket.p===n&&Lab.explore.bucket.q===d?'selected':''}>${n}/${d} of a large ball</option>`).join('')}</select>`);
+    return out;
+  };
+  const oldExploreAction=exploreAction;
+  exploreAction=function(action){
+    if(action==='reset'&&Lab.focus!=='mixed'){applyFraction(...Lab.focus.split('/').map(Number),Lab.section);renderExplore();return;}
+    if((action==='timberExact'||action==='timberRemainder')&&Lab.section==='timber'){
+      const s=Lab.explore.timber;s.length=action==='timberExact'?s.n:Math.min(12,s.n+1);updateExplorer();return;
+    }
+    oldExploreAction(action);
+  };
+  const oldModelExplanation=modelExplanation;
+  modelExplanation=function(){const m=oldModelExplanation();if(Lab.section==='timber'){const s=Lab.explore.timber;m.buttons=[['timberExact',`Try ${s.n} m of stock`],['timberRemainder',`Try ${Math.min(12,s.n+1)} m of stock`]];}return m;};
+  // A new learner keeps the lesson's selected fraction, with a fresh matching model.
+  const oldClearLearner=clearLearner;
+  clearLearner=function(){const before=Lab.explore;oldClearLearner();if(Lab.explore!==before){resetQuestions();if(Lab.focus!=='mixed')applyFraction(...Lab.focus.split('/').map(Number));renderPage();}};
+  let beforeProfileSave=null;
+  document.addEventListener('submit',e=>{if(e.target.id==='profileForm')beforeProfileSave=Lab.explore;},true);
+  document.addEventListener('submit',e=>{if(e.target.id==='profileForm'&&beforeProfileSave!==Lab.explore){resetQuestions();if(Lab.focus!=='mixed')applyFraction(...Lab.focus.split('/').map(Number));renderPage();}});
+  // Repeated groups and regrouped wholes use the same physical scale throughout.
+  const groupColours=['#226d53','#b4552f','#3d689b','#82539c','#8b641d','#306c80','#a4415e','#506c28'];
+  function drawUnit(context,x,y,w,h,n,d,colour,labels=null){
+    let s='';
+    if(['glass','recipe'].includes(context)&&!labels){return V.glass(x,y,w,h,n,d,colour);}
+    if(context==='battery')s+=`<rect x="${x+w}" y="${y+h*.32}" width="5" height="${h*.36}" rx="1" fill="#274536"/>`;
+    s+=V.bar(x,y,w,h,0,d,colour,context==='walls'?'walls':'plain');
+    for(let j=0;j<n;j++){
+      const source=labels?labels[j]:null,fill=source?groupColours[(source-1)%groupColours.length]:colour;
+      s+=`<rect x="${x+j*w/d+0.6}" y="${y+1}" width="${Math.max(0,w/d-1.2)}" height="${h-2}" fill="${fill}"/>`;
+      if(source&&w/d>=11)s+=V.text(x+(j+.5)*w/d,y+h/2+4,String(source),12,700,'middle','#fff');
+    }
+    if(context==='garden'&&!labels)for(let j=0;j<n;j++){const cx=x+(j+.5)*w/d;s+=`<path d="M${cx} ${y+h*.72}v-${h*.42}m0 ${h*.15}q-7-9-9-3 2 5 9 3m0-5q7-9 9-3-2 5-9 3" stroke="#fff" fill="none" stroke-width="1.3"/>`;}
+    return s;
+  }
+  function multipleDiagram(context,n,d,count){
+    const compact=window.matchMedia('(max-width:600px)').matches;
+    const c=C.multipleContext(context,n,d),m=C.multipleModel(n,d,count),w=compact?360:680,cols=compact?2:4,boxW=140,boxH=44,left=compact?18:27,gap=23;
+    let s=V.text(left,28,compact?`${count} equal groups; each = ${n}/${d}`:`${count} equal ${count===1?c.one:c.many}: each contributes ${n}/${d}`,compact?18:20,700);
+    for(let i=0;i<count;i++){
+      const x=left+(i%cols)*(boxW+gap),y=52+Math.floor(i/cols)*90;
+      s+=drawUnit(context,x,y,boxW,boxH,n,d,groupColours[i%8]);
+      s+=V.text(x,y+65,`Group ${i+1}: ${n}/${d}`,16,700);
+    }
+    let y=52+Math.ceil(count/cols)*90+10;
+    s+=V.text(left,y,compact?'Regroup the SAME shaded parts':'Regroup the SAME shaded parts into wholes',compact?17:20,700);y+=25;
+    const boxes=Math.max(1,Math.ceil(m.value));
+    for(let i=0;i<boxes;i++){
+      const x=left+(i%cols)*(boxW+gap),yy=y+Math.floor(i/cols)*88,num=Math.max(0,Math.min(d,m.numerator-i*d));
+      const labels=Array.from({length:num},(_,j)=>Math.floor((i*d+j)/n)+1);
+      s+=drawUnit(context,x,yy,boxW,boxH,num,d,groupColours[0],labels);
+      s+=V.text(x,yy+64,`Whole ${i+1}`,16,700);
+    }
+    y+=Math.ceil(boxes/cols)*88;
+    s+=V.text(left,y+2,compact?`One outline = ${c.whole}.`:`Each outline = ${c.whole}. Numbers identify the original group.`,compact?13:14,400);
+    if(compact)s+=V.text(left,y+23,'Numbers show the original group.',13,400);
+    y+=compact?70:49;
+    const max=Math.max(1,Math.ceil(8*n/d)),lineW=w-60,start=30,end=start+lineW;
+    s+=V.text(start,y-12,`Equal jumps of ${n}/${d} on a number line`,19,700);y+=38;
+    s+=`<line x1="${start}" y1="${y}" x2="${end}" y2="${y}" stroke="#294c3a" stroke-width="2"/>`;
+    for(let t=0;t<=max*d;t++){
+      const x=start+lineW*t/(max*d),whole=t%d===0;
+      s+=`<line x1="${x}" y1="${y-(whole?8:4)}" x2="${x}" y2="${y+(whole?8:4)}" stroke="#65796b"/>`;
+      if(whole)s+=V.text(x,y+30,String(t/d),16,700,'middle');
+    }
+    for(let i=0;i<count;i++){
+      const x1=start+lineW*(i*n/d)/max,x2=start+lineW*((i+1)*n/d)/max,colour=groupColours[i%8];
+      s+=`<path d="M${x1},${y-1} Q${(x1+x2)/2},${y-50} ${x2},${y-1}" fill="none" stroke="${colour}" stroke-width="2.5"/><path d="M${x2-5},${y-8} L${x2},${y-1} L${x2+1},${y-10}" fill="none" stroke="${colour}" stroke-width="2"/>`;
+    }
+    const dot=start+lineW*m.value/max;s+=`<circle cx="${dot}" cy="${y}" r="5" fill="#1b4532"/>`;
+    s+=V.text(start,y+64,`End point: ${m.mixed} ${c.unit}`,20,700);
+    return V.svg(s,`${count} groups of ${n}/${d} make ${m.mixed} ${c.unit}. Same-sized wholes and a number line show the total.`,w,y+87);
+  }
+  function equivalentDiagram(n,d,factor){
+    const w=window.matchMedia('(max-width:600px)').matches?360:680;
+    let s=V.text(20,25,`Original fraction: ${n}/${d}`,20,700)+V.bar(20,40,w-40,42,n,d,'#226d53');
+    s+=V.text(20,119,`Equivalent fraction: ${n*factor}/${d*factor}`,20,700)+V.bar(20,134,w-40,42,n*factor,d*factor,'#226d53');
+    return V.svg(s,`${n}/${d} and ${n*factor}/${d*factor} shade the same amount of equal wholes.`,w,198);
+  }
+  function renderMultiples(){
+    const s=Lab.multi,c=C.multipleContext(Lab.section,s.n,s.d);
+    $('activityStage').innerHTML=`<div class="multiPredict"><div class="stepLabel">1 &nbsp; Predict before moving</div><p>If we add one more group of ${s.n}/${s.d}, will the total be larger, smaller or unchanged?</p><div class="buttonRow">${['Larger','Smaller','Unchanged'].map(a=>`<button class="button small ${s.prediction===a?'selected':''}" data-multi-pred="${a}" aria-pressed="${s.prediction===a}">${a}</button>`).join('')}<button class="button small quiet" id="revealMulti" ${!s.prediction?'disabled':''}>Reveal explanation</button></div><p id="multiPredictionText" class="finePrint">${s.reveal?'Larger: each extra group adds another positive amount. The size of each fractional part stays the same.':s.prediction?'Prediction recorded. Move the slider, then reveal the explanation.':'Make a prediction, then try the model.'}</p></div><article class="card multipleCard"><div class="visualTitle"><h3>Build multiples of ${s.n}/${s.d}</h3><span class="badge">Totals can exceed one</span></div><p class="multiUnits">${E(c.given)} <b>One whole = ${E(c.whole)}.</b>${Lab.focus==='mixed'?' Mixed mode: this visual example starts with the fraction shown; use Try another fraction to change it.':''}</p><div class="multiControl"><div><label for="multipleCount">Number of equal groups (1-8)</label><input id="multipleCount" type="range" min="1" max="8" step="1" value="${s.count}"></div><input id="multipleCountNumber" type="number" min="1" max="8" step="1" value="${s.count}" aria-label="Number of equal groups"><div class="buttonRow"><button class="button small" id="lessGroup" aria-label="Remove one group">-1</button><button class="button small" id="moreGroup" aria-label="Add one group">+1</button></div></div><div id="multipleVisual" class="diagram"></div><div id="multipleResult" class="multipleResult" aria-live="polite"></div><h3>Try the sequence</h3><div id="multipleSequence" class="multipleSequence"></div><p class="finePrint"><b>Model:</b> ${E(c.note)}</p><div class="equivContrast"><div class="inline"><h3>Not the same as an equivalent fraction</h3><label for="equivalentFactor">Multiply BOTH parts by <select id="equivalentFactor">${[2,3,4,5].map(k=>`<option value="${k}" ${s.factor===k?'selected':''}>${k}</option>`).join('')}</select></label></div><div id="equivalentVisual" class="diagram"></div><p id="equivalentExplanation"></p></div><div class="buttonRow"><button class="button primary" id="practiseMultiples">Practise multiples of ${s.n}/${s.d}</button><button class="button" data-mode="explore">Back to Explore</button></div></article>`;
+    updateMultiples();
+  }
+  function updateMultiples(){
+    const s=Lab.multi,c=C.multipleContext(Lab.section,s.n,s.d),m=C.multipleModel(s.n,s.d,s.count);
+    $('multipleCount').value=s.count;$('multipleCountNumber').value=s.count;$('lessGroup').disabled=s.count<=1;$('moreGroup').disabled=s.count>=8;
+    $('multipleVisual').innerHTML=multipleDiagram(Lab.section,s.n,s.d,s.count);
+    $('multipleResult').innerHTML=`<div class="stepLabel">2 &nbsp; Connect the picture to the calculation</div><h3>${s.count} &times; ${s.n}/${s.d} = ${m.numerator}/${s.d} = ${E(m.mixed)} ${E(c.unit)}</h3><p><b>Repeated addition:</b> ${Array(s.count).fill(s.n+'/'+s.d).join(' + ')} = ${E(m.mixed)}.</p><p>There are <b>${m.numerator}</b> parts of size <b>1/${s.d}</b>. ${s.d} parts make one whole, so this is <b>${m.wholes} whole${m.wholes===1?'':'s'}</b> ${m.remainder?`and <b>${C.frac(m.remainder,s.d)}</b> of another whole`:'with no fractional part left'}.</p>`;
+    $('multipleSequence').innerHTML=Array.from({length:8},(_,i)=>{const k=i+1,m=C.multipleModel(s.n,s.d,k);return `<button type="button" data-groups="${k}" aria-pressed="${k===s.count}"><span>${k} &times; ${s.n}/${s.d}</span><strong>${E(m.mixed)}</strong></button>`;}).join('');
+    $('equivalentVisual').innerHTML=equivalentDiagram(s.n,s.d,s.factor);
+    $('equivalentExplanation').innerHTML=`<b>Equivalent:</b> ${s.n}/${s.d} = (${s.n} &times; ${s.factor})/(${s.d} &times; ${s.factor}) = ${s.n*s.factor}/${s.d*s.factor}. Both numbers change, but the amount stays the same.<br><b>Multiple:</b> ${s.count} &times; ${s.n}/${s.d} = ${m.numerator}/${s.d}. The denominator stays ${s.d}; the number of those parts changes with the group count.`;
+  }
+  // A compact diagram for worksheets and practice: give quantities, not the computed total.
+  const oldQuestionVisual=V.question;
+  V.question=function(q){
+    const d=q.diagram;if(d.kind!=='multiples')return oldQuestionVisual(q);
+    const c=C.multipleContext(q.context,d.n,d.d),count=d.operation==='missing'?1:d.multiplier+d.extra,cols=Math.min(count,6),unitW=82,gap=15;
+    let out=V.text(18,25,`One outline = ${c.whole}`,19,700);
+    for(let i=0;i<count;i++){
+      const x=18+(i%cols)*(unitW+gap),y=46+Math.floor(i/cols)*68;
+      out+=drawUnit(q.context,x,y,unitW,36,d.n,d.d,groupColours[i%8]);
+      out+=V.text(x+unitW/2,y+56,`${d.n}/${d.d}`,17,700,'middle');
+    }
+    let y=46+Math.ceil(count/cols)*68;
+    if(d.operation==='missing'){const m=C.multipleModel(d.n,d.d,d.multiplier);out+=V.text(145,66,`One ${c.one}: ${d.n}/${d.d}`,21,700)+V.text(145,99,`Target total: ${m.mixed} ${c.unit}`,20,700);}
+    out+=V.text(18,y+16,d.operation==='missing'?'How many equal groups make the target?':d.operation==='extend'?`First ${d.multiplier} groups, then ${d.extra} more. Count all the shaded parts.`:'Each group contributes the same fraction. Add the shaded parts.',17);
+    return V.svg(out,q.prompt,600,y+38);
+  };
+  const oldQuestionBody=questionBody;
+  questionBody=function(q){return `<div class="questionTags"><span>Fraction: ${E(q.focus||'mixed')}</span><span>${E(C.skills[q.skill||'context'])}</span></div>`+oldQuestionBody(q);};
+  makeQuestion=function(){const i=Lab.questionCursor++;return C.question(Lab.section,Lab.level,C.random(newSeed()),i,{focus:nextFocus(),skill:Lab.skill});};
+  startCheck=function(){
+    if(!Lab.profile.name){openProfile();toast('Add a learner name, then start the check.');return;}
+    const questions=[],seen=new Set(),r=C.random(newSeed()),focuses=C.fractionSchedule(Lab.focus,5,r);
+    for(let i=0;i<5;i++){let q,tries=0;do{q=C.question(Lab.section,Lab.level,r,i+tries++,{focus:focuses[i],skill:Lab.skill});}while(seen.has(q.prompt)&&tries<100);questions.push(q);seen.add(q.prompt);}
+    Lab.checks[practiceKey()]={questions,index:0,score:0,submitted:false,complete:false,results:[],focus:Lab.focus,skill:Lab.skill};renderCheck();
+  };
+  nextCheck=function(){
+    const a=Lab.checks[practiceKey()];if(!a||!a.submitted||a.complete)return;
+    if(a.index<4){a.index++;a.submitted=false;renderCheck();$('testAnswer0')?.focus();return;}
+    a.complete=true;
+    if(a.score>=4){Lab.earned[practiceKey()]={score:a.score,level:Lab.level,date:new Date().toISOString(),focus:a.focus,skill:a.skill};saveProgress();}
+    renderCheck();updateHeader();
+  };
+  // Retain readable v1 progress; v2 records carry an honest focus label.
+  try{const data=JSON.parse(localStorage.getItem(STORE)||'null');if(data?.earned)for(const [key,record] of Object.entries(Lab.earned)){const stored=data.earned[key];if(stored&&C.skills[stored.skill]&&(stored.focus==='mixed'||C.fractions.some(([n,d])=>n+'/'+d===stored.focus))){record.focus=stored.focus;record.skill=stored.skill;}}}catch(e){}
+  const oldCertificate=P.certificate;
+  P.certificate=function(id,record,profile,teacher=false){
+    let html=oldCertificate(id,record,profile,teacher);
+    if(record?.skill==='multiples'||record?.skill==='mixed'){
+      const descriptions=record.skill==='multiples'?['Add equal fractional groups','Regroup parts into wholes and mixed numbers','Explain repeated amounts using diagrams and units']:['Use fractions to solve practical problems','Calculate repeated fractional amounts','Identify the whole and explain the units'];
+      html=html.replace(/<div class="certSkills">[\s\S]*?<\/div><div class="certMeta">/,`<div class="certSkills">${descriptions.map(t=>`<div>${E(t)}</div>`).join('')}</div><div class="certMeta">`);
+    }
+    if(record?.focus)html=html.replace('<div class="certSkills">',`<p class="certFocus"><b>Focus:</b> ${E(focusLabel(record.focus))} &nbsp; | &nbsp; ${E(C.skills[record.skill]||C.skills.context)}</p><div class="certSkills">`);
+    return html;
+  };
+  const oldRenderTeacher=renderTeacher;
+  renderTeacher=function(){
+    oldRenderTeacher();const t=Lab.teacher;
+    $('setCount').closest('.field').insertAdjacentHTML('beforebegin',`<div class="wide teacherFocus"><div class="field"><label for="setFocus">Fraction focus</label><select id="setFocus">${fractionOptions(t.focus||'mixed')}</select></div><div class="field"><label for="setSkill">Question type</label><select id="setSkill">${skillOptions(t.skill||'context')}</select></div><p>Mixed fractions gives each learner different fractions within their sheet. Select 3/4 + Multiples to practise 3/4, 1 1/2, 2 1/4 and beyond. Mixed skills combines context problems and multiples.</p></div>`);
+  };
+  const oldCollectTeacher=collectTeacher;
+  collectTeacher=function(){const focus=$('setFocus')?.value||Lab.teacher.focus||'mixed',skill=$('setSkill')?.value||Lab.teacher.skill||'context';oldCollectTeacher();Lab.teacher.focus=focus;Lab.teacher.skill=skill;};
+  const oldStudentPages=P.studentPages,oldAnswerPage=P.answerPage,oldNotes=P.notes;
+  function printFocus(pack){return `<p class="printFocus"><b>Fraction focus:</b> ${E(focusLabel(pack.focus))} &nbsp; | &nbsp; <b>Tasks:</b> ${E(C.skills[pack.skill]||C.skills.context)}</p>`;}
+  P.studentPages=function(set,pack){return oldStudentPages(set,pack).replace(/<p class="printIntro">/g,printFocus(pack)+'<p class="printIntro">');};
+  P.answerPage=function(set,pack){return oldAnswerPage(set,pack).replace('<p class="printIntro">',printFocus(pack)+'<p class="printIntro">');};
+  P.notes=function(pack){return oldNotes(pack).replace('<div class="notesBanner">',printFocus(pack)+'<div class="notesBanner">').replace('Use this version of the webpage.',`Use this version of the webpage, with fraction focus ${E(focusLabel(pack.focus))} and question type ${E(C.skills[pack.skill]||C.skills.context)}.`).replace('Fraction Lab v1.0','Fraction Lab v2.0');};
+  const oldPreview=renderPackPreview;
+  renderPackPreview=function(){oldPreview();if(Lab.pack){const toolbar=document.querySelector('#packPreviewArea .previewToolbar');if(toolbar)toolbar.insertAdjacentHTML('afterend',`<p class="finePrint"><b>${E(focusLabel(Lab.pack.focus))}</b> &bull; ${E(C.skills[Lab.pack.skill]||C.skills.context)}</p>`);}};
+  document.addEventListener('click',event=>{
+    const b=event.target.closest('button');if(!b||b.disabled)return;
+    if(b.dataset.multiPred){Lab.multi.prediction=b.dataset.multiPred;Lab.multi.reveal=false;renderMultiples();return;}
+    if(b.dataset.groups){Lab.multi.count=Number(b.dataset.groups);updateMultiples();return;}
+    if(b.id==='tryAnotherFraction'){
+      const old=Lab.multi.n+'/'+Lab.multi.d,r=C.random(newSeed()),choices=C.fractions.filter(([n,d])=>n+'/'+d!==old),[n,d]=r.pick(choices);changeFocus(n+'/'+d);toast(`Now exploring ${n}/${d}. Worked examples and new questions use this fraction.`);
+    }
+    if(b.id==='moreGroup'||b.id==='lessGroup'){Lab.multi.count=Math.max(1,Math.min(8,Lab.multi.count+(b.id==='moreGroup'?1:-1)));updateMultiples();}
+    if(b.id==='revealMulti'){Lab.multi.reveal=true;renderMultiples();}
+    if(b.id==='practiseMultiples'){Lab.focus=Lab.multi.n+'/'+Lab.multi.d;Lab.skill='multiples';resetQuestions();Lab.mode='practice';renderLearn();}
+  });
+  document.addEventListener('change',event=>{
+    const el=event.target;
+    if(el.id==='fractionFocus')changeFocus(el.value);
+    if(el.id==='taskType'){Lab.skill=el.value;resetQuestions();renderLearn();}
+    if(el.id==='equivalentFactor'){Lab.multi.factor=Number(el.value);updateMultiples();}
+    if(el.id==='multipleCountNumber'&&el.value==='')updateMultiples();
+  });
+  document.addEventListener('input',event=>{
+    const el=event.target;if(el.id!=='multipleCount'&&el.id!=='multipleCountNumber')return;
+    if(el.value.trim()==='')return;const v=Number(el.value);if(!Number.isFinite(v))return;
+    Lab.multi.count=Math.max(1,Math.min(8,Math.round(v)));updateMultiples();
+  });
+  window.addEventListener('resize',()=>{if(Lab.page==='learn'&&Lab.mode==='multiples'&&$('multipleVisual'))updateMultiples();});
+  $('helpDialog').querySelector('.helpBlock').insertAdjacentHTML('beforebegin','<div class="helpBlock"><h3>New: fraction choice and multiples</h3><p>Choose Mixed fractions or one of 19 simple fractions. Build multiples shows repeated groups, regrouped wholes and equal number-line jumps. The comparison underneath shows why 3/4 = 6/8 but 2 &times; 3/4 = 1 1/2. Question type also applies to worked examples, practice, certificate checks and relief sets.</p></div>');
+  document.title='Fraction Lab v2 - Fractions and multiples';
+  renderPage();
+})();
+
 </script>
 </body></html>
