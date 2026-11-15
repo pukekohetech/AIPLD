@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="An offline visual learning lab for fractions, ratio and proportional reasoning. Eight contexts, printable certificates and random relief worksheets.">
+<title>Fraction Lab | See it. Predict it. Explain it.</title>
+<style>:root{--ink:#173338;--muted:#52676b;--teal:#166a66;--teal-soft:#e5f2ed;--paper:#f4f4ee;--white:#fff;--line:#d7e0dc;--amber:#a85d16;--amber-soft:#fff3db;--red:#a12e35;--blue:#18769a;--orange:#bd6233;--section:#a6472a;--radius:19px;--shadow:0 5px 20px #17333806;font-family:Arial,Helvetica,sans-serif;color:var(--ink);font-size:17px;background:var(--paper);line-height:1.5}
+*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button,select{cursor:pointer}button{color:inherit}button:disabled{cursor:not-allowed;opacity:.45}button,input,select,textarea,a{touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #e6a62f;outline-offset:3px}button{border:0}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.18;letter-spacing:-.025em}h1{font-size:clamp(29px,3vw,43px)}h2{font-size:27px}h3{font-size:20px}p+p{margin-top:12px}svg{display:block;max-width:100%;height:auto}svg text{font-family:Arial,Helvetica,sans-serif;fill:var(--ink)}svg .muted{fill:var(--muted)}svg .diagram-small{font-size:15px}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:fixed;left:20px;top:-80px;background:white;padding:12px;z-index:100}.skip:focus{top:12px}.icon{width:24px;height:24px;flex-shrink:0}.appHeader{background:#fff;border-bottom:1px solid var(--line)}.headerInner{max-width:1460px;margin:auto;padding:21px 32px;display:flex;align-items:center;gap:18px;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px}.brandMark{display:grid;place-items:center;width:47px;height:47px;border-radius:13px;background:var(--ink);color:white;font-size:23px;font-weight:700;letter-spacing:-2px}.brand strong{font-size:23px;letter-spacing:-.8px}.eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}.headerActions,.buttonRow,.inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.button{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;background:white;padding:10px 15px;min-height:43px;font-weight:700;font-size:15px;text-decoration:none;transition:background .12s}.button:hover{background:#eef4f1}.button.primary{background:var(--teal);color:white;border-color:var(--teal)}.button.primary:hover{background:#105b57}.button.soft{background:var(--teal-soft);border-color:#bfd7ca}.button.quiet{background:transparent}.button.small{padding:7px 12px;min-height:35px;font-size:14px}.button.danger{color:var(--red)}.button .icon{width:19px;height:19px}.offline{font-size:12px;font-weight:700;letter-spacing:.4px;display:flex;gap:6px;align-items:center;color:var(--teal)}.offline:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--teal)}.topNav{display:flex;gap:6px;max-width:1460px;margin:auto;padding:0 32px;border-bottom:0}.topNav button{background:transparent;padding:15px 19px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:9px;border-bottom:3px solid transparent;color:var(--muted)}.topNav button.active{border-color:var(--teal);color:var(--ink)}.topNav .icon{width:20px;height:20px}.pill{font-size:12px;padding:2px 8px;border-radius:12px;background:var(--teal-soft);font-weight:700;white-space:nowrap}.appMain{max-width:1460px;margin:0 auto;padding:29px 32px 50px}.intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:27px}.intro p{font-size:16px;color:var(--muted);margin-top:9px;max-width:780px}.intro .eyebrow{margin-bottom:8px}.introStamp{border:1px solid var(--line);border-radius:15px;padding:11px 18px;min-width:125px;text-align:center;font-size:12px;color:var(--muted);background:white}.introStamp strong{display:block;font-size:25px;line-height:1.2;color:var(--ink)}.learnGrid{display:grid;grid-template-columns:218px minmax(0,1fr);gap:25px;align-items:start}.sectionNav{display:flex;flex-direction:column;gap:7px}.sectionNavTitle{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1.4px;margin:3px 10px 7px}.sectionButton{text-align:left;display:flex;align-items:center;gap:11px;padding:13px 11px;border-radius:12px;border:1px solid transparent;background:transparent;min-width:0}.sectionButton:hover{background:#e9eeea}.sectionButton.active{background:white;border-color:#bdcdc4;box-shadow:var(--shadow)}.sectionIcon{width:37px;height:37px;display:grid;place-items:center;border-radius:10px;background:#ffffff80;border:1px solid #d9e0db;color:var(--section)}.sectionButton.active .sectionIcon{background:var(--section);color:white;border-color:var(--section)}.sectionButton strong{display:block;font-size:15px}.sectionButton small{display:block;font-size:11px;color:var(--muted);line-height:1.35;margin-top:3px}.earnedDot{margin-left:auto;color:var(--teal);font-size:16px;font-weight:bold}.sideNote{font-size:12px;line-height:1.5;margin:18px 10px;color:var(--muted)}.activity{min-width:0}.sectionHead{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin:0 0 17px}.sectionHead h2{font-size:29px}.sectionHead p{font-size:15px;color:var(--muted);margin-top:7px}.levelField{font-size:12px;font-weight:700;color:var(--muted);min-width:133px}.levelField select{display:block;width:100%;margin-top:5px}.modeTabs{display:flex;border-bottom:1px solid var(--line);gap:6px;margin-bottom:22px;overflow-x:auto}.modeTabs button{padding:11px 14px;border-radius:10px 10px 0 0;background:transparent;white-space:nowrap;font-size:14px;font-weight:700;border-bottom:3px solid transparent;color:var(--muted)}.modeTabs button.active{background:#fff;border-bottom-color:var(--section);color:var(--ink)}.prediction{padding:16px 19px;border:1px solid #e5d6ab;background:#fff9e9;border-radius:14px;margin-bottom:17px}.stepLabel{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.25px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px}.stepNumber{display:inline-grid;place-items:center;background:var(--ink);color:white;width:22px;height:22px;border-radius:50%;font-size:11px;letter-spacing:0}.prediction p{font-size:16px;font-weight:700;line-height:1.45}.predictionChoices{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.predictionChoices button.selected{background:var(--ink);color:white;border-color:var(--ink)}.predictionResult{font-size:14px;margin-top:10px}.labBody{display:grid;grid-template-columns:minmax(0,1fr) 273px;gap:17px;align-items:start}.visualCard,.controlsCard,.card{border:1px solid var(--line);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}.visualCard{padding:19px 20px 16px;overflow:hidden}.visualTitle{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}.visualTitle h3{font-size:17px}.badge{font-size:10px;letter-spacing:.7px;text-transform:uppercase;font-weight:bold;border:1px solid var(--line);border-radius:6px;padding:3px 7px;white-space:nowrap}.diagram{margin-top:9px}.visualText{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.45}.controlsCard{padding:18px}.controlGroup+.controlGroup{border-top:1px solid var(--line);margin-top:17px;padding-top:16px}.controlGroup h3{font-size:15px;margin-bottom:12px}.control{margin-bottom:14px}.control:last-child{margin-bottom:0}.controlLine{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}.control label{font-size:13px;font-weight:700}.control input[type=number]{width:64px;text-align:center;padding:5px 4px;font-weight:700;font-size:15px;min-height:33px}.control input[type=range]{width:100%;accent-color:var(--teal);margin:6px 0 0;display:block;min-height:22px}.control select{width:100%;font-size:14px}.control small{font-size:11px;color:var(--muted)}input[type=text],input[type=number],select,textarea{border:1px solid #acbfb6;background:white;border-radius:8px;padding:9px 10px;color:var(--ink);max-width:100%}input[type=checkbox]{accent-color:var(--teal);width:18px;height:18px}input[type=range]:disabled{opacity:.5}.controlActions{margin-top:18px;display:flex;gap:7px;flex-wrap:wrap}.controlActions .button{font-size:12px;min-height:33px;padding:6px 10px}.mathCard{border:1px solid #bdd7cb;background:var(--teal-soft);border-radius:14px;padding:17px 19px;margin-top:17px}.mathCard.warning{border-color:#e1bd86;background:var(--amber-soft)}.mathCard .mathTitle{font-size:20px;font-weight:bold;line-height:1.35}.mathCard p{font-size:14px;margin-top:6px}.mathCard .formula{font-size:17px;font-weight:bold;margin:9px 0;line-height:1.5}.mathCard .buttonRow{margin-top:12px}.finePrint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.goal{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:#ffffff70;padding:12px 15px;font-size:14px}.goal summary{cursor:pointer;font-weight:700}.goal ul{margin-bottom:0;padding-left:20px}.learningCard{padding:25px;max-width:920px}.learningCard .questionText{font-size:20px;font-weight:700;line-height:1.5;margin-top:13px}.questionDiagram{padding:13px;border-radius:13px;background:#f5f7f4;margin:18px 0}.questionDiagram svg{width:100%;max-height:220px}.workedSteps{margin:18px 0;padding:0;list-style:none;counter-reset:step}.workedSteps li{counter-increment:step;display:flex;gap:12px;margin:11px 0;font-size:16px;line-height:1.5}.workedSteps li:before{content:counter(step);flex-shrink:0;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--teal-soft);font-size:13px;font-weight:bold}.answerFields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;margin:20px 0}.answerField label{display:block;font-size:13px;font-weight:bold;margin-bottom:5px}.answerInput{display:flex;gap:7px;align-items:center}.answerInput input{width:145px;font-size:20px;padding:11px}.answerInput span{font-size:13px;color:var(--muted)}.answerHelp{font-size:12px;color:var(--muted);margin-bottom:17px}.feedback{padding:14px 16px;border-radius:10px;font-size:15px;margin:15px 0;border:1px solid var(--line);background:#f6f7f3}.feedback.good{border-color:#8fbea6;background:#e8f6ed}.feedback.try{border-color:#dfba87;background:var(--amber-soft)}.feedback:empty{display:none}.hintBox{background:var(--amber-soft);padding:13px 16px;border-radius:10px;font-size:15px;margin-top:15px}.resultHero{text-align:center;padding:23px 10px}.resultHero .medal{width:105px;height:105px;margin:0 auto 18px}.resultHero h2{margin:12px 0}.resultHero p{margin:13px auto;max-width:580px}.scoreDots{display:flex;gap:7px;justify-content:center;margin:17px 0}.scoreDots span{width:35px;height:35px;display:grid;place-items:center;border:1px solid #afc0b5;border-radius:50%;background:#f2f3ee;font-size:14px}.scoreDots .correct{background:var(--teal);color:white}.testProgress{display:flex;justify-content:space-between;gap:14px;align-items:center;font-size:13px;font-weight:700;margin-bottom:14px}.testTrack{height:6px;border-radius:3px;background:#e5eae5;margin-bottom:20px}.testTrack div{height:100%;background:var(--teal);border-radius:3px}.certificateGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;margin-top:22px}.certificateTile{padding:23px 20px;border-radius:16px;background:white;border:1px solid var(--line);display:flex;flex-direction:column;gap:11px}.certificateTile.earned{border-color:#8db69f;background:#fcfffc}.certificateTile .medal{height:72px;width:72px}.certificateTile h3{font-size:19px}.certificateTile p{font-size:13px;color:var(--muted)}.certificateTile .button{margin-top:auto;width:100%}.levelChips{display:flex;flex-wrap:wrap;gap:4px}.levelChips span{padding:3px 7px;background:#f0f2ed;border-radius:5px;font-size:10px;color:var(--muted)}.levelChips .done{background:var(--teal-soft);color:var(--teal);font-weight:bold}.teacherGrid{display:grid;grid-template-columns:355px minmax(0,1fr);gap:23px;align-items:start}.teacherControls{padding:23px}.field{margin-bottom:16px}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:5px}.field input,.field select,.field textarea{width:100%}.field small{display:block;font-size:11px;color:var(--muted);margin-top:5px}.fieldsTwo{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}.checkGrid label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:normal}.checkGrid input{flex-shrink:0}.teacherControls details{font-size:13px;margin-bottom:16px}.teacherControls details summary{font-weight:bold;cursor:pointer}.teacherControls details .field{margin-top:12px}.teacherPreview{padding:24px;min-width:0}.emptyPreview{text-align:center;padding:60px 20px}.emptyPreview .icon{height:60px;width:60px;margin:0 auto 20px;color:var(--teal)}.emptyPreview p{color:var(--muted);font-size:15px;max-width:450px;margin:15px auto}.previewToolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:17px}.previewToolbar select{font-size:13px}.previewPages{background:#f0f2ed;border:1px solid var(--line);border-radius:12px;padding:17px;margin-top:19px}.previewPages .paper{background:white;border:1px solid var(--line);padding:21px;margin:auto}.previewPages .sheetHeader h2{font-size:22px}.previewPages .qcard{font-size:13px}.previewPages .qcard h3{font-size:14px}.previewPages .qcard .qPrompt{font-size:13px}.previewPages .qcard svg{max-height:83px}.previewPages .qcard .writeLines{height:24px}.previewPages .sheetHeader{font-size:11px}.previewPages .answerLine{font-size:11px}.printButtons{display:flex;flex-wrap:wrap;gap:8px}.printButtons .button{font-size:12px}.teacherNote{margin-top:22px;padding:18px 20px;border:1px solid var(--line);border-radius:13px;background:#fff}.teacherNote h3{font-size:16px}.teacherNote p{font-size:13px;color:var(--muted);margin-top:8px}.footer{border-top:1px solid var(--line);max-width:1396px;margin:0 auto;padding:19px 0 28px;color:var(--muted);display:flex;justify-content:space-between;gap:15px;font-size:11px}.footer button{padding:0;background:none;text-decoration:underline;font-size:11px}.notice{border:1px solid #e1be83;background:var(--amber-soft);padding:12px 16px;border-radius:10px;font-size:13px;margin-bottom:15px}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);z-index:1000;background:var(--ink);color:white;padding:13px 20px;border-radius:11px;box-shadow:0 5px 25px #0002;max-width:90vw;font-size:14px;pointer-events:none}.toast:empty{display:none}dialog{border:1px solid var(--line);border-radius:20px;padding:28px;width:min(570px,92vw);max-height:88vh;overflow:auto;color:var(--ink);box-shadow:0 25px 70px #0003}dialog::backdrop{background:#17333870}dialog h2{margin-bottom:12px}dialog p{font-size:15px;color:var(--muted);margin-bottom:18px}.dialogTop{display:flex;justify-content:space-between;gap:15px}.dialogClose{background:#f0f3ef;border-radius:7px;width:32px;height:32px;font-size:24px;line-height:1}.helpBlock{border-top:1px solid var(--line);padding:16px 0}.helpBlock h3{font-size:17px;margin-bottom:7px}.helpBlock p{font-size:14px;margin:0}.helpBlock:last-child{padding-bottom:0}.formError{color:var(--red);font-size:14px;margin-top:10px}.hidden,[hidden]{display:none!important}.fullWidth{width:100%}.spaceTop{margin-top:18px}.nowrap{white-space:nowrap}
+/* Print templates: also used for the on-screen teacher preview. */
+#printRoot{display:none}.sheetHeader{border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:12px;display:flex;justify-content:space-between;gap:12px;font-size:12px}.sheetHeader h2{font-size:25px;margin:5px 0}.sheetCode{font-size:10px;max-width:160px;text-align:right;overflow-wrap:anywhere}.studentDetails{display:flex;gap:20px;flex-wrap:wrap;margin:10px 0;font-size:12px}.printIntro{font-size:11px;line-height:1.5;margin-bottom:12px}.questionGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.qcard{border:1px solid #adbdb3;border-radius:7px;padding:10px;break-inside:avoid;display:flex;flex-direction:column;min-width:0}.qcard h3{font-size:13px;letter-spacing:0;line-height:1.3;margin-bottom:7px}.qcard .qPrompt{font-size:12px;line-height:1.45}.qcard .printDiagram{margin:8px 0 6px}.qcard svg{width:100%;max-height:92px}.answerLine{font-size:11px;margin-top:5px}.writeLines{height:30px;margin-top:auto;background:repeating-linear-gradient(to bottom,transparent,transparent 13px,#d9ded9 14px,transparent 15px)}.sheetFooter{margin-top:auto;padding-top:12px;font-size:10px;color:#50615c;display:flex;justify-content:space-between;gap:15px}.answerSheet .qcard{background:#fff}.answerSheet .qcard .keyAnswer{font-size:12px;font-weight:bold;margin:6px 0}.answerSheet .qcard ol{font-size:10.5px;line-height:1.45;margin:7px 0;padding-left:17px}.answerSheet .qcard li{margin:5px 0}.printNote{font-size:9px;line-height:1.35;margin:5px 0;color:#425650}.certificate{position:relative;padding:14mm 15mm 10mm;border:2px solid var(--ink);text-align:center;display:flex;flex-direction:column;align-items:center;outline:1px solid #a4b3a6;outline-offset:-8px;min-height:258mm}.certificate:before,.certificate:after{content:'';position:absolute;width:28mm;height:2mm;background:var(--teal);top:0}.certificate:before{left:13mm}.certificate:after{right:13mm}.certificate .certBrand{font-size:12px;font-weight:bold;letter-spacing:3px;margin-top:3mm}.certificate .certKicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:8mm}.certificate .medal{width:30mm;height:30mm;margin:10mm auto 6mm}.certificate h1{font-size:30px;font-weight:normal;line-height:1.2;margin-bottom:9mm;letter-spacing:.3px}.certificate .certName{font-size:34px;font-weight:bold;border-bottom:1px solid #acbab2;min-width:90%;overflow-wrap:anywhere;padding:0 0 5mm;margin:4mm 0}.certificate .certContext{font-size:30px;font-weight:bold;margin:4mm 0}.certificate p{font-size:14px;line-height:1.55;max-width:140mm}.certificate .certSkills{border-top:1px solid var(--line);border-bottom:1px solid var(--line);width:100%;margin:7mm 0;padding:5mm 0;font-size:13px;line-height:1.8}.certificate .certMeta{display:flex;justify-content:center;gap:14mm;font-size:12px;margin:4mm 0}.certificate .certMeta strong{display:block;font-size:15px;margin-top:2mm}.certificate .signatures{display:flex;justify-content:space-between;gap:15mm;width:100%;margin-top:auto;padding-top:10mm;font-size:10px}.certificate .signatures div{border-top:1px solid #7b9186;padding-top:3mm;flex:1}.certificate .certFine{font-size:9px;margin-top:7mm;color:var(--muted)}.notesSheet h3{margin:15px 0 8px;font-size:17px}.notesSheet p,.notesSheet li{font-size:12px;line-height:1.55}.notesSheet table{width:100%;border-collapse:collapse;font-size:12px}.notesSheet td,.notesSheet th{border:1px solid var(--line);padding:9px;text-align:left}.notesSheet ul{padding-left:20px}.notesSheet .notesBanner{padding:14px;background:#eef4ef;border:1px solid #bacdbf;border-radius:9px;margin:14px 0;font-size:13px}
+@media(min-width:1600px){:root{font-size:18px}.labBody{grid-template-columns:minmax(0,1fr) 290px}}
+@media(max-width:1180px){.labBody{grid-template-columns:1fr}.controlsCard{display:grid;grid-template-columns:1fr 1fr;gap:18px}.controlGroup+.controlGroup{border-top:0;border-left:1px solid var(--line);margin:0;padding:0 0 0 18px}.controlActions{grid-column:1/-1;margin-top:0}.certificateGrid{grid-template-columns:repeat(2,1fr)}.teacherGrid{grid-template-columns:320px minmax(0,1fr)}.headerInner{padding:17px 24px}.appMain{padding:25px 24px}.topNav{padding:0 24px}}
+@media(max-width:860px){.learnGrid{grid-template-columns:1fr;gap:23px}.sectionNav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.sectionNavTitle,.sideNote{display:none}.sectionButton{padding:9px 8px;gap:7px;border:1px solid var(--line)}.sectionIcon{width:30px;height:32px}.sectionIcon .icon{width:21px}.sectionButton strong{font-size:12px}.sectionButton small{font-size:10px}.teacherGrid{grid-template-columns:1fr}.teacherControls .teacherFields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.teacherControls .wide{grid-column:1/-1}.headerActions .offline{display:none}.introStamp{display:none}.footer{margin:0 24px}.topNav button{padding:13px 12px}}
+@media(max-width:560px){:root{font-size:16px}.headerInner{padding:15px 16px;gap:8px}.brand strong{font-size:20px}.brand .eyebrow{display:none}.brandMark{width:37px;height:37px;font-size:19px}.headerActions{gap:6px}.headerActions .button{padding:8px 10px;font-size:12px;min-height:38px}.headerActions #helpBtn{padding:8px}.headerActions #helpBtn span{display:none}.appMain{padding:23px 14px 35px}.topNav{padding:0 8px;gap:0;justify-content:space-around}.topNav button{font-size:12px;padding:12px 9px;gap:5px}.topNav .icon{width:17px;height:17px}.topNav .pill{display:none}.intro{margin-bottom:20px}.intro p{font-size:14px}.intro h1{font-size:30px}.sectionNav{grid-template-columns:1fr 1fr}.sectionButton strong{font-size:13px}.sectionButton small{display:none}.sectionHead{gap:8px}.sectionHead h2{font-size:25px}.sectionHead p{font-size:13px}.levelField{min-width:100px;font-size:10px}.levelField select{font-size:12px;padding:8px}.modeTabs{gap:0}.modeTabs button{padding:10px 9px;font-size:12px}.prediction{padding:14px}.prediction p{font-size:14px}.visualCard{padding:14px 10px}.visualTitle h3{font-size:15px}.controlsCard{padding:15px;gap:13px}.controlGroup+.controlGroup{padding-left:13px}.control label{font-size:12px}.control input[type=number]{width:51px}.controlGroup h3{font-size:13px}.mathCard{padding:15px}.mathCard .mathTitle{font-size:19px}.learningCard{padding:19px 16px}.learningCard .questionText{font-size:18px}.workedSteps li{font-size:15px}.certificateGrid{gap:10px}.certificateTile{padding:17px 13px}.certificateTile h3{font-size:16px}.certificateTile .button{font-size:12px;padding:9px 6px}.teacherControls{padding:19px 16px}.teacherControls .teacherFields{display:block}.teacherPreview{padding:18px 12px}.previewPages{padding:7px}.previewPages .paper{padding:13px}.previewPages .questionGrid{grid-template-columns:1fr}.previewPages .sheetHeader{display:block}.previewPages .sheetCode{text-align:left;max-width:none;margin-top:8px}.footer{margin:0 16px;display:block}.footer span{display:block;margin-bottom:7px}.answerFields{grid-template-columns:1fr}.questionDiagram{padding:7px}.buttonRow .button{font-size:13px}.certificateTile .medal{height:60px;width:60px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@page{size:A4 portrait;margin:12mm}
+@media print{html,body{margin:0;padding:0;background:white;font-size:11pt;color:#142b2f;-webkit-print-color-adjust:exact;print-color-adjust:exact}body.printing>:not(#printRoot){display:none!important}body.printing #printRoot{display:block!important}body:not(.printing) .appHeader,body:not(.printing) .footer,body:not(.printing) .sectionNav,body:not(.printing) .modeTabs,body:not(.printing) button,body:not(.printing) .predictionChoices{display:none!important}body:not(.printing) .appMain{padding:0}body:not(.printing) .learnGrid{display:block}#printRoot .sheet{break-after:page;page-break-after:always;box-sizing:border-box;height:272mm;display:flex;flex-direction:column;margin:0;padding:0}#printRoot .sheet:last-child{break-after:auto;page-break-after:auto}#printRoot .certificateSheet{height:272mm;padding:2mm}#printRoot .certificate{height:266mm;min-height:0}#printRoot .questionGrid{flex:1;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:3mm}#printRoot .qcard{padding:3mm;border-radius:2mm;overflow:visible}#printRoot .qcard .qPrompt{font-size:10pt;line-height:1.35}#printRoot .qcard h3{font-size:10pt}#printRoot .qcard svg{max-height:24mm}#printRoot .qcard .answerLine{font-size:9pt}#printRoot .qcard .writeLines{min-height:8mm}#printRoot .printNote{font-size:7.2pt}#printRoot .answerSheet .qcard ol{font-size:9pt;line-height:1.4}#printRoot .answerSheet .qcard .keyAnswer{font-size:10pt}#printRoot .sheetHeader h2{font-size:20pt}#printRoot .sheetHeader{font-size:9pt;margin-bottom:3mm;padding-bottom:3mm}#printRoot .printIntro{font-size:8.5pt}#printRoot .sheetFooter{font-size:7.5pt;padding-top:3mm}#printRoot .studentDetails{font-size:9pt}#printRoot .notesSheet p,#printRoot .notesSheet li,#printRoot .notesSheet table{font-size:10pt}#printRoot .notesSheet h3{font-size:13pt}#printRoot .notesSheet .notesBanner{font-size:10pt}.noPrint{display:none!important}}
+.previewPages .paper+.paper{margin-top:20px}.previewPages .threeQuestions .questionGrid{grid-template-columns:1fr}.previewPages .threeQuestions .qcard .printDiagram{max-width:420px}.previewPages .threeQuestions .qcard .writeLines{height:26px}
+@media print{#printRoot .threeQuestions .questionGrid{grid-template-columns:1fr}#printRoot .threeQuestions .qcard{display:grid;grid-template-columns:1.1fr .9fr;column-gap:5mm;align-content:start}#printRoot .threeQuestions .qcard h3{grid-column:1;grid-row:1}#printRoot .threeQuestions .qcard .qPrompt{grid-column:1;grid-row:2}#printRoot .threeQuestions .qcard .printDiagram{grid-column:2;grid-row:1 / 4;align-self:center}#printRoot .threeQuestions .qcard .answerBlock{grid-column:1 / -1;margin-top:3mm}#printRoot .threeQuestions .qcard .writeLines{grid-column:1 / -1;margin-top:3mm;min-height:12mm}#printRoot .threeQuestions .qcard .printNote{grid-column:1 / -1}#printRoot .threeQuestions .qcard svg{max-height:35mm}}
+/* Checkbox widths must not inherit the full-width text-input rule. */
+.checkGrid input[type=checkbox]{width:18px;height:18px;margin:0;flex:0 0 18px}
+.headerActions #profileBtn span{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:560px){.headerActions #profileBtn span{max-width:95px}}
+@media print{#printRoot .notesSheet h3{margin:10px 0 6px}#printRoot .notesSheet td,#printRoot .notesSheet th{padding:7px}#printRoot .notesSheet th:first-child{width:22mm}#printRoot .notesSheet .notesBanner{margin:10px 0;padding:11px}#printRoot .notesSheet ul{margin:4px 0}#printRoot .notesSheet p{line-height:1.45}}
+
+/* Real ruled lines print reliably; no repeating-gradient rasterisation. */
+.writeLines{background:none;display:flex;flex-direction:column;justify-content:space-evenly;flex-shrink:0}.writeLines span{display:block;width:100%;border-bottom:1px solid #b9c5be;height:0}
+/* Preserve readable certificate spacing when names or school details wrap. */
+.certificate.compactCertificate .medal{width:25mm;height:25mm;margin:6mm auto 4mm}
+.certificate.compactCertificate h1{font-size:28px;margin-bottom:6mm}
+.certificate.compactCertificate .certName{font-size:26px;padding-bottom:4mm}
+.certificate.compactCertificate .certSkills{margin:5mm 0;padding:4mm 0}
+.certificate.compactCertificate .certKicker{margin-top:6mm}
+</style>
+</head>
+<body>
+<a class="skip" href="#pageContent">Skip to learning activity</a>
+<div id="app">
+<header class="appHeader"><div class="headerInner"><div class="brand"><div class="brandMark" aria-hidden="true">1/2</div><div><strong>Fraction Lab</strong><span class="eyebrow">See it. Predict it. Explain it.</span></div></div><div class="headerActions"><span class="offline">Works offline</span><button class="button" id="profileBtn">Learner name</button><button class="button quiet" id="helpBtn" aria-label="How to use Fraction Lab"><b aria-hidden="true">?</b><span> Help</span></button></div></div><nav class="topNav" aria-label="Main navigation"><button data-page="learn" class="active">Learn &amp; explore</button><button data-page="certificates">My certificates <span class="pill" id="awardCount">0/8</span></button><button data-page="teacher">Relief class sets</button></nav></header>
+<main class="appMain" id="pageContent" tabindex="-1"></main>
+<footer class="footer"><span>FRACTION LAB &nbsp; / &nbsp; 8 contexts. One connected idea.</span><span id="storageStatus">No login. No uploads. Progress stays in this browser.</span><button id="privacyBtn">Shared-device &amp; privacy notes</button></footer>
+</div>
+<div id="printRoot" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<dialog id="profileDialog" aria-labelledby="profileTitle"><div class="dialogTop"><h2 id="profileTitle">Your learning passport</h2><button class="dialogClose" data-close="profileDialog" aria-label="Close">&times;</button></div><p>Add the name to appear on your certificates. Use a first name or school-approved nickname. Nothing is uploaded.</p><form id="profileForm"><div class="field"><label for="learnerName">Learner name</label><input id="learnerName" type="text" maxlength="65" autocomplete="off" required></div><div class="fieldsTwo"><div class="field"><label for="learnerClass">Class (optional)</label><input id="learnerClass" type="text" maxlength="35" autocomplete="off"></div><div class="field"><label for="learnerSchool">School (optional)</label><input id="learnerSchool" type="text" maxlength="65" autocomplete="off"></div></div><div class="buttonRow"><button class="button primary" id="saveLearner" type="submit">Save learner</button><button class="button danger" id="newLearner" type="button">Start a new learner</button></div><p class="finePrint" style="margin:16px 0 0">Shared computer? Start a new learner to remove the previous learner's saved progress. Changing the name also starts fresh; changing class or school does not.</p></form></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialogTop"><h2 id="helpTitle">How the lab works</h2><button class="dialogClose" data-close="helpDialog" aria-label="Close">&times;</button></div><div class="helpBlock"><h3>1. Predict, then move one thing</h3><p>Choose a section, make a prediction, and use the sliders or number boxes. Compare the picture and the calculation. The whole and the units matter.</p></div><div class="helpBlock"><h3>2. Practise with support</h3><p>Choose Start, Build or Stretch. Worked examples show each step. Practice offers hints, answer checks and a new random question. Enter a number, a fraction such as 3/4, or a mixed number such as 1 1/2. Round decimal answers to two places.</p></div><div class="helpBlock"><h3>3. Earn a section certificate</h3><p>Enter a learner name, then take a five-question certificate check. Answer each question once; solutions appear after submission. Four or five correct questions earn that section's certificate at the selected level. You can retry a new check.</p></div><div class="helpBlock"><h3>4. Print a relief class set</h3><p>Open Relief class sets. Select the sections, level, class size and four or six questions. Generate numbered versions, then print student sheets, answer keys or teacher notes separately. Keep the seed and settings to reproduce a set.</p></div><div class="helpBlock"><h3>Privacy and limits</h3><p>No internet or account is needed. Progress is stored only in this browser on this device; browser settings, clearing data, moving the file or using a shared device may affect it. Print certificates before clearing progress. This is a self-check learning activity, not a secure assessment or a class tracking system. Optional class rosters are not saved between visits.</p></div><div class="helpBlock"><h3>Printing</h3><p>Use the page's print buttons, A4 paper and 100% scale. Turn browser headers and footers off. Colour is optional; text labels and outlines remain. Your browser's print dialog can also save a PDF.</p></div></dialog>
+<noscript><p style="padding:30px">Please open this file in a browser with JavaScript enabled. Fraction Lab needs JavaScript for its sliders, questions and printing.</p></noscript>
+<script>/* Fraction Lab: exact integer models, question generation and answer checking. */
+(function (root, factory) {
+  const value = factory();
+  if (typeof module === 'object' && module.exports) module.exports = value;
+  else root.FractionCore = value;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const contexts = [
+    {id:'walls',title:'Brick walls',short:'Equal parts, equal amounts',aim:'Make equivalent fractions of the same whole.',skills:['Describe equal parts of a whole','Find equivalent fractions','Connect a fraction to an amount'],colour:'#a6472a'},
+    {id:'glass',title:'Pouring lab',short:'Small pours, bigger fractions',aim:'Connect shots, fractions and liquid volume.',skills:['Connect a shot to a fraction','Calculate a target volume','Count full containers and leftovers'],colour:'#146f98'},
+    {id:'bucket',title:'Ball bucket',short:'Equal counts or equal space?',aim:'Distinguish equal numbers from equal volumes.',skills:['Use a relative volume','Find a maximum whole-object count','Explain equal counts and equal volumes'],colour:'#7356a4'},
+    {id:'space',title:'Space pantry',short:'Food, people and time',aim:'Use daily consumption to plan a mission.',skills:['Combine daily consumption rates','Calculate food or mission duration','Interpret whole days and remaining food'],colour:'#445b9d'},
+    {id:'recipe',title:'Recipe bench',short:'Scale a batch',aim:'Scale ingredient amounts without changing the recipe.',skills:['Multiply fractional quantities','Scale between servings','Interpret complete batches'],colour:'#a15c13'},
+    {id:'battery',title:'Battery bay',short:'Same fraction, different energy',aim:'Compare stored energy, not just charge fractions.',skills:['Find a fraction of a capacity','Compare different wholes','Interpret energy use over time'],colour:'#267853'},
+    {id:'timber',title:'Timber yard',short:'Measure, divide, keep the offcut',aim:'Find full lengths and explain the material left over.',skills:['Divide a length by a fractional length','Round down to whole pieces','Calculate offcuts or stock requirements'],colour:'#8d5a33'},
+    {id:'garden',title:'Garden plots',short:'Parts of an area',aim:'Compare planted areas and notice the size of the whole.',skills:['Find a fraction of an area','Compare different-sized wholes','Account for planted and unplanted space'],colour:'#487341'}
+  ];
+  const levels={1:'Start',2:'Build',3:'Stretch'};
+  function gcd(a,b){ a=Math.abs(a);b=Math.abs(b);while(b){const t=b;b=a%b;a=t;}return a||1; }
+  function frac(n,d=1){if(!Number.isFinite(n)||!Number.isFinite(d)||d===0)return '?';if(d<0){n=-n;d=-d;}const g=gcd(n,d);n/=g;d/=g;return d===1?String(n):`${n}/${d}`;}
+  function mixed(n,d){const whole=Math.floor(n/d),r=n-whole*d;return r?(whole?whole+' ':'')+frac(r,d):String(whole);}
+  function fmt(n){return Number.isInteger(n)?String(n):Number(n.toFixed(2)).toString();}
+  function parseAnswer(text){
+    if(typeof text!=='string' && typeof text!=='number')return null;
+    const s=String(text).trim().replace(/\u2212/g,'-');if(!s)return null;
+    let m=s.match(/^([+-]?\d+)\s+(\d+)\s*\/\s*(\d+)$/),v;
+    if(m){if(+m[3]===0)return null;v=(Math.abs(+m[1])+(+m[2])/(+m[3]))*(m[1].startsWith('-')?-1:1);}
+    else if((m=s.match(/^([+-]?\d+)\s*\/\s*([+-]?\d+)$/))){if(+m[2]===0)return null;v=(+m[1])/(+m[2]);}
+    else if(/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(s))v=Number(s);
+    else return null;
+    return Number.isFinite(v)?v:null;
+  }
+  function check(text,answer){const n=parseAnswer(text);return n!==null && Math.abs(n-answer.value)<(answer.integer?1e-8:0.00501);}
+  function positive(...xs){if(xs.some(x=>!Number.isFinite(x)||x<=0))throw new RangeError('Use positive finite values.');}
+  function bucket(capacity,p,q,small=0,large=0){positive(capacity,p,q);const total=capacity*p,used=small*p+large*q;return {total,used,remaining:total-used,largeOnly:Math.floor(total/q),equalEach:Math.floor(total/(p+q)),halfSmall:Math.floor(capacity/2),halfLarge:Math.floor(total/(2*q))};}
+  function space(food,a,b){positive(a,b);if(!Number.isFinite(food)||food<0)throw new RangeError('Food must be nonnegative.');const rate=a+b,days=Math.floor(food/rate);return {rate,days,left:food-days*rate};}
+  function timber(length,n,d){positive(length,n,d);const count=Math.floor(length*d/n);return {count,remaining:(length*d-count*n)/d};}
+  function random(seed){let h=2166136261;for(const c of String(seed)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}let a=h>>>0;const r=function(){a+=0x6D2B79F5;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};r.int=(min,max)=>min+Math.floor(r()*(max-min+1));r.pick=xs=>xs[r.int(0,xs.length-1)];return r;}
+  function shuffle(xs,r){const a=xs.slice();for(let i=a.length-1;i>0;i--){const j=r.int(0,i);[a[i],a[j]]=[a[j],a[i]];}return a;}
+  const answer=(label,value,unit='',integer=false)=>({label,value,unit,integer});
+  function question(context,level,r=random(Date.now()),index=0){
+    level=Math.max(1,Math.min(3,Number(level)||1));
+    if(!contexts.some(x=>x.id===context))throw new Error('Unknown section.');
+    const q={context,level,title:contexts.find(x=>x.id===context).title,answers:[],steps:[],note:'',diagram:{},meta:{}};
+    const d=r.pick(level===1?[2,3,4]:[3,4,5,6,8]),n=r.int(1,d-1),k=r.int(2,level===1?3:5),f=frac(n,d);
+    if(context==='walls'){
+      if(level===1 || (level===2 && index%2===0)){
+        q.prompt=`Both walls have the same area. Wall A has ${n} of ${d} equal bricks painted. Wall B has ${d*k} equal bricks. How many bricks must be painted on B to cover the same area?`;
+        q.answers=[answer('Painted bricks on B',n*k,'bricks',true)];
+        q.hint='How many times larger is the new denominator? Do the same to the numerator.';
+        q.steps=[`The shaded fraction is ${n}/${d}.`,`${d*k} \u00f7 ${d} = ${k}, so multiply both parts of the fraction by ${k}.`,`${n} \u00d7 ${k} = ${n*k}. The equivalent fraction is ${n*k}/${d*k}.`];
+        q.diagram={kind:'equivalent',n,d,target:d*k,style:'walls'};q.meta={type:'equivalent',n,d,k};
+      }else if(level===2){
+        q.prompt=`A wall has ${n*k} of its ${d*k} equal bricks painted. Write the painted fraction in its simplest form. Give the numerator and denominator.`;
+        const g=gcd(n,d);q.answers=[answer('Numerator',n/g,'',true),answer('Denominator',d/g,'',true)];
+        q.hint='Find the greatest number that divides both the numerator and the denominator.';
+        const G=gcd(n*k,d*k);q.steps=[`The fraction is ${n*k}/${d*k}.`,`Divide both numbers by ${G}.`,`${n*k} \u00f7 ${G} = ${n/g}; ${d*k} \u00f7 ${G} = ${d/g}. So the fraction is ${frac(n,d)}.`];
+        q.diagram={kind:'fraction',n:n*k,d:d*k,style:'walls'};q.meta={type:'simplify',n,d,k};
+      }else{
+        const total=d*r.int(4,12),next=n+1;
+        q.prompt=`A wall contains ${total} equal bricks. ${n}/${d} of the wall is painted. How many MORE bricks must be painted to make the painted fraction ${next}/${d}?`;
+        q.answers=[answer('Extra bricks',total/d,'bricks',true)];q.hint='Find the difference between the target fraction and the current fraction first.';
+        q.steps=[`The extra fraction is ${next}/${d} - ${n}/${d} = 1/${d}.`,`One of ${d} equal groups contains ${total} \u00f7 ${d} = ${total/d} bricks.`,`Paint ${total/d} more bricks; do not count the already-painted bricks again.`];
+        q.diagram={kind:'fraction',n:total*n/d,d:total,displayN:n,displayD:d,style:'walls',caption:`${total} bricks altogether; target ${next}/${d}`};q.meta={type:'wallmore',total,d};
+      }
+    }
+    if(context==='glass'){
+      if(level<=2){
+        const capacity=d*k*r.pick([50,100]),shot=capacity/(d*k),shots=n*k;
+        q.prompt=`An empty ${capacity} mL glass is filled using equal ${shot} mL shots. How many shots fill ${n}/${d} of the glass?${level===2?' Also give the target liquid volume.':''}`;
+        q.answers=[answer('Shots',shots,'shots',true)];if(level===2)q.answers.push(answer('Target volume',capacity*n/d,'mL'));
+        q.hint='First find the target volume. Then divide that volume by the size of one shot.';
+        q.steps=[`Target volume = ${capacity} \u00d7 ${n}/${d} = ${capacity*n/d} mL.`,`Shots needed = ${capacity*n/d} \u00f7 ${shot} = ${shots}.`,`Check: ${shots} equal shots contain ${shots*shot} mL.`];
+        q.diagram={kind:'glass',n,d,capacity,shot};q.meta={type:'shots',n,d,k,capacity,shot};
+      }else{
+        const litres=r.int(2,6),full=Math.floor(litres*d/n),leftN=litres*d-full*n;
+        q.prompt=`A jug contains ${litres} L. Each serving glass holds ${n}/${d} L. How many FULL glasses can be poured, and how many litres remain?`;
+        q.answers=[answer('Full glasses',full,'glasses',true),answer('Liquid left',leftN/d,'L')];
+        q.hint='Divide by the size of one glass, round down, then subtract the liquid used.';
+        q.steps=[`${litres} \u00f7 (${n}/${d}) = ${frac(litres*d,n)} glassfuls.`,`Only ${full} complete glasses can be filled.`,`Liquid left = ${litres} - ${full} \u00d7 (${n}/${d}) = ${frac(leftN,d)} L.`];
+        q.diagram={kind:'servings',litres,n,d};q.meta={type:'servings',litres,n,d};
+      }
+    }
+    if(context==='bucket'){
+      const [p,b]=r.pick([[1,2],[2,3],[3,4],[4,5]]),capacity=level===1?b*r.int(8,25):r.int(8,20)*10;
+      const model=bucket(capacity,p,b);
+      q.note='Volume-only model: ignore gaps between balls. These are invented ball sizes, not real sports-ball measurements.';
+      q.diagram={kind:'bucket',p,q:b,capacity};
+      if(level===1){
+        q.prompt=`A small ball has ${p}/${b} the volume of a large ball. A bucket has the volume of ${capacity} small balls. How many whole LARGE balls fit when no small balls are included?`;
+        q.answers=[answer('Large balls',model.largeOnly,'balls',true)];q.hint='Use small-ball volume as a unit, or multiply the small-ball capacity by the volume ratio.';
+        q.steps=[`One small ball uses ${p} units; one large ball uses ${b} units.`,`Bucket volume = ${capacity} \u00d7 ${p} = ${model.total} units.`,`${model.total} \u00f7 ${b} = ${model.largeOnly} large balls.`];q.meta={type:'largeonly',capacity,p,q:b};
+      }else if(level===2){
+        q.prompt=`A small ball has ${p}/${b} the volume of a large ball. The bucket has the volume of ${capacity} small balls. What is the greatest EQUAL NUMBER of each type that fits together?`;
+        q.answers=[answer('Number of EACH type',model.equalEach,'of each',true)];q.hint='Treat one small ball and one large ball as a pair. How much volume does a pair use?';
+        q.steps=[`Use ${p} units per small ball and ${b} per large ball. Bucket volume = ${model.total} units.`,`One pair uses ${p+b} units. ${model.total} \u00f7 ${p+b} = ${fmt(model.total/(p+b))} pairs (approximately if needed).`,`Round DOWN: ${model.equalEach} of each type. The next pair would use ${(model.equalEach+1)*(p+b)} units, more than the bucket holds.`];q.meta={type:'equalpairs',capacity,p,q:b};
+      }else{
+        q.prompt=`A small ball has ${p}/${b} the volume of a large ball. The bucket has the volume of ${capacity} small balls. Give each type AT MOST HALF the bucket's volume. What is the maximum whole number of each type?`;
+        q.answers=[answer('Small balls',model.halfSmall,'balls',true),answer('Large balls',model.halfLarge,'balls',true)];q.hint='Split the volume, not the number of balls. Divide each half by the relevant ball volume.';
+        q.steps=[`The bucket holds ${model.total} volume units, so each type gets at most ${fmt(model.total/2)} units.`,`Small balls: floor(${fmt(model.total/2)} \u00f7 ${p}) = ${model.halfSmall}.`,`Large balls: floor(${fmt(model.total/2)} \u00f7 ${b}) = ${model.halfLarge}. A fractional ball is not allowed, so exact half-filling may be impossible.`];q.meta={type:'halfvolume',capacity,p,q:b};
+      }
+    }
+    if(context==='space'){
+      const [p,b]=r.pick([[1,2],[2,3],[3,4]]),scale=r.int(1,2),a=b*scale,other=p*scale,days=r.int(8,30),rate=a+other,left=level===3?r.int(1,rate-1):0,food=rate*days+left;
+      q.note='Invented daily requirements; all meal packs contain the same energy. This is a maths model, not nutrition advice.';
+      q.diagram={kind:'space',a,p,q:b,food:level===2?null:food,days:level===2?days:null};
+      if(level===2){
+        q.prompt=`Astronaut A needs ${a} meal packs per day. B needs ${p}/${b} as many as A. How many identical packs are needed for a ${days}-day mission for BOTH astronauts?`;
+        q.answers=[answer('Food supply',rate*days,'packs',true)];q.hint='Find B\'s daily amount, add the two daily rates, then multiply by the days.';
+        q.steps=[`B needs ${a} \u00d7 ${p}/${b} = ${other} packs per day.`,`Together they need ${a} + ${other} = ${rate} packs per day.`,`${days} days require ${rate} \u00d7 ${days} = ${rate*days} packs.`];q.meta={type:'foodneeded',a,b:other,days};
+      }else{
+        q.prompt=`Astronaut A needs ${a} packs a day. B needs ${p}/${b} as many as A. They share ${food} identical packs. How many FULL days will the supply last?${level===3?' How many packs remain after those days?':''}`;
+        q.answers=[answer('Full mission days',days,'days',true)];if(level===3)q.answers.push(answer('Packs left',left,'packs',true));q.hint='Combine the daily rates before dividing the supply. Both astronauts must be fed each day.';
+        q.steps=[`B uses ${a} \u00d7 ${p}/${b} = ${other} packs per day.`,`Together: ${a} + ${other} = ${rate} packs per day.`,`${food} \u00f7 ${rate} gives ${days} full days; ${food} - ${days*rate} = ${left} packs remain.`];q.meta={type:'foodlasts',a,b:other,food};
+      }
+    }
+    if(context==='recipe'){
+      q.note='Practice ingredient quantities only, not a complete cooking recipe.';
+      if(level===1){
+        const batches=r.int(2,5);q.prompt=`One batch of oat biscuits needs ${n}/${d} cup of oats. How many cups of oats are needed for ${batches} identical batches?`;
+        q.answers=[answer('Oats needed',n*batches/d,'cups')];q.hint='Add the same fraction once for each batch, or multiply the numerator by the number of batches.';
+        q.steps=[`Each batch uses ${n}/${d} cup.`,`${batches} \u00d7 (${n}/${d}) = ${n*batches}/${d}.`,`That is ${mixed(n*batches,d)} cups in total.`];q.diagram={kind:'recipe',n,d,batches};q.meta={type:'batches',n,d,batches};
+      }else if(level===2){
+        const stock=r.int(2,6),batches=Math.floor(stock*d/n),leftN=stock*d-batches*n;
+        q.prompt=`One batch needs ${n}/${d} cup of oats. You have ${stock} cups. How many COMPLETE batches can you make, and how many cups remain?`;
+        q.answers=[answer('Complete batches',batches,'batches',true),answer('Oats left',leftN/d,'cups')];q.hint='How many groups of the recipe amount fit into the stock? Round down, then calculate the unused oats.';
+        q.steps=[`${stock} \u00f7 (${n}/${d}) = ${frac(stock*d,n)} batches before rounding.`,`Make ${batches} complete batches.`,`Oats left = ${stock} - ${batches} \u00d7 ${n}/${d} = ${frac(leftN,d)} cups.`];q.diagram={kind:'stock',stock,n,d};q.meta={type:'recipestock',stock,n,d};
+      }else{
+        const serves=r.pick([4,6,8]),people=r.pick([3,5,9,10,12]);
+        q.prompt=`A recipe for ${serves} people uses ${n}/${d} cup of oats. Scale it to serve ${people} people. How many cups of oats are needed?`;
+        q.answers=[answer('Scaled oats',n*people/(d*serves),'cups')];q.hint='The scale factor is new servings divided by original servings. It does not have to be a whole number.';
+        q.steps=[`Scale factor = ${people}/${serves}.`,`Oats needed = (${n}/${d}) \u00d7 (${people}/${serves}) = ${n*people}/${d*serves}.`,`In simplest form: ${frac(n*people,d*serves)} cups.`];q.diagram={kind:'scalerecipe',n,d,serves,people};q.meta={type:'recipeserves',n,d,serves,people};
+      }
+    }
+    if(context==='battery'){
+      const capacity=d*r.int(4,12),energy=capacity*n/d;
+      q.note='Ideal energy model: ignore losses and changes in power demand. kWh measures energy.';
+      if(level===1){
+        q.prompt=`A battery has a full capacity of ${capacity} kWh and is ${n}/${d} charged. How much energy is stored?`;
+        q.answers=[answer('Stored energy',energy,'kWh')];q.hint='Divide the full capacity by the denominator, then take the numerator of those equal parts.';
+        q.steps=[`One of ${d} equal parts contains ${capacity} \u00f7 ${d} = ${capacity/d} kWh.`,`Take ${n} parts: ${capacity/d} \u00d7 ${n} = ${energy} kWh.`];q.diagram={kind:'battery',n,d,capacity};q.meta={type:'energy',n,d,capacity};
+      }else if(level===2){
+        const bd=r.pick([2,4,5]),bn=r.int(1,bd-1),bc=bd*r.int(5,15),be=bc*bn/bd;
+        q.prompt=`Battery A: ${capacity} kWh capacity, ${n}/${d} charged. Battery B: ${bc} kWh capacity, ${bn}/${bd} charged. What is the DIFFERENCE between their stored energies? Give a nonnegative amount.`;
+        q.answers=[answer('Energy difference',Math.abs(energy-be),'kWh')];q.hint='Calculate both actual energy amounts before comparing them. The charge fractions alone are not enough.';
+        q.steps=[`A stores ${capacity} \u00d7 ${n}/${d} = ${energy} kWh.`,`B stores ${bc} \u00d7 ${bn}/${bd} = ${be} kWh.`,`Difference = ${Math.max(energy,be)} - ${Math.min(energy,be)} = ${Math.abs(energy-be)} kWh.`];q.diagram={kind:'batteries',n,d,capacity,bn,bd,bc};q.meta={type:'energydifference',n,d,capacity,bn,bd,bc};
+      }else{
+        const rate=r.int(2,7),hours=Math.floor(energy/rate),left=energy-hours*rate;
+        q.prompt=`A ${capacity} kWh battery is ${n}/${d} charged. A device uses ${rate} kWh each hour. How many FULL hours can it run, and how much energy remains after those hours?`;
+        q.answers=[answer('Full hours',hours,'hours',true),answer('Energy left',left,'kWh')];q.hint='Find the stored energy first, then divide by hourly use and round down.';
+        q.steps=[`Stored energy = ${capacity} \u00d7 ${n}/${d} = ${energy} kWh.`,`Full hours = floor(${energy} \u00f7 ${rate}) = ${hours}.`,`Energy left = ${energy} - ${hours} \u00d7 ${rate} = ${left} kWh.`];q.diagram={kind:'battery',n,d,capacity,rate};q.meta={type:'batteryhours',n,d,capacity,rate};
+      }
+    }
+    if(context==='timber'){
+      const den=r.pick([2,4,5,8]),num=r.int(1,den+1),length=r.int(3,9),model=timber(length,num,den);
+      q.note='Ignore saw-blade width (kerf). Pieces must be whole; offcuts cannot be joined.';
+      q.diagram={kind:'timber',length,n:num,d:den};
+      if(level<=2){
+        q.prompt=`A board is ${length} m long. Each piece must be ${num}/${den} m long. How many FULL pieces can be cut?${level===2?' Also give the length of the offcut.':''}`;
+        q.answers=[answer('Full pieces',model.count,'pieces',true)];if(level===2)q.answers.push(answer('Offcut',model.remaining,'m'));
+        q.hint='Divide the total length by one piece length. Only count complete pieces.';
+        q.steps=[`${length} \u00f7 (${num}/${den}) = ${frac(length*den,num)} pieces before rounding.`,`There is room for ${model.count} full pieces.`,`Offcut = ${length} - ${model.count} \u00d7 ${num}/${den} = ${frac(length*den-model.count*num,den)} m.`];q.meta={type:'timberpieces',length,n:num,d:den};
+      }else{
+        const need=r.int(model.count+1,model.count*4+1),boards=Math.ceil(need/model.count);
+        q.prompt=`You need ${need} pieces, each ${num}/${den} m long. Stock boards are ${length} m long. What is the minimum number of stock boards needed? Do not join offcuts.`;
+        q.answers=[answer('Stock boards',boards,'boards',true)];q.hint='Find the number of full pieces from ONE board first. Then round the number of boards UP.';
+        q.steps=[`One board gives floor(${length} \u00f7 (${num}/${den})) = ${model.count} complete pieces.`,`${need} \u00f7 ${model.count} = ${fmt(need/model.count)} boards (approximately if needed).`,`Buy ${boards} whole boards; ${boards-1} boards would give only ${(boards-1)*model.count} pieces.`];q.meta={type:'stockboards',length,n:num,d:den,need};
+      }
+    }
+    if(context==='garden'){
+      const area=d*r.int(3,9);
+      if(level===1){
+        q.prompt=`A garden has an area of ${area} square metres. ${n}/${d} is planted with carrots. What area is planted with carrots?`;
+        q.answers=[answer('Carrot area',area*n/d,'m\u00b2')];q.hint='Split the total area into the denominator number of equal parts. Take the numerator of those parts.';
+        q.steps=[`Each of ${d} equal parts is ${area} \u00f7 ${d} = ${area/d} m\u00b2.`,`${n} parts cover ${area/d} \u00d7 ${n} = ${area*n/d} m\u00b2.`];q.diagram={kind:'garden',n,d,area};q.meta={type:'gardenarea',n,d,area};
+      }else if(level===2){
+        const multiple=r.int(2,3),barea=area*multiple;
+        q.prompt=`Garden A is ${area} m\u00b2, with ${n}/${d} planted. Garden B is ${barea} m\u00b2. What FRACTION of B must be planted to give the SAME planted area as A?`;
+        q.answers=[answer('Fraction of garden B',n/(d*multiple),'of B')];q.hint='First find the planted area of A. Divide that amount by the whole area of B.';
+        q.steps=[`A has ${area} \u00d7 ${n}/${d} = ${area*n/d} m\u00b2 planted.`,`Required fraction of B = ${area*n/d}/${barea}.`,`Simplify to ${frac(n,d*multiple)}. A bigger whole needs a smaller fraction for the same planted area.`];q.diagram={kind:'gardens',n,d,area,barea};q.meta={type:'gardenmatch',n,d,area,barea};
+      }else{
+        const den=r.pick([4,6,8]),a=r.int(1,den-2),b=r.int(1,den-a-1),whole=den*r.int(3,9),rest=den-a-b;
+        q.prompt=`A ${whole} m\u00b2 garden has ${a}/${den} planted with carrots and ${b}/${den} with beans. The planted areas do not overlap. How many square metres are still unplanted?`;
+        q.answers=[answer('Unplanted area',whole*rest/den,'m\u00b2')];q.hint='Add the planted fractions. Subtract that fraction from one whole before finding the remaining area.';
+        q.steps=[`Planted fraction = ${a}/${den} + ${b}/${den} = ${a+b}/${den}.`,`Unplanted fraction = ${den}/${den} - ${a+b}/${den} = ${rest}/${den}.`,`Remaining area = ${whole} \u00d7 ${rest}/${den} = ${whole*rest/den} m\u00b2.`];q.diagram={kind:'gardenmix',n:a,b,d:den,area:whole};q.meta={type:'gardenremaining',n:a,b,d:den,area:whole};
+      }
+    }
+    q.id=context+'-'+level+'-'+Math.floor(r()*1e9).toString(36);
+    return q;
+  }
+  function makeSet(config){
+    const ids=(config.contexts||[]).filter(x=>contexts.some(c=>c.id===x));if(!ids.length)throw new Error('Select at least one section.');
+    const students=Math.max(1,Math.min(40,Math.round(Number(config.students)||1))),count=config.count===4?4:6,level=Math.max(1,Math.min(3,Number(config.level)||1)),seed=String(config.seed||'FRACTION-LAB');
+    const used=new Set(),sets=[];
+    for(let i=0;i<students;i++){
+      let qs,signature,attempt=0;
+      do{
+        const r=random(seed+'|'+i+'|'+attempt++),order=shuffle(ids,r);qs=[];const seen=new Set();
+        for(let j=0;j<count;j++){
+          const ctx=order[(i+j)%order.length];let q,tries=0;
+          do {q=question(ctx,level,r,j+tries++);}while(seen.has(q.prompt)&&tries<100);
+          seen.add(q.prompt);qs.push(q);
+        }
+        signature=qs.map(q=>q.prompt).join('|');
+      }while(used.has(signature)&&attempt<100);
+      if(used.has(signature))throw new Error('Could not create distinct sheets. Select more sections or change the seed.');
+      used.add(signature);sets.push({version:i+1,code:seed+'-'+String(i+1).padStart(2,'0'),questions:qs});
+    }
+    return sets;
+  }
+  return {contexts,levels,gcd,frac,mixed,fmt,parseAnswer,check,bucket,space,timber,random,shuffle,question,makeSet};
+});
+</script>
+<script>/* Quantitative SVG diagrams. All art and fonts are embedded or system-provided. */
+const V=(()=>{
+  'use strict';
+  const C=FractionCore,ink='#173338',muted='#52676b',blue='#18769a',orange='#bb6235',teal='#237a65',purple='#7356a4',pale='#edf2ee';
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const text=(x,y,t,size=19,weight=400,anchor='start',fill=ink)=>`<text x="${x}" y="${y}" font-size="${size}" font-weight="${weight}" text-anchor="${anchor}" style="fill:${fill}">${esc(t)}</text>`;
+  const rect=(x,y,w,h,fill=pale,stroke='#a8bcb0',rx=0)=>`<rect x="${x}" y="${y}" width="${Math.max(0,w)}" height="${Math.max(0,h)}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>`;
+  const line=(x1,y1,x2,y2,col='#a8bcb0',dash='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="1.5" ${dash?`stroke-dasharray="${dash}"`:''}/>`;
+  const svg=(body,label,w=680,h=350)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}"><title>${esc(label)}</title>${body}</svg>`;
+  function icon(id,size=24){
+    const paths={walls:'<path d="M3 5h18v14H3zM3 12h18M9 5v7m7 0v7"/>',glass:'<path d="M6 3h12v18H6zM6 11h12M14 7h4m-4 8h4"/>',bucket:'<path d="M4 8h16l-2 13H6L4 8Zm3 0V6a5 5 0 0 1 10 0v2"/><circle cx="9" cy="14" r="2"/><circle cx="15" cy="17" r="2"/>',space:'<circle cx="12" cy="7" r="5"/><path d="M8 6h8v3H8zM7 12h10l3 8h-5l-1-5h-4l-1 5H4l3-8Z"/>',recipe:'<path d="M5 9h13v11H5zM18 11h2a3 3 0 0 1 0 6h-2M8 4v2m4-3v3m4-2v2"/>',battery:'<path d="M3 6h16v12H3zM19 10h3v4h-3M6 9v6m4-6v6m4-6v6"/>',timber:'<path d="M3 6h18v12H3zM7 6v7m5-7v4m5-4v7M5 21h14"/>',garden:'<path d="M3 4h18v17H3zM3 12h18M12 4v17M7 9V7m10 11v-3M6 8l1 1 2-2m7 9 1 1 2-2"/>',learn:'<path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3zM12 6v15"/>',certificates:'<circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8M9 9l2 2 4-4"/>',teacher:'<path d="M7 3h14v17H7zM3 7v16h13M10 7h8m-8 4h8m-8 4h5"/>',print:'<path d="M6 8V3h12v5M6 17H3V9h18v8h-3M6 14h12v8H6zM17 11h1"/>',refresh:'<path d="M20 9a8 8 0 1 0-1 9M20 3v6h-6"/>',check:'<path d="m4 12 5 5L20 6"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',user:'<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>',download:'<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>'};
+    return `<svg class="icon" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[id]||paths.learn}</svg>`;
+  }
+  function medal(col=teal){return `<svg class="medal" viewBox="0 0 120 120" aria-hidden="true"><path d="m34 71-8 44 34-17 34 17-8-44" fill="${col}" opacity=".88"/><circle cx="60" cy="49" r="40" fill="#fbf5e2" stroke="${col}" stroke-width="3"/><circle cx="60" cy="49" r="31" fill="none" stroke="${col}" stroke-width="1"/><path d="m43 49 12 12 23-25" fill="none" stroke="${col}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="m25 22 4-9 5 9m57 0 4-9 5 9" fill="none" stroke="${col}" stroke-width="2"/></svg>`;}
+  function bar(x,y,w,h,n,d,col=blue,style='plain',unknown=false){
+    let s=rect(x,y,w,h,'#f4f5ef',ink,4);
+    if(!unknown&&n>0)s+=rect(x,y,w*Math.min(n/d,1),h,col,'none',3);
+    for(let i=1;i<d;i++)s+=line(x+w*i/d,y,x+w*i/d,y+h,i<n?'#ffffffb0':'#7e9487');
+    if(style==='walls'){
+      for(let i=0;i<d;i++){const bw=w/d;if(bw>16)s+=`<path d="M${x+i*bw+4} ${y+5}h${Math.max(0,bw-8)}M${x+i*bw+4} ${y+h-5}h${Math.max(0,bw-8)}" stroke="${i<n&&!unknown?'#ffffff50':'#b7c3b5'}" fill="none"/>`;}
+    }
+    if(unknown)s+=text(x+w/2,y+h/2+7,'?',24,700,'middle',muted);
+    return s;
+  }
+  function numberline(x,y,w,n,d,col){let s=line(x,y,x+w,y,muted);for(let i=0;i<=d;i++)s+=line(x+w*i/d,y-4,x+w*i/d,y+4,muted);s+=`<circle cx="${x+w*n/d}" cy="${y}" r="6" fill="${col}"/>`;s+=text(x,y+24,'0',14)+text(x+w,y+24,'1 whole',14,400,'end');return s;}
+  function glass(x,y,w,h,n,d,col=blue){
+    let s=rect(x,y,w,h,'#f8faf7',ink,5);if(n>0)s+=rect(x+3,y+h-(h-6)*n/d-3,w-6,(h-6)*n/d,col,'none',1);
+    for(let i=1;i<d;i++)s+=line(x+3,y+h-3-(h-6)*i/d,x+w-3,y+h-3-(h-6)*i/d,'#52676b80','4 3');
+    s+=line(x-5,y,x+w+5,y,ink);return s;
+  }
+  function astronaut(x,y,col=blue,scale=1){return `<g transform="translate(${x} ${y}) scale(${scale})"><circle cx="30" cy="28" r="25" fill="#edf2ee" stroke="${ink}" stroke-width="2"/><rect x="12" y="16" width="36" height="22" rx="8" fill="${col}"/><path d="M10 53h40l12 39H44l-5-20H21l-5 20H-2Z" fill="#e4ece6" stroke="${ink}" stroke-width="2"/><rect x="23" y="55" width="14" height="13" rx="2" fill="${col}"/></g>`;}
+  function plant(x,y,col='#225a38'){return `<path d="M${x} ${y+8}v-17m0 9q-12-12-14-5 2 9 14 5m0-6q12-12 14-5-2 9-14 5" fill="${col}" stroke="${col}" stroke-width="1.4"/>`;}
+  function garden(x,y,w,h,n,d,col=teal){let s=bar(x,y,w,h,n,d,col);for(let i=0;i<n;i++)if(w/d>20)s+=plant(x+(i+.5)*w/d,y+h/2+2,'#fff');return s;}
+  function exploration(id,s){
+    let b='',label='',foot='';
+    if(id==='walls'){
+      b+=text(35,34,`A  ${s.an}/${s.ad}`,26,700)+text(635,34,`${s.an} of ${s.ad} equal bricks painted`,16,400,'end');
+      b+=bar(35,52,600,67,s.an,s.ad,orange,'walls')+numberline(35,136,600,s.an,s.ad,orange);
+      b+=text(35,207,`B  ${s.bn}/${s.bd}`,26,700)+text(635,207,`${s.bn} of ${s.bd} equal bricks painted`,16,400,'end');
+      b+=bar(35,225,600,67,s.bn,s.bd,blue,'walls')+numberline(35,309,600,s.bn,s.bd,blue);
+      label=`Same-sized walls: ${s.an}/${s.ad} painted on A and ${s.bn}/${s.bd} on B.`;foot='Both walls have exactly the same total area. Each vertical section is one equal brick. Compare the painted lengths and the number-line dots.';
+      return {svg:svg(b,label,680,350),foot};
+    }
+    if(id==='glass'){
+      b+=text(155,30,'GLASS A',18,700,'middle')+text(500,30,'GLASS B',18,700,'middle');
+      b+=glass(80,60,150,235,s.an,s.ad,blue)+glass(425,60,150,235,s.bn,s.bd,orange);
+      b+=text(155,326,`${s.an}/${s.ad} full`,25,700,'middle')+text(500,326,`${s.bn}/${s.bd} full`,25,700,'middle');
+      b+=text(155,356,`${C.fmt(s.capacity*s.an/s.ad)} mL`,21,700,'middle')+text(500,356,`${C.fmt(s.capacity*s.bn/s.bd)} mL`,21,700,'middle');
+      b+=text(155,388,`1 shot = ${C.frac(s.capacity,s.ad)} mL`,15,400,'middle')+text(500,388,`1 shot = ${C.frac(s.capacity,s.bd)} mL`,15,400,'middle');
+      b+=text(340,54,`${s.capacity} mL each when full`,17,700,'middle');
+      for(const v of [[s.an,s.ad,80],[s.bn,s.bd,425]]){const y=60+235-3-(235-6)*v[0]/v[1];b+=line(v[2]-15,y,v[2]+165,y,muted,'5 4');}
+      label=`Two straight-sided ${s.capacity} millilitre glasses. A has ${s.an} of ${s.ad} equal shots. B has ${s.bn} of ${s.bd} equal shots.`;
+      foot='Every horizontal band is one equal-volume shot. Both glasses have the same capacity. Use Pour one shot to build the fraction one step at a time.';
+      return {svg:svg(b,label,680,415),foot};
+    }
+    if(id==='bucket'){
+      const m=C.bucket(s.capacity,s.p,s.q,s.small,s.large),h=230,w=210,x=60,y=88,sa=s.small*s.p/m.total,la=s.large*s.q/m.total;
+      b+=text(165,34,'BUCKET VOLUME',18,700,'middle')+text(165,59,`${s.capacity} small-ball volumes`,16,400,'middle');
+      b+=rect(x,y,w,h,'#f7f8f4',ink,9);
+      const sh=Math.min(sa,1)*h,lh=Math.min(la,Math.max(0,1-sa))*h;
+      if(sh>0)b+=rect(x+3,y+h-sh,w-6,sh-3,orange,'none');if(lh>0)b+=rect(x+3,y+h-sh-lh,w-6,Math.max(0,lh-1),purple,'none');
+      b+=line(x-10,y+h/2,x+w+10,y+h/2,ink,'5 4')+text(x+w+18,y+h/2+5,'1/2',15);
+      b+=text(x+w/2,y+h+32,`${C.fmt(100*m.used/m.total)}% of capacity`,23,700,'middle');
+      b+=rect(365,87,20,20,orange,orange,3)+text(398,105,`Small balls: ${s.small}`,21,700);
+      b+=text(398,134,`Each uses ${s.p} volume units`,16)+text(398,160,`Together: ${s.small*s.p} units`,16);
+      b+=rect(365,202,20,20,purple,purple,3)+text(398,220,`Large balls: ${s.large}`,21,700);
+      b+=text(398,249,`Each uses ${s.q} volume units`,16)+text(398,275,`Together: ${s.large*s.q} units`,16);
+      b+=text(365,327,`${m.used} / ${m.total} units used`,22,700);
+      b+=text(365,356,m.remaining>=0?`${m.remaining} units still free`:`OVER CAPACITY by ${-m.remaining} units`,16,700,'start',m.remaining<0?'#a12e35':ink);
+      label=`Volume budget: ${s.small} small balls at ${s.p} units each and ${s.large} large balls at ${s.q} units each, ${m.used} of ${m.total} units used.`;
+      foot='The bucket shows occupied VOLUME, not a physical ball arrangement. Small-ball volume is p/q of large-ball volume. Ignore gaps, shape and real sports-ball sizes.';
+      return {svg:svg(b,label,680,390),foot};
+    }
+    if(id==='space'){
+      const m=C.space(s.food,s.a,s.b),aUsed=s.day*s.a,bUsed=s.day*s.b,cols=28,cell=20,rows=Math.ceil(s.food/cols),gridY=210;
+      b+=astronaut(45,24,blue,.85)+text(132,48,'Astronaut A',21,700)+text(132,76,`${s.a} packs / day`,18);
+      b+=astronaut(365,24,orange,.85)+text(452,48,'Astronaut B',21,700)+text(452,76,`${s.b} packs / day`,18);
+      for(let i=0;i<s.a;i++)b+=rect(132+i*22,94,17,25,blue,ink,3);for(let i=0;i<s.b;i++)b+=rect(452+i*22,94,17,25,orange,ink,3);
+      b+=text(60,163,`Day ${s.day} of ${m.days} full days`,23,700)+text(620,163,`${s.food} packs at launch`,18,400,'end');
+      b+=text(60,190,'Each small square below is ONE identical food pack.',16);
+      for(let i=0;i<s.food;i++){const col=i<aUsed?blue:i<aUsed+bUsed?orange:'#f4f6f0';b+=rect(60+(i%cols)*cell,gridY+Math.floor(i/cols)*cell,16,16,col,'#7e9589',2);}
+      const by=gridY+rows*cell+22;b+=text(60,by,`A used ${aUsed}`,17,700)+text(250,by,`B used ${bUsed}`,17,700)+text(620,by,`${s.food-aUsed-bUsed} packs left`,19,700,'end');
+      label=`At day ${s.day}, astronaut A has used ${aUsed} packs and B ${bUsed}, leaving ${s.food-aUsed-bUsed} of the initial ${s.food}. One square is one pack.`;
+      foot='Blue = packs eaten by A; orange = eaten by B; outlined = food remaining. Daily needs are invented and all packs have equal energy. This is not nutrition advice.';
+      return {svg:svg(b,label,680,by+30),foot};
+    }
+    if(id==='recipe'){
+      const total=s.n*s.batches,whole=Math.floor(total/s.d),remain=total%s.d,needed=Math.ceil(total/s.d);
+      b+=text(35,32,`ONE BATCH: ${s.n}/${s.d} cup of oats`,20,700);
+      b+=text(35,67,`${s.batches} batches means ${s.batches} equal scoops`,18);
+      for(let i=0;i<s.batches;i++){const x=35+i*76;b+=glass(x,88,46,80,s.n,s.d,orange)+text(x+23,191,`${s.n}/${s.d}`,18,700,'middle');}
+      b+=line(35,215,635,215,'#c6d1c8')+text(35,249,'REGROUP INTO WHOLE CUPS',18,700);
+      for(let i=0;i<needed;i++){const x=35+i*76,fill=i<whole?s.d:remain;b+=glass(x,270,46,80,fill,s.d,teal)+text(x+23,374,i<whole?'1 cup':`${fill}/${s.d}`,16,700,'middle');}
+      b+=text(35,413,`${s.batches} \u00d7 ${s.n}/${s.d} = ${total}/${s.d} = ${C.mixed(total,s.d)} cups`,24,700);
+      label=`${s.batches} batches of ${s.n}/${s.d} cup, regrouped as ${C.mixed(total,s.d)} cups. The amount is unchanged by regrouping.`;
+      foot='Top row: one scoop per batch. Bottom row: exactly the same amount regrouped into whole cups and any fraction left over. This is one practice ingredient, not a complete recipe.';
+      return {svg:svg(b,label,680,438),foot};
+    }
+    if(id==='battery'){
+      const ea=s.ac*s.an/s.ad,eb=s.bc*s.bn/s.bd,max=100;
+      for(const [x,label,n,d,cap,col] of [[45,'A',s.an,s.ad,s.ac,blue],[365,'B',s.bn,s.bd,s.bc,orange]]){
+        b+=text(x,30,`${label}: ${n}/${d} charged`,23,700);b+=bar(x,52,230,90,n,d,col)+rect(x+230,80,10,33,ink,ink,2);
+        b+=text(x,172,`${cap} kWh when full`,18)+text(x,202,`${C.fmt(cap*n/d)} kWh stored`,24,700);
+      }
+      b+=text(45,252,'ACTUAL ENERGY - SAME SCALE BELOW',17,700);
+      for(const [y,label,energy,cap,col] of [[287,'A',ea,s.ac,blue],[357,'B',eb,s.bc,orange]]){
+        b+=text(24,y+24,label,20,700)+rect(50,y,570*cap/max,35,'#e8eee8','#9cad9f',3)+rect(50,y,570*energy/max,35,col,'none',2)+text(50+570*energy/max,y-8,`${C.fmt(energy)} kWh`,16,700,'middle');
+      }
+      for(let i=0;i<=100;i+=20)b+=text(50+570*i/100,422,String(i),14,400,'middle');
+      b+=line(50,401,620,401,muted);
+      label=`Battery A stores ${C.fmt(ea)} of ${s.ac} kWh. B stores ${C.fmt(eb)} of ${s.bc} kWh. Bottom bars compare both energies on a common 0 to 100 kWh scale.`;
+      foot='Top shapes compare charge FRACTIONS, not physical battery sizes. Bottom bars share a kWh scale: pale = full capacity, colour = stored energy. A fraction alone does not tell the amount.';
+      return {svg:svg(b,label,680,445),foot};
+    }
+    if(id==='timber'){
+      const m=C.timber(s.length,s.n,s.d),w=600,unit=w/s.length,piece=s.n/s.d;
+      b+=text(35,33,`STOCK BOARD: ${s.length} m`,23,700)+text(35,69,`One required piece: ${s.n}/${s.d} m`,19);
+      b+=rect(35,109,w,100,'#f0d8ad',ink,3);
+      for(let j=0;j<3;j++)b+=`<path d="M40 ${130+j*26}q150 -10 290 0t300 0" fill="none" stroke="#b0884b" stroke-opacity=".35"/>`;
+      for(let i=1;i<=m.count;i++){const x=35+i*piece*unit;b+=line(x,109,x,209,ink);if(m.count<=14)b+=text(x-piece*unit/2,167,String(i),18,700,'middle');}
+      if(m.remaining>0)b+=rect(35+(s.length-m.remaining)*unit,109,m.remaining*unit,100,'#cddcd6',ink);
+      b+=line(35,235,635,235,ink);for(let i=0;i<=s.length;i++){const x=35+i*unit;b+=line(x,228,x,242,ink)+text(x,266,String(i),16,400,'middle');}
+      b+=text(635,291,'metres',15,400,'end');
+      b+=text(35,332,`${m.count} full pieces`,29,700)+text(635,332,`${C.fmt(m.remaining)} m offcut`,23,700,'end');
+      b+=text(35,366,`Used ${C.frac(m.count*s.n,s.d)} m + left ${C.frac(s.length*s.d-m.count*s.n,s.d)} m = ${s.length} m`,19,700);
+      label=`A ${s.length} metre board cut into ${s.n}/${s.d} metre lengths gives ${m.count} complete pieces and ${m.remaining} metres offcut.`;
+      foot='The ruler, piece lengths and offcut use the same scale. Cut marks show full pieces only. This maths model ignores saw-blade loss (kerf); real cutting needs an allowance.';
+      return {svg:svg(b,label,680,392),foot};
+    }
+    if(id==='garden'){
+      const max=Math.max(s.areaA,s.areaB),aw=590*s.areaA/max,bw=590*s.areaB/max;
+      b+=text(40,33,`A: ${s.areaA} m\u00b2 total`,23,700)+text(630,33,`${s.an}/${s.ad} planted`,20,700,'end');
+      b+=garden(40,55,aw,80,s.an,s.ad,teal)+text(40,167,`${C.fmt(s.areaA*s.an/s.ad)} m\u00b2 planted`,22,700);
+      b+=text(40,224,`B: ${s.areaB} m\u00b2 total`,23,700)+text(630,224,`${s.bn}/${s.bd} planted`,20,700,'end');
+      b+=garden(40,246,bw,80,s.bn,s.bd,blue)+text(40,358,`${C.fmt(s.areaB*s.bn/s.bd)} m\u00b2 planted`,22,700);
+      label=`Garden A is ${s.areaA} square metres with ${s.an}/${s.ad} planted; B is ${s.areaB} square metres with ${s.bn}/${s.bd} planted. Garden areas share a scale.`;
+      foot='Both beds have the same drawn height, so their widths show relative TOTAL areas. Each strip is an equal fraction of its own bed. Plant symbols mark planted strips, not numbers of plants.';
+      return {svg:svg(b,label,680,385),foot};
+    }
+    return {svg:'',foot:''};
+  }
+  function question(q){
+    const d=q.diagram;let s='',h=165;
+    switch(d.kind){
+      case 'equivalent':
+        s+=text(20,25,`Wall A: ${d.n}/${d.d}`,21,700)+bar(20,37,560,34,d.n,d.d,orange,'walls');
+        s+=text(20,108,`Wall B: ?/${d.target} (same whole)`,21,700)+bar(20,121,560,32,0,d.target,blue,'walls',true);break;
+      case 'fraction':
+        s+=text(20,29,`${d.displayN??d.n}/${d.displayD??d.d} of the wall is painted`,21,700)+bar(20,46,560,54,d.n,d.d,orange,'walls')+text(20,139,d.caption||'One wall = one whole',19);break;
+      case 'glass':
+        s+=glass(35,25,85,118,d.n,d.d,blue)+text(165,50,`Full glass: ${d.capacity} mL`,23,700)+text(165,88,`Target: ${d.n}/${d.d} full`,22)+text(165,127,`One shot: ${d.shot} mL`,21);break;
+      case 'servings':
+        s+=glass(35,25,85,118,1,1,blue)+text(160,55,`Jug: ${d.litres} L`,24,700)+text(160,96,`Each glass: ${d.n}/${d.d} L`,23)+text(160,137,'Count full glasses; keep the remainder.',18);break;
+      case 'bucket':
+        s+=text(20,28,`Bucket = ${d.capacity} small-ball volumes`,22,700);
+        s+=text(20,67,`Small: ${d.p} units`,20)+bar(190,45,290*d.p/d.q,29,1,1,orange);
+        s+=text(20,116,`Large: ${d.q} units`,20)+bar(190,94,290,29,1,1,purple);
+        s+=text(20,152,'Use the same volume unit. Ignore gaps.',17);break;
+      case 'space':
+        s+=astronaut(25,34,blue,.8)+text(95,57,`A: ${d.a} packs/day`,22,700)+text(95,92,`B: ${d.p}/${d.q} of A's rate`,21);
+        s+=text(20,150,d.food!==null?`Shared food supply: ${d.food} identical packs`:`Mission duration: ${d.days} days`,22,700);break;
+      case 'recipe':
+        for(let i=0;i<d.batches;i++)s+=glass(25+i*100,35,58,83,d.n,d.d,orange);
+        s+=text(20,150,`${d.batches} scoops; each scoop is ${d.n}/${d.d} cup`,22,700);break;
+      case 'stock':
+        s+=glass(35,24,85,112,d.n,d.d,orange)+text(160,55,`One batch: ${d.n}/${d.d} cup`,23,700)+text(160,100,`Available: ${d.stock} cups`,23);break;
+      case 'scalerecipe':
+        s+=glass(30,25,80,110,d.n,d.d,orange)+text(150,55,`Original: ${d.serves} people`,23,700)+text(150,94,`New: ${d.people} people`,23)+text(150,133,`Original oats: ${d.n}/${d.d} cup`,20);break;
+      case 'battery':
+        s+=text(20,29,`Full capacity: ${d.capacity} kWh`,23,700)+bar(20,47,560,53,d.n,d.d,teal)+text(20,139,`${d.n}/${d.d} charged${d.rate?`; use ${d.rate} kWh each hour`:''}`,22);break;
+      case 'batteries':{
+        const m=Math.max(d.capacity,d.bc);
+        s+=text(20,25,`A: ${d.n}/${d.d} of ${d.capacity} kWh`,21,700)+bar(20,37,560*d.capacity/m,35,d.n,d.d,blue);
+        s+=text(20,111,`B: ${d.bn}/${d.bd} of ${d.bc} kWh`,21,700)+bar(20,123,560*d.bc/m,35,d.bn,d.bd,orange);break;}
+      case 'timber':
+        s+=text(20,25,`Stock board: ${d.length} m`,22,700)+rect(20,40,560,35,'#efd6a6',ink,2);
+        s+=text(20,112,`One piece: ${d.n}/${d.d} m`,21,700)+rect(20,125,560*d.n/(d.d*d.length),28,'#bfcfbe',ink,2);break;
+      case 'garden':
+        s+=text(20,27,`Garden: ${d.area} m\u00b2 total`,23,700)+garden(20,44,560,67,d.n,d.d,teal)+text(20,147,`${d.n}/${d.d} is planted with carrots`,22);break;
+      case 'gardens':
+        s+=text(20,25,`A: ${d.n}/${d.d} of ${d.area} m\u00b2`,21,700)+bar(20,37,560*d.area/d.barea,35,d.n,d.d,teal);
+        s+=text(20,108,`B: ? of ${d.barea} m\u00b2 (same area scale)`,21,700)+bar(20,121,560,35,0,1,blue,'plain',true);break;
+      case 'gardenmix':
+        s+=text(20,25,`Whole garden: ${d.area} m\u00b2`,22,700)+bar(20,42,560,57,d.n,d.d,teal);
+        s+=rect(20+560*d.n/d.d,42,560*d.b/d.d,57,orange,ink);
+        for(let i=1;i<d.b;i++)s+=line(20+560*(d.n+i)/d.d,42,20+560*(d.n+i)/d.d,99,'#ffffffaa');
+        s+=text(20,138,`Carrots ${d.n}/${d.d}  |  Beans ${d.b}/${d.d}  |  Rest unplanted`,20);break;
+    }
+    return svg(s,`${q.title}. ${q.prompt}`,600,h);
+  }
+  return {esc,icon,medal,exploration,question,svg,text,bar,glass};
+})();
+</script>
+<script>/* Separate student, answer-key and certificate templates. */
+const P=(()=>{
+  'use strict';
+  const C=FractionCore,E=V.esc;
+  function answerText(a){
+    if(Number.isInteger(a.value))return String(a.value);
+    for(let d=2;d<=200;d++){const n=Math.round(a.value*d);if(Math.abs(n/d-a.value)<1e-9)return C.mixed(n,d);}
+    return C.fmt(a.value);
+  }
+  function header(title,pack,set,page=''){
+    return `<header class="sheetHeader"><div><span class="eyebrow">FRACTION LAB / ${E(pack.className||'RELIEF LEARNING')}</span><h2>${E(title)}</h2><span>${E(C.levels[pack.level])} level${page?' &bull; '+E(page):''}</span></div><div class="sheetCode"><b>${set?'VERSION '+set.version:'TEACHER COPY'}</b><br>Seed: ${E(pack.seed)}${set?'<br>Match answers using this version.':''}</div></header>`;
+  }
+  function studentCard(q,i){
+    return `<article class="qcard"><h3>${i+1}. ${E(q.title)}</h3><p class="qPrompt">${E(q.prompt)}</p><div class="printDiagram">${V.question(q)}</div><div class="answerBlock">${q.answers.map(a=>`<div class="answerLine"><b>${E(a.label)}:</b> __________________ ${E(a.unit)}</div>`).join('')}</div><div class="writeLines" aria-label="Space for working"><span></span><span></span></div>${q.note?`<p class="printNote">Model: ${E(q.note)}</p>`:''}</article>`;
+  }
+  function studentPages(set,pack){
+    const perPage=set.questions.length>4?3:4,pages=Math.ceil(set.questions.length/perPage),name=pack.names?.[set.version-1]||'';let out='';
+    for(let page=0;page<pages;page++){
+      const qs=set.questions.slice(page*perPage,(page+1)*perPage);
+      out+=`<section class="sheet paper studentSheet ${qs.length===3?'threeQuestions':''}">${header('Fractions in the real world',pack,set,`Page ${page+1} of ${pages}`)}<div class="studentDetails"><span><b>Name:</b> ${name?E(name):'____________________________'}</span><span><b>Class:</b> ${pack.className?E(pack.className):'____________'}</span><span><b>Date:</b> __________</span></div><p class="printIntro"><b>Predict &rarr; solve &rarr; explain.</b> Before calculating, mark whether you expect a small or large answer. Use the diagram, write your working, then check the units. Fractions or decimals to 2 places are accepted; whole objects must be whole numbers.</p><div class="questionGrid">${qs.map((q,j)=>studentCard(q,page*perPage+j)).join('')}</div><footer class="sheetFooter"><span>Exit thought: Where did the size of the whole change your answer?</span><span>Version ${set.version} &bull; ${E(pack.seed)}</span></footer></section>`;
+    }
+    return out;
+  }
+  function answerPage(set,pack){
+    return `<section class="sheet paper answerSheet">${header('Worked answer key',pack,set)}<p class="printIntro"><b>Teacher copy.</b> Match the version number before marking. Accept equivalent fractions and correct decimal answers to two places. For maximum counts and full days, accept only whole numbers. The steps below can support follow-up teaching.</p><div class="questionGrid">${set.questions.map((q,i)=>`<article class="qcard"><h3>${i+1}. ${E(q.title)}</h3><div class="keyAnswer">${q.answers.map(a=>`${E(a.label)}: ${E(answerText(a))} ${E(a.unit)}`).join('<br>')}</div><ol>${q.steps.map(t=>`<li>${E(t)}</li>`).join('')}</ol>${q.note?`<p class="printNote">${E(q.note)}</p>`:''}</article>`).join('')}</div><footer class="sheetFooter"><span>Learning self-check. Use student working and explanations to judge understanding.</span><span>Version ${set.version} &bull; ${E(pack.seed)}</span></footer></section>`;
+  }
+  function notes(pack){
+    const topics=pack.contexts.map(id=>C.contexts.find(c=>c.id===id).title).join(', '),sheets=pack.sets.length*(pack.count>4?2:1);
+    return `<section class="sheet paper notesSheet">${header('Relief teacher guide',pack)}<div class="notesBanner"><b>Ready to teach:</b> ${pack.sets.length} learner versions &bull; ${pack.count} questions each &bull; ${sheets} student pages &bull; ${E(C.levels[pack.level])} level.<br><b>Sections:</b> ${E(topics)}</div><h3>Learning intention and success criteria</h3><p>Use diagrams, fractions and units to explain related quantities. Students can identify the whole, choose a suitable calculation, show working and interpret full objects or leftover amounts.</p><h3>A suggested 40-minute lesson</h3><table><tr><th>Time</th><th>Actions</th></tr><tr><td>0-5 min</td><td>Hand out numbered versions. Read the model assumptions. Ask: &ldquo;What is the whole? What is one unit?&rdquo;</td></tr><tr><td>5-10 min</td><td>Model a similar question. Get a prediction before calculating. Point to what each number means in the picture.</td></tr><tr><td>10-28 min</td><td>Independent work: label units and show calculations. Support prompts: &ldquo;What does the denominator count?&rdquo; &ldquo;What does one group use?&rdquo;</td></tr><tr><td>28-35 min</td><td>Use the matching version's answer key. Students explain one correction rather than simply copy an answer.</td></tr><tr><td>35-40 min</td><td>Exit reflection: &ldquo;When do equal fractions NOT mean equal amounts?&rdquo; Collect work. Teacher awards are optional.</td></tr></table><h3>Materials and marking</h3><p>Pencil and paper; calculators at teacher discretion. No devices needed. Accept equivalent fractions and decimal answers to two places. Whole-object questions need whole numbers. The online check requires both answers in a two-answer question; set your own paper-marking policy.</p><h3>Four useful reminders</h3><ul><li>Compare the wholes as well as the fractions.</li><li>Equal ball counts are not equal volumes. Round maximum whole-object counts down.</li><li>Add the astronauts' daily rates before dividing the food supply.</li><li>Find full pieces per board first; round the number of stock boards up.</li></ul><h3>Keep the model assumptions visible</h3><p>Balls: invented volumes, no gaps or packing calculation. Food: invented needs, identical packs. Timber: no saw-blade loss or joined offcuts. Batteries: no energy losses. Recipes: practice ingredients only.</p><h3>Reproduce this set</h3><p>Keep seed <b>${E(pack.seed)}</b>, level <b>${E(C.levels[pack.level])}</b>, <b>${pack.count}</b> questions, <b>${pack.sets.length}</b> learners and the same section selection. Use this version of the webpage. Names are not saved.</p><footer class="sheetFooter"><span>Keep worked keys separate from student sheets. Teacher awards use your own completion criteria.</span><span>Fraction Lab v1.0</span></footer></section>`;
+  }
+  function certificate(id,record,profile,teacher=false){
+    const ctx=C.contexts.find(c=>c.id===id),name=profile.name?.trim()||'________________________',date=record?.date?new Date(record.date).toLocaleDateString('en-NZ',{day:'numeric',month:'long',year:'numeric'}):'________________',level=record?.level?C.levels[record.level]:'Teacher award';
+    const compact=name.length>34 || (profile.school||'').length>45 || (profile.className||'').length>24;
+    return `<section class="sheet certificateSheet"><div class="certificate ${compact?'compactCertificate':''}"><div class="certBrand">FRACTION LAB</div><div class="certKicker">${teacher?'Classroom learning award':'Section achievement'}</div>${V.medal(ctx.colour)}<h1>Certificate of achievement</h1><p>Presented to</p><div class="certName">${E(name)}</div>${profile.school||profile.className?`<p>${E([profile.className,profile.school].filter(Boolean).join(' | '))}</p>`:''}<p>for learning through</p><div class="certContext">${E(ctx.title)}</div><p>${teacher?'Recognising effort, mathematical thinking and completion of the section learning activity.':`Completing the ${E(level)} level certificate check with ${record.score} out of 5 questions correct.`}</p><div class="certSkills">${ctx.skills.map(s=>`<div>${E(s)}</div>`).join('')}</div><div class="certMeta"><div>LEVEL<strong>${E(level)}</strong></div><div>DATE<strong>${E(date)}</strong></div>${!teacher?`<div>RESULT<strong>${record.score} / 5</strong></div>`:''}</div><div class="signatures"><div>Learner signature</div><div>Teacher acknowledgement (optional)</div></div><p class="certFine">${teacher?'Teacher-awarded recognition. Completion criteria set by the teacher.':'Offline learning self-check. This certificate is not an authenticated assessment record.'}<br>See the whole. Explain the relationship. Take the next step.</p></div></section>`;
+  }
+  function print(content){
+    const root=document.getElementById('printRoot');root.innerHTML=content;root.removeAttribute('aria-hidden');document.body.classList.add('printing');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>window.print()));
+  }
+  window.addEventListener('afterprint',()=>{document.body.classList.remove('printing');document.getElementById('printRoot').setAttribute('aria-hidden','true');});
+  return {answerText,studentPages,answerPage,notes,certificate,print};
+})();
+</script>
+<script>/* Fraction Lab interface. All state is local; no network or account is used. */
+'use strict';
+const C=FractionCore,E=V.esc,STORE='fraction-lab-v1';
+const defaults={walls:{an:1,ad:2,bn:2,bd:4},glass:{an:3,ad:4,bn:6,bd:8,capacity:1000},bucket:{p:3,q:4,capacity:100,small:30,large:25},space:{food:210,a:4,b:3,day:0},recipe:{n:3,d:4,batches:4},battery:{an:3,ad:4,ac:40,bn:1,bd:2,bc:80},timber:{length:6,n:3,d:4},garden:{an:1,ad:3,bn:2,bd:6,areaA:12,areaB:12}};
+const Lab={page:'learn',section:'walls',mode:'explore',level:1,profile:{name:'',className:'',school:''},earned:{},explore:JSON.parse(JSON.stringify(defaults)),predictions:{},practice:{},worked:{},checks:{},storage:true,pack:null,teacher:{students:30,count:4,level:2,contexts:C.contexts.map(c=>c.id),seed:'',className:'',names:''}};
+const $=id=>document.getElementById(id),ctx=()=>C.contexts.find(c=>c.id===Lab.section),practiceKey=()=>Lab.section+'-'+Lab.level;
+function newSeed(){return 'FL-'+Math.random().toString(36).slice(2,7).toUpperCase()+'-'+Date.now().toString(36).slice(-3).toUpperCase();}
+Lab.teacher.seed=newSeed();
+function loadProgress(){
+  try{
+    const raw=localStorage.getItem(STORE);if(!raw)return;
+    const data=JSON.parse(raw);if(!data||data.version!==1||!data.profile||typeof data.profile.name!=='string')return;
+    Lab.profile={name:data.profile.name.slice(0,65),className:String(data.profile.className||'').slice(0,35),school:String(data.profile.school||'').slice(0,65)};
+    if(data.earned&&typeof data.earned==='object')for(const [key,r] of Object.entries(data.earned)){
+      if(C.contexts.some(c=>key===c.id+'-'+r?.level)&&Number.isInteger(r.score)&&r.score>=4&&r.score<=5&&[1,2,3].includes(r.level)&&!Number.isNaN(Date.parse(r.date)))Lab.earned[key]={score:r.score,level:r.level,date:r.date};
+    }
+  }catch(e){Lab.storage=false;}
+}
+function saveProgress(){try{localStorage.setItem(STORE,JSON.stringify({version:1,profile:Lab.profile,earned:Lab.earned}));Lab.storage=true;}catch(e){Lab.storage=false;toast('Progress cannot be saved in this browser. Keep this tab open and print your certificates.');}updateHeader();}
+let toastTimer;
+function toast(message){$('toast').textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{$('toast').textContent='';},5500);}
+function bestRecord(id){return [3,2,1].map(l=>Lab.earned[id+'-'+l]).find(Boolean);}
+function updateHeader(){
+  const count=C.contexts.filter(c=>bestRecord(c.id)).length;
+  $('profileBtn').innerHTML=V.icon('user')+'<span>'+E(Lab.profile.name||'Learner name')+'</span>';
+  $('profileBtn').setAttribute('aria-label',Lab.profile.name?'Learner: '+Lab.profile.name+'. Edit or start a new learner.':'Add learner name for certificates');
+  $('awardCount').textContent=count+'/8';
+  $('storageStatus').textContent=Lab.storage?'No login. No uploads. Progress stays in this browser.':'Storage unavailable: progress lasts only while this page stays open.';
+  document.querySelectorAll('.topNav [data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===Lab.page);b.setAttribute('aria-current',b.dataset.page===Lab.page?'page':'false');});
+}
+function intro(kicker,title,copy,aside=''){return `<div class="intro"><div><span class="eyebrow">${E(kicker)}</span><h1>${E(title)}</h1><p>${E(copy)}</p></div>${aside}</div>`;}
+function renderPage(){
+  updateHeader();
+  if(Lab.page==='learn')renderLearn();else if(Lab.page==='certificates')renderCertificates();else renderTeacher();
+}
+function renderLearn(){
+  const c=ctx();document.documentElement.style.setProperty('--section',c.colour);
+  $('pageContent').innerHTML=intro('A practical maths playground','Small pieces. Big ideas.','See the amount. Predict the change. Explain why the maths works.','<div class="introStamp"><strong>8</strong>ways to see it</div>')+
+    `<div class="learnGrid"><aside><nav class="sectionNav" aria-label="Learning sections"><div class="sectionNavTitle">CHOOSE YOUR CONTEXT</div>${C.contexts.map(x=>`<button class="sectionButton ${x.id===Lab.section?'active':''}" data-section="${x.id}" style="--section:${x.colour}" aria-current="${x.id===Lab.section?'true':'false'}"><span class="sectionIcon">${V.icon(x.id)}</span><span><strong>${E(x.title)}</strong><small>${E(x.short)}</small></span>${bestRecord(x.id)?'<span class="earnedDot" aria-label="Certificate earned">&#10003;</span>':''}</button>`).join('')}</nav><p class="sideNote"><b>One important question:</b><br>What is the whole?<br>Equal fractions only mean equal amounts when the wholes are equal.</p></aside><section class="activity" aria-label="${E(c.title)} activity"><div class="sectionHead"><div><h2>${E(c.title)}</h2><p>${E(c.aim)}</p></div><label class="levelField" for="levelSelect">Question level<select id="levelSelect">${[1,2,3].map(l=>`<option value="${l}" ${Lab.level===l?'selected':''}>${l}. ${C.levels[l]}</option>`).join('')}</select></label></div><div class="modeTabs" role="tablist" aria-label="Activity mode">${[['explore','Explore'],['worked','Worked example'],['practice','Practice'],['check','Certificate check']].map(([id,label])=>`<button role="tab" aria-selected="${Lab.mode===id}" class="${Lab.mode===id?'active':''}" data-mode="${id}">${label}</button>`).join('')}</div><div id="activityStage" role="tabpanel"></div><details class="goal"><summary>What am I learning?</summary><p class="spaceTop">${E(c.aim)}</p><ul>${c.skills.map(s=>`<li>I can ${E(s.charAt(0).toLowerCase()+s.slice(1))}.</li>`).join('')}</ul></details></section></div>`;
+  renderActivity();
+}
+function renderActivity(){
+  if(Lab.mode==='explore')renderExplore();
+  if(Lab.mode==='worked')renderWorked();
+  if(Lab.mode==='practice')renderPractice();
+  if(Lab.mode==='check')renderCheck();
+}
+const predictions={
+  walls:{q:'Before moving a slider: if BOTH the numerator and denominator double, will the painted amount be more, less or the same?',answer:'The same',why:'The parts become smaller, but you take twice as many. The fraction of the same whole is unchanged.'},
+  glass:{q:'Keep the number of shots the same. If each shot becomes half as big, will there be more liquid, less liquid or the same amount?',answer:'Less',why:'The same number of half-sized shots gives half as much liquid. Double the shot count to restore the original amount.'},
+  bucket:{q:'If each ball takes up more volume but the bucket stays the same, will more balls, fewer balls or the same number fit?',answer:'Less',why:'Each object uses more of the fixed volume budget, so fewer whole objects can fit. Equal numbers and equal occupied volume are different targets.'},
+  space:{q:'Keep the food supply fixed. If the daily food use increases, will the supply last more days, fewer days or the same number?',answer:'Less',why:'Mission duration is food supply divided by the combined daily use. A larger daily use means fewer days.'},
+  recipe:{q:'Keep the recipe per batch unchanged. If the number of batches doubles, will you need more oats, fewer oats or the same amount?',answer:'More',why:'Every additional batch needs another identical scoop. Doubling the batches doubles each ingredient amount.'},
+  battery:{q:'Both batteries show the SAME charge fraction. If one has twice the full capacity, does it store more energy, less energy or the same amount?',answer:'More',why:'The fraction describes a part of its own whole. The same fraction of twice the capacity stores twice the energy.'},
+  timber:{q:'Keep the board length the same. If each required piece is longer, will you get more complete pieces, fewer, or the same number as a general trend?',answer:'Less',why:'Longer pieces use more of the board. The maximum whole-piece count can stay unchanged for a small adjustment, but it cannot increase.'},
+  garden:{q:'Keep the planted fraction unchanged. If the total garden area doubles, is the planted area more, less or the same?',answer:'More',why:'The same fraction of a bigger whole is a bigger actual amount. Doubling the area doubles the planted area.'}
+};
+function predictionHTML(){
+  const p=predictions[Lab.section],chosen=Lab.predictions[Lab.section]||{};
+  return `<div class="prediction"><div class="stepLabel"><span class="stepNumber">1</span>Predict before you move</div><p>${E(p.q)}</p><div class="predictionChoices" id="predictionChoices">${['More','Less','The same'].map(a=>`<button class="button small ${chosen.answer===a?'selected':''}" data-prediction="${a}" aria-pressed="${chosen.answer===a}">${a}</button>`).join('')}<button class="button small quiet" id="revealPrediction" ${!chosen.answer?'disabled':''}>Reveal explanation</button></div>${chosen.answer?`<div class="predictionResult">${chosen.revealed?`<b>${chosen.answer===p.answer?'Your prediction matches.':'Compare your prediction.'}</b> ${E(p.why)}`:'Prediction recorded. Try the model, then reveal the explanation.'}</div>`:''}</div>`;
+}
+function control(label,key,min,max,step=1,unit=''){
+  const value=Lab.explore[Lab.section][key],id=Lab.section+'-'+key;
+  return `<div class="control"><div class="controlLine"><label for="${id}">${E(label)}</label><input type="number" value="${value}" min="${min}" max="${max}" step="${step}" data-bind="${key}" aria-label="${E(label)} - number" inputmode="numeric"></div><input id="${id}" type="range" min="${min}" max="${max}" step="${step}" value="${value}" data-bind="${key}" aria-label="${E(label)}">${unit?`<small>${E(unit)}</small>`:''}</div>`;
+}
+function group(title,html){return `<div class="controlGroup"><h3>${E(title)}</h3>${html}</div>`;}
+function controlsHTML(){
+  const s=Lab.explore[Lab.section];let html='';
+  if(['walls','glass','garden','battery'].includes(Lab.section)){
+    const names=Lab.section==='walls'?['Wall A','Wall B']:Lab.section==='glass'?['Glass A','Glass B']:Lab.section==='garden'?['Garden A','Garden B']:['Battery A','Battery B'];
+    html+=group(names[0],control('Numerator','an',0,s.ad)+control('Denominator','ad',1,12)+(Lab.section==='battery'?control('Capacity (kWh)','ac',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaA',4,36):''));
+    html+=group(names[1],control('Numerator','bn',0,s.bd)+control('Denominator','bd',1,12)+(Lab.section==='battery'?control('Capacity (kWh)','bc',10,100,10):Lab.section==='garden'?control('Total area (m\u00b2)','areaB',4,36):''));
+    if(Lab.section==='glass')html+=group('Same-sized glasses',control('Capacity of EACH (mL)','capacity',250,2000,250));
+  }
+  if(Lab.section==='bucket'){
+    html+=group('Volume model',`<div class="control"><label for="ballRatio">Small volume / large volume</label><select id="ballRatio">${[[1,2],[2,3],[3,4],[4,5]].map(([p,q])=>`<option value="${p}/${q}" ${p===s.p&&q===s.q?'selected':''}>${p}/${q} of a large ball</option>`).join('')}</select></div>`+control('Bucket in small-ball volumes','capacity',20,300,10));
+    html+=group('Put balls in the bucket',control('Small balls','small',0,s.capacity)+control('Large balls','large',0,Math.floor(s.capacity*s.p/s.q)));
+  }
+  if(Lab.section==='space')html+=group('Mission supply',control('Food supply (packs)','food',14,420)+control('A: packs per day','a',1,8)+control('B: packs per day','b',1,8))+group('Watch the food get used',control('Days elapsed','day',0,C.space(s.food,s.a,s.b).days,1,'Move forward one day at a time.'));
+  if(Lab.section==='recipe')html+=group('One batch',control('Cup numerator','n',1,s.d)+control('Cup denominator','d',1,8))+group('Scale the recipe',control('Number of batches','batches',1,8));
+  if(Lab.section==='timber')html+=group('Stock board',control('Board length (metres)','length',1,12))+group('Each required piece',control('Length numerator','n',1,12)+control('Length denominator','d',1,8));
+  return html+`<div class="controlActions"><button class="button small" data-explore-action="reset">${V.icon('refresh')}Reset model</button></div>`;
+}
+function renderExplore(){
+  $('activityStage').innerHTML=`<div id="predictionBox">${predictionHTML()}</div><div class="labBody"><div><div class="visualCard"><div class="visualTitle"><h3>Watch the quantities</h3><span class="badge">Live model</span></div><div class="diagram" id="exploreVisual"></div><p class="visualText" id="visualDescription"></p></div><div class="mathCard" id="liveMath" aria-live="polite"></div></div><div class="controlsCard">${controlsHTML()}</div></div><p class="finePrint">Explore is open-ended. The question level changes the worked examples, practice and certificate check, not these sliders.</p>`;
+  updateExplorer();
+}
+function normaliseExplore(){
+  const s=Lab.explore[Lab.section];
+  if('ad'in s){s.an=Math.min(s.an,s.ad);s.bn=Math.min(s.bn,s.bd);}
+  if(Lab.section==='recipe')s.n=Math.min(s.n,s.d);
+  if(Lab.section==='bucket'){s.small=Math.min(s.small,s.capacity);s.large=Math.min(s.large,Math.floor(s.capacity*s.p/s.q));}
+  if(Lab.section==='space')s.day=Math.min(s.day,C.space(s.food,s.a,s.b).days);
+}
+function updateExplorer(){
+  normaliseExplore();const s=Lab.explore[Lab.section],view=V.exploration(Lab.section,s);
+  $('exploreVisual').innerHTML=view.svg;$('visualDescription').textContent=view.foot;
+  document.querySelectorAll('[data-bind]').forEach(input=>{
+    const key=input.dataset.bind;let max=null;if(key==='an')max=s.ad;if(key==='bn')max=s.bd;
+    if(Lab.section==='recipe'&&key==='n')max=s.d;
+    if(Lab.section==='bucket'&&key==='small')max=s.capacity;
+    if(Lab.section==='bucket'&&key==='large')max=Math.floor(s.capacity*s.p/s.q);
+    if(Lab.section==='space'&&key==='day')max=C.space(s.food,s.a,s.b).days;
+    if(max!==null)input.max=max;input.value=s[key];
+  });
+  if($('ballRatio'))$('ballRatio').value=s.p+'/'+s.q;
+  const m=modelExplanation();$('liveMath').classList.toggle('warning',!!m.warning);
+  $('liveMath').innerHTML=`<div class="stepLabel"><span class="stepNumber">2</span>Connect the picture to the maths</div><div class="mathTitle">${E(m.title)}</div><p class="formula">${E(m.formula)}</p><p>${E(m.body)}</p><div class="buttonRow">${m.buttons.map(([action,title])=>`<button class="button small" data-explore-action="${action}">${E(title)}</button>`).join('')}</div>`;
+}
+function modelExplanation(){
+  const s=Lab.explore[Lab.section],r={title:'',formula:'',body:'',buttons:[]};
+  if(Lab.section==='walls'){
+    const eq=s.an*s.bd===s.bn*s.ad;r.title=eq?'Different partitions. Same painted amount.':'The painted amounts are different.';
+    r.formula=`${s.an}/${s.ad} ${eq?'=':'\u2260'} ${s.bn}/${s.bd}`;
+    r.body=`In simplest form: A = ${C.frac(s.an,s.ad)}, B = ${C.frac(s.bn,s.bd)}. Both wholes are the same size. Multiply or divide BOTH numbers in a fraction by the same non-zero number to keep its value.`;
+    r.buttons=[['halves','Try 1/2 = 3/6'],['thirds','Try 2/3 = 4/6']];
+  }
+  if(Lab.section==='glass'){
+    const a=s.capacity*s.an/s.ad,b=s.capacity*s.bn/s.bd,eq=s.an*s.bd===s.bn*s.ad;
+    r.title=eq?'The levels match: equal liquid volumes.':'Different fill levels, different volumes.';
+    r.formula=`A: ${s.an}/${s.ad} \u00d7 ${s.capacity} = ${C.fmt(a)} mL   |   B: ${s.bn}/${s.bd} \u00d7 ${s.capacity} = ${C.fmt(b)} mL`;
+    r.body='Numerator = number of shots poured. Denominator = equal shots needed for a full glass. Change the denominator while keeping the numerator fixed to see why the amount changes. Decimal labels are rounded to two places.';
+    r.buttons=[['pourA','Pour 1 shot into A'],['pourB','Pour 1 shot into B'],['empty','Empty both']];
+  }
+  if(Lab.section==='bucket'){
+    const m=C.bucket(s.capacity,s.p,s.q,s.small,s.large);r.warning=m.remaining<0;
+    r.title=m.remaining<0?'Too much volume for this bucket.':m.remaining===0?'The volume budget is exactly full.':'There is unused volume in the bucket.';
+    r.formula=`${s.small} \u00d7 ${s.p} + ${s.large} \u00d7 ${s.q} = ${m.used} of ${m.total} units`;
+    r.body=`Equal numbers: one pair uses ${s.p+s.q} units, so at most ${m.equalEach} of EACH type fit. Half-volume shares: at most ${m.halfSmall} small and ${m.halfLarge} large balls. ${m.total%(2*s.p)||m.total%(2*s.q)?'Whole balls cannot fill both halves exactly for these values.':'These whole counts fill both half-volumes exactly.'}`;
+    r.buttons=[['smallOnly','Small only'],['largeOnly','Large only'],['equal','Equal numbers'],['halvesBucket','Half-volume shares']];
+  }
+  if(Lab.section==='space'){
+    const m=C.space(s.food,s.a,s.b);r.title=`Enough food for ${m.days} full mission days.`;
+    r.formula=`${s.food} packs \u00f7 (${s.a} + ${s.b} packs/day) = ${m.days} full days, ${m.left} packs left`;
+    r.body=`B uses ${C.frac(s.b,s.a)} as much as A each day. Together they use ${m.rate} packs per day. After ${s.day} days, ${s.food-s.day*m.rate} packs remain. More daily consumption means a shorter mission with a fixed supply.`;
+    r.buttons=[['day','Use 1 day of food'],['launch','Back to launch']];
+  }
+  if(Lab.section==='recipe'){
+    const total=s.n*s.batches;r.title=`You need ${C.mixed(total,s.d)} cups of oats.`;
+    r.formula=`${s.batches} batches \u00d7 ${s.n}/${s.d} cup = ${total}/${s.d} cups = ${C.mixed(total,s.d)} cups`;
+    r.body='Count the equal scoops in the top row. The lower row combines them into whole cups and any remaining fraction; no oats are added or removed when regrouping.';
+    r.buttons=[['doubleBatches','Double the batches (up to 8)'],['oneBatch','One batch']];
+  }
+  if(Lab.section==='battery'){
+    const a=s.ac*s.an/s.ad,b=s.bc*s.bn/s.bd,eq=Math.abs(a-b)<1e-8;
+    r.title=eq?'Equal stored energy.':`${a>b?'A':'B'} stores more actual energy.`;
+    r.formula=`A: ${s.an}/${s.ad} \u00d7 ${s.ac} = ${C.fmt(a)} kWh   |   B: ${s.bn}/${s.bd} \u00d7 ${s.bc} = ${C.fmt(b)} kWh`;
+    r.body='Use the common-scale lower bars to compare energy. The upper battery shapes compare charge fractions only. Same fraction does not guarantee the same amount when the full capacities differ.';
+    r.buttons=[['sameCharge','Same fraction, different capacities'],['sameEnergy','Different fractions, equal energy']];
+  }
+  if(Lab.section==='timber'){
+    const m=C.timber(s.length,s.n,s.d);r.title=`${m.count} complete pieces; ${C.frac(s.length*s.d-m.count*s.n,s.d)} m left over.`;
+    r.formula=`${s.length} \u00f7 (${s.n}/${s.d}) = ${C.frac(s.length*s.d,s.n)} piece-lengths; keep ${m.count} full pieces`;
+    r.body=`The offcut is ${s.length} - ${m.count} \u00d7 (${s.n}/${s.d}) = ${C.frac(s.length*s.d-m.count*s.n,s.d)} m. Do not round up: an incomplete piece does not meet the required length.`;
+    r.buttons=[['timberExact','6 m cut into 3/4 m'],['timberRemainder','5 m cut into 3/4 m']];
+  }
+  if(Lab.section==='garden'){
+    const a=s.areaA*s.an/s.ad,b=s.areaB*s.bn/s.bd,eqFrac=s.an*s.bd===s.bn*s.ad,eqArea=Math.abs(a-b)<1e-8;
+    r.title=eqArea?'The planted AREAS are equal.':eqFrac?'Equal fractions, but different planted areas.':'The planted areas are different.';
+    r.formula=`A: ${s.an}/${s.ad} \u00d7 ${s.areaA} = ${C.fmt(a)} m\u00b2   |   B: ${s.bn}/${s.bd} \u00d7 ${s.areaB} = ${C.fmt(b)} m\u00b2`;
+    r.body='The rectangle widths represent the total areas on the same scale. Check both the fraction and the total garden size before comparing how much land is planted.';
+    r.buttons=[['gardenSame','Same whole: 1/3 = 2/6'],['gardenDifferent','Same fraction, bigger whole']];
+  }
+  return r;
+}
+function exploreAction(action){
+  let s=Lab.explore[Lab.section];
+  if(action==='reset'){Lab.explore[Lab.section]=JSON.parse(JSON.stringify(defaults[Lab.section]));renderExplore();return;}
+  if(action==='halves')Object.assign(s,{an:1,ad:2,bn:3,bd:6});
+  if(action==='thirds')Object.assign(s,{an:2,ad:3,bn:4,bd:6});
+  if(action==='pourA')s.an=Math.min(s.ad,s.an+1);
+  if(action==='pourB')s.bn=Math.min(s.bd,s.bn+1);
+  if(action==='empty')s.an=s.bn=0;
+  if(['smallOnly','largeOnly','equal','halvesBucket'].includes(action)){
+    const m=C.bucket(s.capacity,s.p,s.q);if(action==='smallOnly'){s.small=s.capacity;s.large=0;}
+    if(action==='largeOnly'){s.small=0;s.large=m.largeOnly;}
+    if(action==='equal')s.small=s.large=m.equalEach;
+    if(action==='halvesBucket'){s.small=m.halfSmall;s.large=m.halfLarge;}
+  }
+  if(action==='day')s.day=Math.min(C.space(s.food,s.a,s.b).days,s.day+1);
+  if(action==='launch')s.day=0;
+  if(action==='doubleBatches')s.batches=Math.min(8,s.batches*2);
+  if(action==='oneBatch')s.batches=1;
+  if(action==='sameCharge')Object.assign(s,{an:1,ad:2,ac:40,bn:1,bd:2,bc:80});
+  if(action==='sameEnergy')Object.assign(s,{an:1,ad:1,ac:40,bn:1,bd:2,bc:80});
+  if(action==='timberExact')Object.assign(s,{length:6,n:3,d:4});
+  if(action==='timberRemainder')Object.assign(s,{length:5,n:3,d:4});
+  if(action==='gardenSame')Object.assign(s,{an:1,ad:3,bn:2,bd:6,areaA:12,areaB:12});
+  if(action==='gardenDifferent')Object.assign(s,{an:1,ad:3,bn:1,bd:3,areaA:12,areaB:24});
+  updateExplorer();
+}
+function makeQuestion(index=0){return C.question(Lab.section,Lab.level,C.random(newSeed()),index);}
+function questionBody(q){return `<p class="questionText">${E(q.prompt)}</p><div class="questionDiagram">${V.question(q)}</div>${q.note?`<p class="finePrint"><b>Model:</b> ${E(q.note)}</p>`:''}`;}
+function stepsHTML(q){return `<ol class="workedSteps">${q.steps.map(s=>`<li>${E(s)}</li>`).join('')}</ol>`;}
+function finalAnswers(q){return q.answers.map(a=>`<b>${E(a.label)}:</b> ${E(P.answerText(a))} ${E(a.unit)}`).join('<br>');}
+function renderWorked(){
+  const key=practiceKey();if(!Lab.worked[key])Lab.worked[key]=makeQuestion();const q=Lab.worked[key];
+  $('activityStage').innerHTML=`<article class="card learningCard"><div class="stepLabel">${E(C.levels[Lab.level])} / follow the thinking</div>${questionBody(q)}${stepsHTML(q)}<div class="feedback good">${finalAnswers(q)}</div><div class="buttonRow"><button class="button" id="newWorked">${V.icon('refresh')}Another worked example</button><button class="button primary" data-mode="practice">Try one yourself ${V.icon('arrow')}</button></div></article>`;
+}
+function answerFields(q,prefix,values=[],disabled=false){return `<div class="answerFields">${q.answers.map((a,i)=>`<div class="answerField"><label for="${prefix}${i}">${E(a.label)}</label><div class="answerInput"><input id="${prefix}${i}" type="text" autocomplete="off" inputmode="text" maxlength="35" placeholder="Your answer" value="${E(values[i]||'')}" ${disabled?'disabled':''}><span>${E(a.unit)}</span></div></div>`).join('')}</div>`;}
+function renderPractice(){
+  const key=practiceKey();if(!Lab.practice[key])Lab.practice[key]={q:makeQuestion(),responses:[],hint:false,solution:false,feedback:''};const p=Lab.practice[key],q=p.q;
+  $('activityStage').innerHTML=`<article class="card learningCard"><div class="stepLabel">${E(C.levels[Lab.level])} / practise with support</div>${questionBody(q)}<form id="practiceForm">${answerFields(q,'practiceAnswer',p.responses)}<p class="answerHelp">Use a number, a fraction (3/4), or a mixed number (1 1/2). Decimals: round to 2 places. No units needed in the box.</p><div class="buttonRow"><button class="button primary" id="checkPractice" type="submit">Check my answer</button><button class="button" id="practiceHint" type="button">Show hint</button><button class="button" id="practiceSolution" type="button">Show working</button><button class="button quiet" id="newPractice" type="button">${V.icon('refresh')}New question</button></div></form><div id="practiceFeedback" class="feedback ${p.correct?'good':'try'}" aria-live="polite">${p.feedback}</div>${p.hint?`<div class="hintBox"><b>Hint:</b> ${E(q.hint)}</div>`:''}${p.solution?`<div class="spaceTop"><h3>Worked solution</h3>${stepsHTML(q)}<div class="feedback good">${finalAnswers(q)}</div></div>`:''}</article>`;
+}
+function collectPractice(){const p=Lab.practice[practiceKey()];if(p)p.responses=p.q.answers.map((a,i)=>$('practiceAnswer'+i)?.value||'');}
+function checkPractice(){
+  collectPractice();const p=Lab.practice[practiceKey()];
+  if(p.responses.some(s=>C.parseAnswer(s)===null)){p.correct=false;p.feedback='Please enter a number or fraction in every answer box. For example: 3/4 or 1 1/2.';}
+  else{p.correct=p.q.answers.every((a,i)=>C.check(p.responses[i],a));p.feedback=p.correct?'Correct. Now explain how the diagram supports your answer.':'Not quite yet. Check the whole, the units and whether the question asks for a full number of objects. Try a hint or the worked solution.';}
+  renderPractice();
+}
+function renderCheck(){
+  const key=practiceKey(),a=Lab.checks[key];
+  if(!a){
+    $('activityStage').innerHTML=`<article class="card learningCard"><div class="resultHero">${V.medal(ctx().colour)}<div class="stepLabel" style="justify-content:center">${E(C.levels[Lab.level])} level / section check</div><h2>Show what you understand.</h2><p>Answer <b>5 questions</b> from ${E(ctx().title)}. Get <b>4 or 5 questions correct</b> to earn a printable section certificate at this level.</p><p>Each question is submitted once. Questions with two answers need both correct. Worked solutions appear after submission; hints are available in Practice instead.</p><button class="button primary" id="startCheck">${Lab.profile.name?'Start my 5-question check':'Add my name and start'}</button><p class="finePrint">A learning self-check, not a secure assessment. Finish the check before closing the page; checks in progress are not saved.</p></div></article>`;return;
+  }
+  if(a.complete){
+    const passed=a.score>=4;
+    $('activityStage').innerHTML=`<article class="card learningCard"><div class="resultHero">${V.medal(passed?ctx().colour:'#8e9d91')}<div class="scoreDots">${a.results.map((r,i)=>`<span class="${r.correct?'correct':''}" aria-label="Question ${i+1} ${r.correct?'correct':'not correct'}">${r.correct?'&#10003;':i+1}</span>`).join('')}</div><h2>${passed?'Certificate earned!':'Keep building your understanding.'}</h2><p><b>${a.score} out of 5 questions correct</b> at ${E(C.levels[Lab.level])} level.</p><p>${passed?`Well done, ${E(Lab.profile.name)}. Your ${E(ctx().title)} certificate is ready to print.`:'A certificate needs at least 4 correct. Use the worked examples and practice, then try a new set of questions.'}</p><div class="buttonRow" style="justify-content:center">${passed?`<button class="button primary" data-print-level="${key}">${V.icon('print')}Print this certificate</button><button class="button" data-page="certificates">View my collection</button>`:'<button class="button primary" data-mode="practice">Practise this section</button>'}<button class="button" id="retryCheck">Try a new check</button></div></div><details class="goal"><summary>Review my five questions</summary>${a.questions.map((q,i)=>`<div class="spaceTop"><h3>${i+1}. ${a.results[i].correct?'Correct':'Review'}</h3><p class="finePrint">${E(q.prompt)}</p><p class="finePrint">Your answers: ${E(a.results[i].responses.join(' | '))}</p>${stepsHTML(q)}</div>`).join('')}</details></article>`;return;
+  }
+  const q=a.questions[a.index],r=a.results[a.index];
+  $('activityStage').innerHTML=`<article class="card learningCard"><div class="testProgress"><span>Question ${a.index+1} of 5</span><span>${E(C.levels[Lab.level])} &bull; ${E(ctx().title)}</span></div><div class="testTrack"><div style="width:${a.index*20}%"></div></div>${questionBody(q)}<form id="testForm">${answerFields(q,'testAnswer',r?.responses||[],a.submitted)}<p class="answerHelp">Numbers, fractions or mixed numbers. Decimal answers to 2 places. Every answer box counts.</p>${!a.submitted?'<button class="button primary" id="submitTest" type="submit">Submit this answer</button>':''}</form><div id="testFeedback" aria-live="polite">${a.submitted?`<div class="feedback ${r.correct?'good':'try'}"><b>${r.correct?'Correct.':'Not quite this time.'}</b> ${finalAnswers(q)}</div>${stepsHTML(q)}<button class="button primary" id="nextTest">${a.index===4?'See my result':'Next question'} ${V.icon('arrow')}</button>`:''}</div></article>`;
+}
+function startCheck(){
+  if(!Lab.profile.name){openProfile();toast('Add a learner name, then select Start my 5-question check.');return;}
+  const questions=[],seen=new Set(),r=C.random(newSeed());
+  for(let i=0;i<5;i++){let q,tries=0;do{q=C.question(Lab.section,Lab.level,r,i+tries++);}while(seen.has(q.prompt)&&tries<100);questions.push(q);seen.add(q.prompt);}
+  Lab.checks[practiceKey()]={questions,index:0,score:0,submitted:false,complete:false,results:[]};renderCheck();
+}
+function submitCheck(){
+  const a=Lab.checks[practiceKey()];if(!a||a.complete||a.submitted)return;const q=a.questions[a.index],responses=q.answers.map((v,i)=>$('testAnswer'+i).value);
+  if(responses.some(v=>C.parseAnswer(v)===null)){$('testFeedback').innerHTML='<div class="feedback try">Enter a valid number or fraction in every box before submitting. Empty answers are not marked.</div>';return;}
+  const correct=q.answers.every((v,i)=>C.check(responses[i],v));a.results[a.index]={correct,responses};if(correct)a.score++;a.submitted=true;renderCheck();
+}
+function nextCheck(){
+  const a=Lab.checks[practiceKey()];if(!a||!a.submitted||a.complete)return;
+  if(a.index<4){a.index++;a.submitted=false;renderCheck();$('testAnswer0')?.focus();return;}
+  a.complete=true;
+  if(a.score>=4){const old=Lab.earned[practiceKey()];if(!old||a.score>=old.score)Lab.earned[practiceKey()]={score:a.score,level:Lab.level,date:new Date().toISOString()};saveProgress();}
+  renderCheck();updateHeader();
+}
+function renderCertificates(){
+  const count=C.contexts.filter(c=>bestRecord(c.id)).length;
+  $('pageContent').innerHTML=intro('Your learning passport','Make your progress visible.',`Earn a certificate for each section. Your collection currently has ${count} of 8 sections. Progress stays on this device.`)+
+    `<div class="card" style="padding:20px 23px"><div class="inline" style="justify-content:space-between"><div><h3>${E(Lab.profile.name||'Add your learner name')}</h3><p class="finePrint">${Lab.profile.name?'Print your highest earned level for each section, or return to a section to earn the next level.':'A name is needed before you start a certificate check.'}</p></div><div class="buttonRow"><button class="button" id="editLearner">Edit learner</button><button class="button primary" id="printAllCertificates" ${!count?'disabled':''}>${V.icon('print')}Print earned certificates</button></div></div></div><div class="certificateGrid">${C.contexts.map(c=>{
+      const r=bestRecord(c.id);
+      return `<article class="certificateTile ${r?'earned':''}">${V.medal(r?c.colour:'#aab5ac')}<h3>${E(c.title)}</h3><p>${E(c.aim)}</p><div class="levelChips">${[1,2,3].map(l=>`<span class="${Lab.earned[c.id+'-'+l]?'done':''}">${C.levels[l]}${Lab.earned[c.id+'-'+l]?' &#10003;':''}</span>`).join('')}</div>${r?`<p><b>${E(C.levels[r.level])}: ${r.score}/5</b><br>${E(new Date(r.date).toLocaleDateString('en-NZ'))}</p><button class="button primary" data-print-cert="${c.id}">${V.icon('print')}Print certificate</button>`:`<p>Complete a five-question check with 4 or 5 correct.</p><button class="button" data-go-check="${c.id}">Work towards this</button>`}</article>`;
+    }).join('')}</div><p class="finePrint spaceTop">Certificates recognise completion of an offline learning self-check. They are not authenticated assessment records. On a shared computer, start a new learner before someone else uses this collection.</p>`;
+}
+function renderTeacher(){
+  const t=Lab.teacher;
+  $('pageContent').innerHTML=intro('Teacher tools / no internet required','A class set, ready for relief.','Choose the maths. Generate numbered versions. Print student sheets and worked answers separately.')+
+    `<div class="teacherGrid"><div><form class="card teacherControls" id="reliefForm"><h3 style="margin-bottom:18px">Build the class set</h3><div class="teacherFields"><div class="field wide"><label for="setClass">Class / lesson label (optional)</label><input id="setClass" type="text" maxlength="45" placeholder="e.g. 10T - Fractions" value="${E(t.className)}"></div><div class="fieldsTwo wide"><div class="field"><label for="setStudents">Number of learners</label><input id="setStudents" type="number" min="1" max="40" step="1" required value="${t.students}"></div><div class="field"><label for="setLevel">Question level</label><select id="setLevel">${[1,2,3].map(l=>`<option value="${l}" ${t.level===l?'selected':''}>${C.levels[l]}</option>`).join('')}</select></div></div><div class="field wide"><label for="setCount">Questions per learner</label><select id="setCount"><option value="4" ${t.count===4?'selected':''}>4 questions - 1 student page</option><option value="6" ${t.count===6?'selected':''}>6 questions - 2 student pages</option></select><small>One worked-answer page per version. Six-question sheets give three spacious questions per page.</small></div><fieldset class="field wide" style="border:0;padding:0;margin:0 0 18px"><legend style="font-size:13px;font-weight:bold">Include these sections</legend><div class="checkGrid">${C.contexts.map(c=>`<label><input type="checkbox" name="setContext" value="${c.id}" ${t.contexts.includes(c.id)?'checked':''}>${E(c.title)}</label>`).join('')}</div><small>Selected sections rotate across the class. A short sheet may not contain every selected section.</small></fieldset><div class="field wide"><label for="setSeed">Reproducible random seed</label><div class="inline" style="flex-wrap:nowrap"><input id="setSeed" type="text" maxlength="40" required value="${E(t.seed)}"><button class="button" type="button" id="newSeedBtn" aria-label="Create a new random seed">${V.icon('refresh')}</button></div><small>Same seed + same settings = same class set. Names do not affect the questions.</small></div><details class="wide"><summary>Optional student names</summary><div class="field"><label for="setNames">One name per line</label><textarea id="setNames" rows="5" maxlength="3000" placeholder="Leave blank for unnamed sheets">${E(t.names)}</textarea><small>Names fill the selected number of versions in order. Names stay in this tab and are not saved between visits.</small></div></details></div><button class="button primary fullWidth" type="submit" id="generateSet">${V.icon('refresh')}Generate class set</button><div id="setError" class="formError" role="alert"></div></form><div class="teacherNote"><h3>Paper learners can earn awards too.</h3><p>Print a teacher-award certificate after checking a student's paper work. You choose the completion criteria; this does not claim an online check score.</p><div class="field spaceTop"><label for="paperSection">Certificate section</label><select id="paperSection">${C.contexts.map(c=>`<option value="${c.id}">${E(c.title)}</option>`).join('')}</select></div><div class="field"><label for="paperName">Name (or leave blank to write it)</label><input id="paperName" type="text" maxlength="65" placeholder="Student name"></div><button class="button fullWidth" type="button" id="printPaperAward">${V.icon('print')}Print teacher award</button></div></div><section class="card teacherPreview" aria-label="Class set preview"><div id="packPreviewArea"></div></section></div>`;
+  renderPackPreview();
+}
+function collectTeacher(){
+  if(!$('setStudents'))return;
+  Lab.teacher={students:Number($('setStudents').value),count:Number($('setCount').value),level:Number($('setLevel').value),className:$('setClass').value.trim(),seed:$('setSeed').value.trim(),contexts:Array.from(document.querySelectorAll('[name=setContext]:checked')).map(x=>x.value),names:$('setNames').value};
+}
+function generatePack(){
+  collectTeacher();const t=Lab.teacher;
+  if(!t.contexts.length){$('setError').textContent='Select at least one section.';return;}
+  if(!Number.isInteger(t.students)||t.students<1||t.students>40){$('setError').textContent='Use a whole class size from 1 to 40.';return;}
+  if(!t.seed){$('setError').textContent='Enter a seed or use the new-seed button.';return;}
+  try{
+    const sets=C.makeSet(t),names=t.names.split(/\r?\n/).map(s=>s.trim().slice(0,65)).filter(Boolean).slice(0,t.students);
+    Lab.pack={...t,names,sets,preview:0,previewType:'students'};$('setError').textContent='';renderPackPreview();
+    toast(`${sets.length} distinct versions generated. Student sheets and worked answers are ready separately.`);
+  }catch(e){$('setError').textContent=e.message;}
+}
+function renderPackPreview(){
+  if(!Lab.pack){$('packPreviewArea').innerHTML=`<div class="emptyPreview">${V.icon('teacher')}<h2>Clear instructions.<br>Different numbers.</h2><p>Each learner gets a numbered version with helpful diagrams and space to show their thinking. The answer key matches the version number.</p><div class="feedback" style="text-align:left"><b>Suggested starting point</b><p>Start level for equivalent fractions and direct quantities. Build for application. Stretch for remainders, rate problems and different-sized wholes.</p></div><p>Generate a set to preview the actual student sheets and worked solutions before printing.</p></div>`;return;}
+  const p=Lab.pack;
+  $('packPreviewArea').innerHTML=`<div class="previewToolbar"><div><span class="eyebrow">Generated set</span><h3>${p.sets.length} learners &bull; ${p.count} questions each</h3></div><span class="pill">${E(C.levels[p.level])}</span></div><p class="finePrint" style="margin:0 0 16px"><b>Seed:</b> ${E(p.seed)} &bull; ${p.sets.length*(p.count>4?2:1)} student pages &bull; ${p.sets.length} answer pages.<br>Print buttons use this generated set. Regenerate after changing settings.</p><div class="printButtons"><button class="button primary" id="printStudents">${V.icon('print')}Student sheets only</button><button class="button" id="printAnswers">${V.icon('print')}Worked answer keys</button><button class="button" id="printNotes">${V.icon('print')}Relief teacher guide</button><button class="button" id="saveStudentPack">${V.icon('download')}Save student handouts</button></div><div class="previewToolbar spaceTop"><label for="previewVersion" style="font-size:12px;font-weight:bold">Preview version <select id="previewVersion">${p.sets.map((set,i)=>`<option value="${i}" ${i===p.preview?'selected':''}>${set.version}${p.names[i]?' - '+E(p.names[i]):''}</option>`).join('')}</select></label><label for="previewType" style="font-size:12px;font-weight:bold">Show <select id="previewType"><option value="students" ${p.previewType==='students'?'selected':''}>Student sheets</option><option value="answers" ${p.previewType==='answers'?'selected':''}>Worked answers</option></select></label></div><div class="previewPages" id="setPreview">${p.previewType==='students'?P.studentPages(p.sets[p.preview],p):P.answerPage(p.sets[p.preview],p)}</div><p class="finePrint">Printing: A4 portrait, 100% scale, browser headers and footers off. Colour is optional. The browser print dialog also offers Save as PDF.</p>`;
+}
+function downloadStudentPack(){
+  const p=Lab.pack;if(!p)return;
+  const css=document.querySelector('style').textContent;
+  const html='<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fraction Lab - student handouts</title><style>'+css+'\n#printRoot{display:block}body{background:#eef1eb}.packToolbar{padding:16px;text-align:center}.sheet{max-width:210mm;background:white;padding:12mm;margin:20px auto;min-height:297mm;display:flex;flex-direction:column}.questionGrid{flex:1}.threeQuestions .questionGrid{grid-template-columns:1fr}.sheet .sheetFooter{margin-top:20px}@media print{.packToolbar{display:none}.sheet{margin:0}}</style></head><body class="printing"><div class="packToolbar noPrint"><button class="button primary" onclick="window.print()">Print student handouts</button><p>Student copy only. No answer keys are included.</p></div><div id="printRoot">'+p.sets.map(s=>P.studentPages(s,p)).join('')+'</div></body></html>';
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Fraction_Lab_Student_Handouts_'+p.seed.replace(/[^a-z0-9_-]/gi,'_')+'.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('Student-only handout file created. Keep the matching answer keys for the teacher.');
+}
+function openProfile(){
+  $('learnerName').value=Lab.profile.name;$('learnerClass').value=Lab.profile.className;$('learnerSchool').value=Lab.profile.school;$('profileDialog').showModal();$('learnerName').focus();
+}
+function clearLearner(){
+  if(!confirm('Start a new learner? This removes the current learner name and earned certificates from this browser. Print anything you need first.'))return;
+  Lab.profile={name:'',className:'',school:''};Lab.earned={};Lab.checks={};Lab.practice={};Lab.predictions={};Lab.explore=JSON.parse(JSON.stringify(defaults));saveProgress();$('profileDialog').close();Lab.page='learn';Lab.mode='explore';renderPage();toast('Ready for a new learner. Previous local progress has been removed.');
+}
+function setPage(page){if(Lab.page==='teacher')collectTeacher();Lab.page=page;renderPage();}
+function selectMode(mode){if(Lab.mode==='practice')collectPractice();Lab.mode=mode;renderLearn();}
+function printRecord(id,record){if(!record){toast('Complete this section check with at least 4 out of 5 first.');return;}P.print(P.certificate(id,record,Lab.profile));}
+// One event delegation layer keeps rerendered activities keyboard-operable.
+document.addEventListener('click',event=>{
+  const b=event.target.closest('button');if(!b||b.disabled)return;
+  if(b.dataset.close){$(b.dataset.close).close();return;}
+  if(b.dataset.page){setPage(b.dataset.page);return;}
+  if(b.dataset.section){if(Lab.mode==='practice')collectPractice();Lab.section=b.dataset.section;renderLearn();return;}
+  if(b.dataset.mode){selectMode(b.dataset.mode);return;}
+  if(b.dataset.prediction){Lab.predictions[Lab.section]={answer:b.dataset.prediction,revealed:false};$('predictionBox').innerHTML=predictionHTML();return;}
+  if(b.dataset.exploreAction){exploreAction(b.dataset.exploreAction);return;}
+  if(b.dataset.goCheck){Lab.section=b.dataset.goCheck;Lab.page='learn';Lab.mode='check';renderPage();return;}
+  if(b.dataset.printCert){printRecord(b.dataset.printCert,bestRecord(b.dataset.printCert));return;}
+  if(b.dataset.printLevel){const key=b.dataset.printLevel,id=key.slice(0,key.lastIndexOf('-'));printRecord(id,Lab.earned[key]);return;}
+  switch(b.id){
+    case 'profileBtn':case 'editLearner':openProfile();break;
+    case 'helpBtn':case 'privacyBtn':$('helpDialog').showModal();break;
+    case 'newLearner':clearLearner();break;
+    case 'revealPrediction':if(Lab.predictions[Lab.section]){Lab.predictions[Lab.section].revealed=true;$('predictionBox').innerHTML=predictionHTML();}break;
+    case 'newWorked':Lab.worked[practiceKey()]=makeQuestion(Math.floor(Math.random()*10));renderWorked();break;
+    case 'newPractice':Lab.practice[practiceKey()]={q:makeQuestion(Math.floor(Math.random()*10)),responses:[],hint:false,solution:false,feedback:''};renderPractice();break;
+    case 'practiceHint':collectPractice();Lab.practice[practiceKey()].hint=true;renderPractice();break;
+    case 'practiceSolution':collectPractice();Lab.practice[practiceKey()].solution=true;renderPractice();break;
+    case 'startCheck':startCheck();break;
+    case 'nextTest':nextCheck();break;
+    case 'retryCheck':delete Lab.checks[practiceKey()];startCheck();break;
+    case 'printAllCertificates':P.print(C.contexts.filter(c=>bestRecord(c.id)).map(c=>P.certificate(c.id,bestRecord(c.id),Lab.profile)).join(''));break;
+    case 'newSeedBtn':$('setSeed').value=newSeed();collectTeacher();break;
+    case 'printStudents':if(Lab.pack)P.print(Lab.pack.sets.map(s=>P.studentPages(s,Lab.pack)).join(''));break;
+    case 'printAnswers':if(Lab.pack)P.print(Lab.pack.sets.map(s=>P.answerPage(s,Lab.pack)).join(''));break;
+    case 'printNotes':if(Lab.pack)P.print(P.notes(Lab.pack));break;
+    case 'saveStudentPack':downloadStudentPack();break;
+    case 'printPaperAward':P.print(P.certificate($('paperSection').value,null,{name:$('paperName').value,className:$('setClass').value,school:''},true));break;
+  }
+});
+document.addEventListener('input',event=>{
+  const el=event.target;if(!el.matches('[data-bind]'))return;
+  if(el.value.trim()==='')return;let v=Number(el.value);if(!Number.isFinite(v))return;
+  const min=Number(el.min),max=Number(el.max),step=Number(el.step)||1;v=Math.max(min,Math.min(max,min+Math.round((v-min)/step)*step));
+  Lab.explore[Lab.section][el.dataset.bind]=v;updateExplorer();
+});
+document.addEventListener('change',event=>{
+  const el=event.target;
+  if(el.id==='levelSelect'){if(Lab.mode==='practice')collectPractice();Lab.level=Number(el.value);renderLearn();}
+  if(el.id==='ballRatio'){const [p,q]=el.value.split('/').map(Number);Object.assign(Lab.explore.bucket,{p,q});updateExplorer();}
+  if(el.id==='previewVersion'){Lab.pack.preview=Number(el.value);renderPackPreview();}
+  if(el.id==='previewType'){Lab.pack.previewType=el.value;renderPackPreview();}
+  if(el.matches('[data-bind]')&&el.value==='')updateExplorer();
+});
+document.addEventListener('submit',event=>{
+  if(event.target.id==='profileForm'){
+    event.preventDefault();const name=$('learnerName').value.trim();if(!name){$('learnerName').focus();return;}
+    const changed=Lab.profile.name&&name!==Lab.profile.name;
+    if(changed&&!confirm('Changing the learner name starts a fresh collection. The current learner certificates will be removed from this browser. Continue?'))return;
+    if(changed){Lab.earned={};Lab.checks={};Lab.practice={};Lab.predictions={};Lab.explore=JSON.parse(JSON.stringify(defaults));}
+    Lab.profile={name,className:$('learnerClass').value.trim(),school:$('learnerSchool').value.trim()};saveProgress();$('profileDialog').close();renderPage();toast('Learner saved on this device.');
+  }
+  if(event.target.id==='practiceForm'){event.preventDefault();checkPractice();}
+  if(event.target.id==='testForm'){event.preventDefault();submitCheck();}
+  if(event.target.id==='reliefForm'){event.preventDefault();generatePack();}
+});
+// Native dialog Escape support; backdrop clicks also close the dialog.
+for(const id of ['profileDialog','helpDialog'])$(id).addEventListener('click',e=>{if(e.target===$(id)){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+loadProgress();
+document.querySelectorAll('.topNav [data-page]').forEach(b=>b.insertAdjacentHTML('afterbegin',V.icon(b.dataset.page==='learn'?'learn':b.dataset.page)));
+renderPage();
+</script>
+</body></html>
